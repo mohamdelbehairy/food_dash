@@ -5,7 +5,7 @@ abstract class AppStyles {
   // AppStyles({required this.context});
 
   static const TextStyle styleReqular16 = TextStyle(
-      color: Color(0xFF575658),
+      color: Color(0xFFb5b3b2),
       fontSize: 16,
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w400);
@@ -28,11 +28,11 @@ abstract class AppStyles {
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
-  static const TextStyle styleReqular12 = TextStyle(
+  static const TextStyle styleSemiBold14 = TextStyle(
       color: Color(0xFF35be63),
-      fontSize: 12,
+      fontSize: 14,
       fontFamily: 'Sofia',
-      fontWeight: FontWeight.w400);
+      fontWeight: FontWeight.w600);
 
   static const TextStyle styleReqular14 = TextStyle(
       color: Color(0xFFbbbbbc),
@@ -52,8 +52,14 @@ abstract class AppStyles {
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
+  static const TextStyle styleBold14 = TextStyle(
+      color: Color(0xFF000000),
+      fontSize: 14,
+      fontFamily: 'Sofia',
+      fontWeight: FontWeight.w700);
+      
   static const TextStyle styleBold16 = TextStyle(
-      color: Color(0xFFFFFFFF),
+      color: Color(0xFF393737),
       fontSize: 16,
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w700);
@@ -64,17 +70,23 @@ abstract class AppStyles {
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
+      static const TextStyle styleExtrallLight16 = TextStyle(
+      color: Color(0xFFFFFFFF),
+      fontSize: 15,
+      fontFamily: 'Sofia',
+      fontWeight: FontWeight.w200);
+
   static const TextStyle styleSemiBold48 = TextStyle(
       color: Color(0xFF35be63),
       fontSize: 48,
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
 
-  static const TextStyle styleBold30 = TextStyle(
+  static const TextStyle styleSemiBold40 = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 30,
+      fontSize: 38,
       fontFamily: 'Sofia',
-      fontWeight: FontWeight.w700);
+      fontWeight: FontWeight.w600);
 
   static const TextStyle styleSemiBold28 = TextStyle(
       color: Color(0xFF000000),
