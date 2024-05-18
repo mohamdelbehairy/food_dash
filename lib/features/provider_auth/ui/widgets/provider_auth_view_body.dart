@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import '../../../../core/utils/app_styles.dart';
-import '../../../../core/widgets/custom_button_item.dart';
+import '../../../../core/utils/components/custom_button_item.dart';
 import 'already_have_account_or_not.dart';
 import 'provider_auth_view_divider.dart';
 import 'provider_auth_view_image.dart';
