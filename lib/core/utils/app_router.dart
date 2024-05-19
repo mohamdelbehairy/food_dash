@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_dash/features/auth/ui/views/login_view.dart';
 import 'package:food_dash/features/auth/ui/views/register_view.dart';
 import 'package:food_dash/features/onboarding/ui/views/onboarding_screen.dart';
 import 'package:food_dash/features/provider_auth/ui/views/provider_auth_view.dart';
@@ -9,6 +10,7 @@ abstract class AppRouter {
   static const providerAuth = '/provider_auth';
   static const onboarding = '/onboarding';
   static const registerView = '/registerView';
+  static const loginView = '/loginView';
 
   static final GlobalKey<NavigatorState> navigatorState =
       GlobalKey<NavigatorState>();
@@ -20,5 +22,6 @@ abstract class AppRouter {
         builder: (context, state) => const ProviderAuthView()),
     GoRoute(path: onboarding, builder: (context, state) => OnboardingPage()),
     GoRoute(path: registerView, builder: (context, state) => RegisterView()),
+    GoRoute(path: loginView, builder: (context, state) => LoginView()),
   ]);
 }

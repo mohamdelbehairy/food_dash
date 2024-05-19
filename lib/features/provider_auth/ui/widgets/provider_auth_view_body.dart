@@ -34,7 +34,7 @@ class ProviderAuthViewBody extends StatelessWidget {
             CustomButtonItem(
                 buttonName: 'Sign in with email address',
                 size: size,
-                onTap: () {}),
+                onTap: () => GoRouter.of(context).push(AppRouter.loginView)),
             const SizedBox(height: 24),
             AlreadyHaveAccountOrNot(
               text: 'Don\'t have an account? ',
