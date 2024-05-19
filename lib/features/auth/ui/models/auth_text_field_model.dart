@@ -6,11 +6,17 @@ class AuthTextFieldModel {
   final TextEditingController controller;
   final TextInputType? keyboardType;
   final bool? obscureText;
+  final Color? fillColor;
+  final Function(String)? onChanged;
+  final Color? borderSideColor;
 
   AuthTextFieldModel(
       {required this.hintText,
       required this.prefixIcon,
       required this.controller,
       this.keyboardType,
-      this.obscureText});
+      this.obscureText,
+      this.fillColor,
+      this.onChanged,
+      this.borderSideColor});
 }
