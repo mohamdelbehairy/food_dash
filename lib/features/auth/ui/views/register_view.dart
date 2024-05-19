@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import '../widgets/register_view_body.dart';
 
-import '../widgets/provider_auth_view_body.dart';
-
-class ProviderAuthView extends StatelessWidget {
-  const ProviderAuthView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
     return Scaffold(
       appBar: AppBar(),
-      body: ProviderAuthViewBody(size: size),
+      body: RegisterViewBody(size: size),
     );
   }
 }
