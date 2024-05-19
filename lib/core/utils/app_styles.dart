@@ -57,7 +57,7 @@ abstract class AppStyles {
       fontSize: 14,
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w700);
-      
+
   static const TextStyle styleBold16 = TextStyle(
       color: Color(0xFF393737),
       fontSize: 16,
@@ -70,7 +70,7 @@ abstract class AppStyles {
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
-      static const TextStyle styleExtrallLight16 = TextStyle(
+  static const TextStyle styleExtrallLight16 = TextStyle(
       color: Color(0xFFFFFFFF),
       fontSize: 15,
       fontFamily: 'Sofia',

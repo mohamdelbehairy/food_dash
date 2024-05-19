@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/provider_auth_item_model.dart';
-import 'custom_provider_way.dart';
+import '../../../../core/utils/components/custom_provider_way.dart';
 
 class ProviderAuthListviewitem extends StatelessWidget {
   const ProviderAuthListviewitem(

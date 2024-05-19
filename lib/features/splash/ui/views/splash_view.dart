@@ -16,8 +16,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
-    Animation<Offset>? _leftPhotoAnimation;
-
+  Animation<Offset>? _leftPhotoAnimation;
 
   @override
   void initState() {
@@ -43,7 +42,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
       ),
     );
   }
- 
+
   @override
   void dispose() {
     _controller.dispose();
@@ -78,16 +77,16 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SlideTransition(
-              position: _leftPhotoAnimation!,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                   drawSvgIconColored('app_icon1', height: 52, width: 52),
-                ],
-              ),
-            ),
-                         
+                            position: _leftPhotoAnimation!,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                drawSvgIconColored('app_icon1',
+                                    height: 52, width: 52),
+                              ],
+                            ),
+                          ),
                           SizedBox(
                             width: 10,
                           ),

@@ -18,12 +18,12 @@ class FoodDash extends StatelessWidget {
       systemNavigationBarIconBrightness: Brightness.dark,
     ));
     return MaterialApp.router(
-      
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
-          appBarTheme:
-              const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle.dark)),
+          appBarTheme: const AppBarTheme(
+              systemOverlayStyle: SystemUiOverlayStyle.dark,
+              backgroundColor: Colors.transparent)),
       routerConfig: AppRouter.router,
     );
   }
