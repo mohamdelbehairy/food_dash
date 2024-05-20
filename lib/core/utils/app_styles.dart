@@ -10,6 +10,12 @@ abstract class AppStyles {
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w400);
 
+  static const TextStyle styleAppBar = TextStyle(
+      color: Color(0xFF000000),
+      fontSize: 20,
+      fontFamily: 'Sofia',
+      fontWeight: FontWeight.w600);
+
   static const TextStyle styleMedium16 = TextStyle(
       color: Color(0xFF35be63),
       fontSize: 16,
@@ -21,6 +27,7 @@ abstract class AppStyles {
       fontSize: 16,
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
+      
 
   static const TextStyle styleSemiBold20 = TextStyle(
       color: Color(0xFF000000),
