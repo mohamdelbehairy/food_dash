@@ -5,14 +5,16 @@ import 'package:food_dash/features/auth/ui/views/register_view.dart';
 import 'package:food_dash/features/onboarding/ui/views/onboarding_screen.dart';
 import 'package:food_dash/features/provider_auth/ui/views/provider_auth_view.dart';
 import 'package:food_dash/features/splash/ui/views/splash_view.dart';
+import 'package:food_dash/features/user_data/ui/views/user_data_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
-  static const providerAuth = '/provider_auth';
-  static const onboarding = '/onboarding';
+  static const providerAuthView = '/providerAuthView';
+  static const onboardingView = '/onboardingView';
   static const registerView = '/registerView';
   static const loginView = '/loginView';
   static const optPhoneNumberView = '/optPhoneNumberView';
+  static const userDataView = '/userDataView';
 
   static final GlobalKey<NavigatorState> navigatorState =
       GlobalKey<NavigatorState>();
@@ -20,13 +22,15 @@ abstract class AppRouter {
   static final router = GoRouter(routes: [
     GoRoute(path: '/', builder: (context, state) => const SplashView()),
     GoRoute(
-        path: providerAuth,
+        path: providerAuthView,
         builder: (context, state) => const ProviderAuthView()),
-    GoRoute(path: onboarding, builder: (context, state) => OnboardingPage()),
+    GoRoute(
+        path: onboardingView, builder: (context, state) => OnboardingPage()),
     GoRoute(path: registerView, builder: (context, state) => RegisterView()),
     GoRoute(path: loginView, builder: (context, state) => LoginView()),
     GoRoute(
         path: optPhoneNumberView,
         builder: (context, state) => OptPhoneNumberView()),
+    GoRoute(path: userDataView, builder: (context, state) => UserDataView())
   ]);
 }

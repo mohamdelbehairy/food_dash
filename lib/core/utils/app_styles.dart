@@ -12,7 +12,7 @@ abstract class AppStyles {
 
   static const TextStyle styleAppBar = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 20,
+      fontSize: 22,
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
 

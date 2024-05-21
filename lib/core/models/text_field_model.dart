@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
-class AuthTextFieldModel {
+class TextFieldModel {
   final String hintText;
-  final IconData prefixIcon;
+  final IconData? prefixIcon, suffixIcon;
   final TextEditingController controller;
   final TextInputType? keyboardType;
-  final bool? obscureText;
-  final Color? fillColor;
+  final bool? obscureText, enabled;
+  final Color? fillColor, borderSideColor;
   final Function(String)? onChanged;
-  final Color? borderSideColor;
+  final double? suffizyIconSize;
 
-  AuthTextFieldModel(
+  TextFieldModel(
       {required this.hintText,
-      required this.prefixIcon,
+      this.prefixIcon,
+      this.suffixIcon,
       required this.controller,
       this.keyboardType,
       this.obscureText,
+      this.enabled,
       this.fillColor,
       this.onChanged,
-      this.borderSideColor});
+      this.borderSideColor,
+      this.suffizyIconSize});
 }

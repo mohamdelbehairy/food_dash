@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../models/auth_text_field_model.dart';
-import 'auth_text_field.dart';
+import '../../../../core/models/text_field_model.dart';
+import '../../../../core/utils/components/custom_text_field.dart';
 
 class AuthListView extends StatelessWidget {
   const AuthListView({super.key, required this.items});
 
-  final List<AuthTextFieldModel> items;
+  final List<TextFieldModel> items;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +17,8 @@ class AuthListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(bottom: 20),
-            child: AuthTextField(
-              authTextFieldModel: items[index],
+            child: CustomTextField(
+              textFieldModel: items[index],
             ),
           );
         });
