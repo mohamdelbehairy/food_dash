@@ -115,7 +115,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               CustomButtonItem(
                                 onTap: () {
                                   print('aAs');
-                                  AppRouter.router.go(AppRouter.providerAuth);
+                                  AppRouter.router.go(AppRouter.providerAuthView);
                                 },
                                 buttonName: 'Let\'s go',
                                 radius: 18,

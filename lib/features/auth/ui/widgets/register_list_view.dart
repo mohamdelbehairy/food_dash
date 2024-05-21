@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/utils/app_colors.dart';
-import '../models/auth_text_field_model.dart';
+import '../../../../core/models/text_field_model.dart';
 import 'auth_list_view.dart';
 
 class RegisterListView extends StatefulWidget {
@@ -33,8 +33,8 @@ class _RegisterListViewState extends State<RegisterListView> {
 
   @override
   Widget build(BuildContext context) {
-    List<AuthTextFieldModel> items = [
-      AuthTextFieldModel(
+    List<TextFieldModel> items = [
+      TextFieldModel(
           hintText: 'Email',
           prefixIcon: FontAwesomeIcons.solidEnvelope,
           keyboardType: TextInputType.emailAddress,
@@ -52,7 +52,7 @@ class _RegisterListViewState extends State<RegisterListView> {
           },
           fillColor: emailFillColor,
           borderSideColor: emailBorderSideColor),
-      AuthTextFieldModel(
+      TextFieldModel(
           hintText: 'Password',
           prefixIcon: Icons.password,
           obscureText: true,
@@ -70,7 +70,7 @@ class _RegisterListViewState extends State<RegisterListView> {
           },
           fillColor: passwordFillColor,
           borderSideColor: passwordBorderSideColor),
-      AuthTextFieldModel(
+      TextFieldModel(
           hintText: 'Confirm Password',
           prefixIcon: Icons.password,
           obscureText: true,

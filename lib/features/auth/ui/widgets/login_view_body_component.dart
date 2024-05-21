@@ -31,7 +31,10 @@ class LoginViewBodyComponenet extends StatelessWidget {
         LoginListView(),
         RememberMeItem(),
         const SizedBox(height: 16),
-        CustomButtonItem(size: size, buttonName: 'Sign in', onTap: () {}),
+        CustomButtonItem(
+            size: size,
+            buttonName: 'Sign in',
+            onTap: () => GoRouter.of(context).push(AppRouter.userDataView)),
         DividerTextitem(
             dividerSize: size.width * .25, text: 'or continue with'),
         AuthProviderWays(size: size),
