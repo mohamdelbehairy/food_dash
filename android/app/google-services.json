@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1075845010658",
+    "project_id": "food-dash-52b17",
+    "storage_bucket": "food-dash-52b17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1075845010658:android:13e5c3fd69252d4230fabb",
+        "android_client_info": {
+          "package_name": "com.example.food_dash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcU_FVjgCIOj2hQ0Q7etQFjiVwFMhBja4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
