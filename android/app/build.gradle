@@ -73,7 +73,6 @@ dependencies {
 android {
     defaultConfig {
         multiDexEnabled true
-        minSdkVersion 21
     }
 }
-apply plugin: 'com.google.gms.google-services'
+// apply plugin: 'com.google.gms.google-services'
