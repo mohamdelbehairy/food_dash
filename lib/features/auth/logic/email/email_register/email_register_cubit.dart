@@ -16,7 +16,7 @@ class EmailRegisterCubit extends Cubit<EmailRegisterState> {
           .createUserWithEmailAndPassword(email: email, password: password);
       if (credential.user != null) {
         emit(EmailRegisterSuccess());
-        await Future.delayed(const Duration(seconds: 2));
+        // await Future.delayed(const Duration(seconds: 2));
         emit(EmailRegisterLoading(isLoading: false));
       }
     } on FirebaseAuthException catch (e) {
