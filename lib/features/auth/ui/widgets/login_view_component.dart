@@ -18,12 +18,14 @@ class LoginViewComponent extends StatelessWidget {
       required this.size,
       required this.email,
       required this.password,
-      required this.globalKey});
+      required this.globalKey,
+      required this.isLoading});
 
   final Size size;
   final TextEditingController email;
   final TextEditingController password;
   final GlobalKey<FormState> globalKey;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +38,15 @@ class LoginViewComponent extends StatelessWidget {
         CustomTextItem(
             style: AppStyles.styleSemiBold28, text: 'Login to Your Account'),
         const SizedBox(height: 28),
-        LoginListView(email: email, password: password),
+        LoginListView(email: email, password: password, isLoading: isLoading),
         RememberMeItem(),
         const SizedBox(height: 16),
         LoginViewButton(
-            size: size, email: email, password: password, globalKey: globalKey),
+            isLoading: isLoading,
+            size: size,
+            email: email,
+            password: password,
+            globalKey: globalKey),
         DividerTextitem(
             dividerSize: size.width * .25, text: 'or continue with'),
         AuthProviderWays(size: size),

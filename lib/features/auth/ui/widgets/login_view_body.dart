@@ -11,14 +11,15 @@ class LoginvViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isLoading = context.read<EmailLoginCubit>().isLoading;
     return BlocConsumer<EmailLoginCubit, EmailLoginState>(
       listener: (context, state) {
         if (state is EmailLoginSuccess) {
           debugPrint('تسجيل دخول ناجح');
         }
-        // if (state is EmailRegisterLoading) {
-        //   isLoading = state.isLoading;
-        // }
+        if (state is EmailLoginLoading) {
+          isLoading = state.isLoading;
+        }
         if (state is EmailLoginFailure &&
             state.errorMessage == 'invalid-credential') {
           customSnackBarItem(context, Text('invalid-credential'));
@@ -29,7 +30,7 @@ class LoginvViewBody extends StatelessWidget {
           physics: const NeverScrollableScrollPhysics(),
           child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 24),
-              child: LoginViewSection(size: size)),
+              child: LoginViewSection(size: size, isLoading: isLoading)),
         );
       },
     );

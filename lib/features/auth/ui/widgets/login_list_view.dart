@@ -7,9 +7,14 @@ import '../../../../core/models/text_field_model.dart';
 import 'auth_list_view.dart';
 
 class LoginListView extends StatefulWidget {
-  const LoginListView({super.key, required this.email, required this.password});
+  const LoginListView(
+      {super.key,
+      required this.email,
+      required this.password,
+      required this.isLoading});
   final TextEditingController email;
   final TextEditingController password;
+  final bool isLoading;
 
   @override
   State<LoginListView> createState() => _LoginListViewState();
@@ -33,6 +38,7 @@ class _LoginListViewState extends State<LoginListView> {
   List<TextFieldModel> loginTextFieldDetails() {
     List<TextFieldModel> items = [
       TextFieldModel(
+          enabled: !widget.isLoading,
           hintText: 'Email',
           prefixIcon: FontAwesomeIcons.solidEnvelope,
           keyboardType: TextInputType.emailAddress,
@@ -60,6 +66,7 @@ class _LoginListViewState extends State<LoginListView> {
             return null;
           }),
       TextFieldModel(
+          enabled: !widget.isLoading,
           hintText: 'Password',
           prefixIcon: Icons.password,
           obscureText: isPasswordVisable,

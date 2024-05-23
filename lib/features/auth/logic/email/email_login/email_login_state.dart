@@ -4,7 +4,11 @@ sealed class EmailLoginState {}
 
 final class EmailLoginInitial extends EmailLoginState {}
 
-final class EmailLoginLoading extends EmailLoginState {}
+final class EmailLoginLoading extends EmailLoginState {
+  final bool isLoading;
+
+  EmailLoginLoading({required this.isLoading});
+}
 
 final class EmailLoginSuccess extends EmailLoginState {}
 
