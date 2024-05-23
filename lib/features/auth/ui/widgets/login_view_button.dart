@@ -10,17 +10,20 @@ class LoginViewButton extends StatelessWidget {
       required this.size,
       required this.globalKey,
       required this.email,
-      required this.password});
+      required this.password,
+      required this.isLoading});
 
   final Size size;
   final GlobalKey<FormState> globalKey;
   final TextEditingController email, password;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     var loginRegister = context.read<EmailLoginCubit>();
     return CustomButtonItem(
         size: size,
+        isLoading: isLoading,
         buttonName: 'Sign in',
         onTap: () async {
           if (globalKey.currentState!.validate()) {

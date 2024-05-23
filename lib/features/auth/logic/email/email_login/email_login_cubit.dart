@@ -7,22 +7,25 @@ part 'email_login_state.dart';
 class EmailLoginCubit extends Cubit<EmailLoginState> {
   EmailLoginCubit() : super(EmailLoginInitial());
 
+  bool isLoading = false;
   Future<void> emailLogin(
       {required String email, required String password}) async {
-    emit(EmailLoginLoading());
+    emit(EmailLoginLoading(isLoading: true));
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       if (credential.user != null) {
         emit(EmailLoginSuccess());
+        emit(EmailLoginLoading(isLoading: false));
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-credential') {
         emit(EmailLoginFailure(errorMessage: 'invalid-credential'));
       }
+      emit(EmailLoginLoading(isLoading: false));
     } catch (e) {
       emit(EmailLoginFailure(errorMessage: e.toString()));
-
+      emit(EmailLoginLoading(isLoading: false));
       debugPrint('error from email login method: $e');
     }
   }
