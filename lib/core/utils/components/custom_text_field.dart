@@ -12,7 +12,8 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
-      child: TextField(
+      child: TextFormField(
+        validator: textFieldModel.validator,
         enabled: textFieldModel.enabled ?? true,
         onChanged: textFieldModel.onChanged,
         keyboardType: textFieldModel.keyboardType ?? TextInputType.text,
@@ -26,8 +27,8 @@ class CustomTextField extends StatelessWidget {
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide(
-                    color: textFieldModel.borderSideColor ??
-                        Colors.transparent)),
+                    color:
+                        textFieldModel.borderSideColor ?? Colors.transparent)),
             filled: true,
             fillColor: textFieldModel.fillColor ?? const Color(0xfffafbfb),
             prefixIcon: textFieldModel.prefixIcon != null
@@ -37,10 +38,13 @@ class CustomTextField extends StatelessWidget {
                         color: AppColors.textFieldHintColor, size: 14))
                 : null,
             suffixIcon: textFieldModel.suffixIcon != null
-                ? Icon(
-                    textFieldModel.suffixIcon,
-                    size: textFieldModel.suffizyIconSize ?? 14,
-                    color: AppColors.textFieldHintColor,
+                ? GestureDetector(
+                    onTap: textFieldModel.suffixIconFunction,
+                    child: Icon(
+                      textFieldModel.suffixIcon,
+                      size: textFieldModel.suffizyIconSize ?? 14,
+                      color: AppColors.textFieldHintColor,
+                    ),
                   )
                 : null,
             hintText: textFieldModel.hintText,

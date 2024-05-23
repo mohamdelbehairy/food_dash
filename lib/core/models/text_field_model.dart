@@ -9,6 +9,8 @@ class TextFieldModel {
   final Color? fillColor, borderSideColor;
   final Function(String)? onChanged;
   final double? suffizyIconSize;
+  String? Function(String?)? validator;
+  final Function()? suffixIconFunction;
 
   TextFieldModel(
       {required this.hintText,
@@ -21,5 +23,7 @@ class TextFieldModel {
       this.fillColor,
       this.onChanged,
       this.borderSideColor,
-      this.suffizyIconSize});
+      this.suffizyIconSize,
+      this.validator,
+      this.suffixIconFunction});
 }
