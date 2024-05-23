@@ -15,7 +15,7 @@ class RegisterViewBody extends StatelessWidget {
     return BlocConsumer<EmailRegisterCubit, EmailRegisterState>(
       listener: (context, state) {
         if (state is EmailRegisterSuccess) {
-          debugPrint('تسجيل دخول ناجح');
+          debugPrint('تسجيل دخول جديد ناجح');
         }
         if (state is EmailRegisterLoading) {
           isLoading = state.isLoading;

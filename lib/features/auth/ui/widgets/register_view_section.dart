@@ -21,6 +21,7 @@ class _RegisterViewSectionState extends State<RegisterViewSection> {
   TextEditingController confirmPassword = TextEditingController();
 
   GlobalKey<FormState> globalKey = GlobalKey();
+  
   @override
   void dispose() {
     email.dispose();

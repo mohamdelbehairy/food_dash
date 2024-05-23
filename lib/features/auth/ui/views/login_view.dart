@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubit.dart';
 import 'package:food_dash/features/auth/ui/widgets/login_view_body.dart';
 
 class LoginView extends StatelessWidget {
@@ -7,9 +9,12 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
-    return Scaffold(
-      appBar: AppBar(),
-      body: LoginvViewBody(size: size),
+    return BlocProvider(
+      create: (constext) => EmailLoginCubit(),
+      child: Scaffold(
+        appBar: AppBar(),
+        body: LoginvViewBody(size: size),
+      ),
     );
   }
 }
