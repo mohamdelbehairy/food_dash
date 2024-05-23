@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/features/auth/logic/email/email_register/email_register_cubit.dart';
 import '../widgets/register_view_body.dart';
 
 class RegisterView extends StatelessWidget {
@@ -7,9 +9,13 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
-    return Scaffold(
-      appBar: AppBar(),
-      body: RegisterViewBody(size: size),
+
+    return BlocProvider(
+      create: (context) => EmailRegisterCubit(),
+      child: Scaffold(
+        appBar: AppBar(),
+        body: RegisterViewBody(size: size),
+      ),
     );
   }
 }
