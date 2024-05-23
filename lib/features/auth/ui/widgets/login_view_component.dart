@@ -6,16 +6,24 @@ import '../../../../core/handler/icon_handler.dart';
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/utils/components/already_have_account_or_not.dart';
-import '../../../../core/utils/components/custom_button_item.dart';
 import '../../../../core/utils/components/custom_text_item.dart';
 import '../../../../core/utils/components/divider_text_item.dart';
 import 'auth_provider_ways.dart';
+import 'login_view_button.dart';
 import 'remember_me_item.dart';
 
-class LoginViewBodyComponenet extends StatelessWidget {
-  const LoginViewBodyComponenet({super.key, required this.size});
+class LoginViewComponent extends StatelessWidget {
+  const LoginViewComponent(
+      {super.key,
+      required this.size,
+      required this.email,
+      required this.password,
+      required this.globalKey});
 
   final Size size;
+  final TextEditingController email;
+  final TextEditingController password;
+  final GlobalKey<FormState> globalKey;
 
   @override
   Widget build(BuildContext context) {
@@ -28,13 +36,11 @@ class LoginViewBodyComponenet extends StatelessWidget {
         CustomTextItem(
             style: AppStyles.styleSemiBold28, text: 'Login to Your Account'),
         const SizedBox(height: 28),
-        LoginListView(),
+        LoginListView(email: email, password: password),
         RememberMeItem(),
         const SizedBox(height: 16),
-        CustomButtonItem(
-            size: size,
-            buttonName: 'Sign in',
-            onTap: () => GoRouter.of(context).push(AppRouter.userDataView)),
+        LoginViewButton(
+            size: size, email: email, password: password, globalKey: globalKey),
         DividerTextitem(
             dividerSize: size.width * .25, text: 'or continue with'),
         AuthProviderWays(size: size),

@@ -35,12 +35,12 @@ class _RegisterListViewState extends State<RegisterListView> {
 
   @override
   Widget build(BuildContext context) {
-    List<TextFieldModel> items = textFieldDetails();
+    List<TextFieldModel> items = registrTextFieldDetails();
 
     return AuthListView(items: items);
   }
 
-  List<TextFieldModel> textFieldDetails() {
+  List<TextFieldModel> registrTextFieldDetails() {
     List<TextFieldModel> items = [
       TextFieldModel(
           enabled: !widget.isLoading,
