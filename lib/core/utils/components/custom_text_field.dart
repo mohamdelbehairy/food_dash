@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12),
       child: TextFormField(
+        style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
         validator: textFieldModel.validator,
         enabled: textFieldModel.enabled ?? true,
         onChanged: textFieldModel.onChanged,
@@ -43,7 +44,8 @@ class CustomTextField extends StatelessWidget {
                     child: Icon(
                       textFieldModel.suffixIcon,
                       size: textFieldModel.suffizyIconSize ?? 14,
-                      color: AppColors.textFieldHintColor,
+                      color: textFieldModel.suffixIconColor ??
+                          AppColors.textFieldHintColor,
                     ),
                   )
                 : null,

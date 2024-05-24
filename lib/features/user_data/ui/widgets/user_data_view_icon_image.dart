@@ -16,18 +16,18 @@ class UserDataViewIconImage extends StatelessWidget {
       right: 8,
       bottom: 4,
       child: InkWell(
-        onTap: () => showModalBottomSheet(
-            backgroundColor: Colors.white,
-            context: context,
-            builder: (context) => BottomSheetItemBody(pickImage: pickImage)),
-        child: Container(
-            height: 25,
-            width: 25,
-            decoration: BoxDecoration(
-                color: AppColors.mainColor,
-                borderRadius: BorderRadius.circular(4)),
-            child: Icon(FontAwesomeIcons.pen, color: Colors.white, size: 16)),
-      ),
+          onTap: () => showModalBottomSheet(
+              backgroundColor: Colors.white,
+              context: context,
+              builder: (context) => BottomSheetItemBody(pickImage: pickImage)),
+          child: Container(
+              height: 25,
+              width: 25,
+              decoration: BoxDecoration(
+                  color: AppColors.mainColor,
+                  borderRadius: BorderRadius.circular(4)),
+              child:
+                  Icon(FontAwesomeIcons.pen, color: Colors.white, size: 16))),
     );
   }
 }

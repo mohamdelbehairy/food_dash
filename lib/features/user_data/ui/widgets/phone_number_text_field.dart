@@ -18,16 +18,20 @@ class PhoneNumberTextField extends StatelessWidget {
         child: IntlPhoneField(
             enabled: true,
             // flagsButtonPadding: EdgeInsets.only(left: !enabled ? 28 : 0),
-            onChanged: (phoneNumber) {},
+
+            onChanged: textFieldModel.onChangedPhoneNumber,
             initialCountryCode: 'EG',
-            disableLengthCheck: true,
+            disableLengthCheck: textFieldModel.controller.text.isEmpty,
             controller: textFieldModel.controller,
             dropdownIcon:
-                Icon(Icons.expand_more, color: AppColors.textFieldHintColor),
-            dropdownTextStyle: TextStyle(color: AppColors.textFieldHintColor),
+                Icon(Icons.expand_more, color: textFieldModel.suffixIconColor),
+            dropdownTextStyle: TextStyle(
+              color: textFieldModel.suffixIconColor,
+              fontWeight: FontWeight.w500,
+            ),
             style: TextStyle(
                 color: Colors.black,
-                fontWeight: FontWeight.w300,
+                fontWeight: FontWeight.w500,
                 fontSize: size.width * .035),
             decoration: InputDecoration(
                 border: InputBorder.none,

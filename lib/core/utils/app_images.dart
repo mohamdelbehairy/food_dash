@@ -21,6 +21,10 @@ class Assets {
   /// assets/images/provider-auth.png
   static const String imagesProviderAuth = "assets/images/provider-auth.png";
 
+  /// Assets for imagesUserDataViewAsset
+  /// assets/images/user-data-view-asset.jpg
+  static const String imagesUserDataViewAsset = "assets/images/user-data-view-asset.jpg";
+
   /// Assets for imagesWelcomeOne
   /// assets/images/welcome-one.jpg
   static const String imagesWelcomeOne = "assets/images/welcome-one.jpg";

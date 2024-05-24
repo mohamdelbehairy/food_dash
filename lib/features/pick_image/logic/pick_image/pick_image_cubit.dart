@@ -7,7 +7,7 @@ part 'pick_image_state.dart';
 class PickImageCubit extends Cubit<PickImageState> {
   PickImageCubit() : super(PickImageInitial());
 
-  XFile? image;
+  XFile image = XFile('');
 
   Future<void> pickImage({required ImageSource source}) async {
     try {
@@ -15,8 +15,8 @@ class PickImageCubit extends Cubit<PickImageState> {
 
       if (returnImage != null) {
         image = XFile(returnImage.path);
-        debugPrint('image picker: ${image!.path}');
-        emit(PickImageSuccess(image: image!));
+        debugPrint('image picker: ${image.path}');
+        emit(PickImageSuccess());
       }
     } catch (e) {
       debugPrint('error from pick image cubit: ${e.toString()}');

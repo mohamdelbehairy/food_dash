@@ -15,7 +15,6 @@ class UserDataViewImageItem extends StatelessWidget {
     return BlocConsumer<PickImageCubit, PickImageState>(
       listener: (context, state) {
         if (state is PickImageSuccess) {
-          pickImage.image = state.image;
           Navigator.pop(context);
         }
       },
@@ -24,7 +23,7 @@ class UserDataViewImageItem extends StatelessWidget {
           padding: EdgeInsets.only(top: 16, bottom: 24),
           child: Stack(
             children: [
-              UserDataViewCustomImage(image: pickImage.image),
+              UserDataViewCustomImage(),
               UserDataViewIconImage(pickImage: pickImage),
             ],
           ),
