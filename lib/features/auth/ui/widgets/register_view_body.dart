@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/auth/logic/email/email_register/email_register_cubit.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/custom_snack_bar_item.dart';
 import 'register_view_section.dart';
 
@@ -16,6 +18,7 @@ class RegisterViewBody extends StatelessWidget {
       listener: (context, state) {
         if (state is EmailRegisterSuccess) {
           debugPrint('تسجيل دخول جديد ناجح');
+          GoRouter.of(context).go(AppRouter.userDataView);
         }
         if (state is EmailRegisterLoading) {
           isLoading = state.isLoading;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/components/custom_button_item.dart';
-import 'user_data_view_image.dart';
+import 'user_data_view_image_item.dart';
 import 'user_data_view_text_fields.dart';
 
 class UserDataViewBody extends StatelessWidget {
@@ -17,7 +17,7 @@ class UserDataViewBody extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            UserDataViewImage(),
+            UserDataViewImageItem(),
             UserDataViewTextFields(size: size),
             const SizedBox(height: 32),
             CustomButtonItem(size: size, buttonName: 'Continue', onTap: () {}),
