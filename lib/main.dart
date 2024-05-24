@@ -33,7 +33,7 @@ class FoodDash extends StatelessWidget {
           appBarTheme: const AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle.dark,
               backgroundColor: Colors.transparent)),
-      routerConfig: AppRouter.router,
+      routerConfig: AppRouter.router
     );
   }
 }
