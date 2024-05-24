@@ -32,7 +32,7 @@ class RegisterViewComponent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(height: 40),
+        const SizedBox(height: 50),
         drawSvgIconColored('app_icon1', height: 100, width: 100),
         const SizedBox(height: 20),
         CustomTextItem(

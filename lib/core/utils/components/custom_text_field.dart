@@ -23,7 +23,7 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(
                 vertical: textFieldModel.prefixIcon != null ? 16 : 8,
-                horizontal: textFieldModel.prefixIcon == null ? 16 : 0),
+                horizontal: textFieldModel.prefixIcon == null ? 16 : 8),
             border: InputBorder.none,
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
