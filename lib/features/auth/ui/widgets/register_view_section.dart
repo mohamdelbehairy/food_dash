@@ -34,7 +34,7 @@ class _RegisterViewSectionState extends State<RegisterViewSection> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<EmailRegisterCubit, EmailRegisterState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is EmailRegisterSuccess) {
           email.clear();
           password.clear();

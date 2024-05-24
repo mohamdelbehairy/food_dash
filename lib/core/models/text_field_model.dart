@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/phone_number.dart';
 
 class TextFieldModel {
   final String hintText;
@@ -6,11 +7,12 @@ class TextFieldModel {
   final TextEditingController controller;
   final TextInputType? keyboardType;
   final bool? obscureText, enabled;
-  final Color? fillColor, borderSideColor;
+  final Color? fillColor, borderSideColor, suffixIconColor;
   final Function(String)? onChanged;
   final double? suffizyIconSize;
   String? Function(String?)? validator;
   final Function()? suffixIconFunction;
+  final Function(PhoneNumber)? onChangedPhoneNumber;
 
   TextFieldModel(
       {required this.hintText,
@@ -25,5 +27,7 @@ class TextFieldModel {
       this.borderSideColor,
       this.suffizyIconSize,
       this.validator,
-      this.suffixIconFunction});
+      this.suffixIconFunction,
+      this.suffixIconColor,
+      this.onChangedPhoneNumber});
 }

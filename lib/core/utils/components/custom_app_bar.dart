@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../app_styles.dart';
 
-AppBar customAppbar({required String appBarText}) {
+AppBar customAppbar({required String appBarText, double? titleSpacing}) {
   return AppBar(
-      titleSpacing: -4, title: Text(appBarText, style: AppStyles.styleAppBar));
+      titleSpacing: titleSpacing ?? -4,
+      title: Text(appBarText, style: AppStyles.styleAppBar));
 }
