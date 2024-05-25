@@ -7,9 +7,11 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/components/custom_text_field.dart';
 
 class EmailTextField extends StatefulWidget {
-  const EmailTextField({super.key, required this.email});
+  const EmailTextField(
+      {super.key, required this.email, required this.isLoading});
 
   final TextEditingController email;
+  final bool isLoading;
 
   @override
   State<EmailTextField> createState() => _EmailTextFieldState();
@@ -21,8 +23,9 @@ class _EmailTextFieldState extends State<EmailTextField> {
   Widget build(BuildContext context) {
     return CustomTextField(
         textFieldModel: TextFieldModel(
+          enabled: !widget.isLoading,
             validator: (value) {
-              if ( value!.isNotEmpty && !EmailValidator.validate(value)) {
+              if (value!.isNotEmpty && !EmailValidator.validate(value)) {
                 return 'Please enter a valid email';
               }
               return null;
@@ -36,8 +39,7 @@ class _EmailTextFieldState extends State<EmailTextField> {
             controller: widget.email,
             hintText: 'Email',
             suffixIcon: FontAwesomeIcons.solidEnvelope,
-            suffixIconColor: isValue
-                ? Colors.black54
-                : AppColors.textFieldHintColor));
+            suffixIconColor:
+                isValue ? Colors.black54 : AppColors.textFieldHintColor));
   }
 }

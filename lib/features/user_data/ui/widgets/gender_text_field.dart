@@ -6,9 +6,15 @@ import '../../../../core/models/text_field_model.dart';
 import '../../../../core/utils/components/custom_text_field.dart';
 
 class GenderTextField extends StatefulWidget {
-  const GenderTextField({super.key, required this.gender});
+  const GenderTextField(
+      {super.key,
+      required this.gender,
+      required this.size,
+      required this.isLoading});
 
   final TextEditingController gender;
+  final Size size;
+  final bool isLoading;
 
   @override
   State<GenderTextField> createState() => _GenderTextFieldState();
@@ -35,25 +41,34 @@ class _GenderTextFieldState extends State<GenderTextField> {
                 })),
         Positioned(
             right: 12,
-            child: DropdownButton(
-              icon: Icon(FontAwesomeIcons.caretDown,
-                  size: 18,
-                  color:
-                      isValue ? Colors.black54 : AppColors.textFieldHintColor),
-              items: items.map((item) {
-                return DropdownMenuItem(value: item, child: Text(item));
-              }).toList(),
-              onChanged: (value) {
-                if (value != null) {
-                  widget.gender.text = value;
-                  setState(() {
-                    isValue = value.isNotEmpty;
-                  });
-                }
-              },
-              underline: const SizedBox(),
-              borderRadius: BorderRadius.circular(12),
-            ))
+            top: widget.isLoading ? 16: 0,
+            child: widget.isLoading
+                ? Icon(FontAwesomeIcons.caretDown,
+                    size: 18, color: AppColors.textFieldHintColor)
+                : DropdownButton(
+                    icon: Icon(FontAwesomeIcons.caretDown,
+                        size: 18,
+                        color: isValue
+                            ? Colors.black54
+                            : AppColors.textFieldHintColor),
+                    items: items.map((item) {
+                      return DropdownMenuItem(
+                          value: item,
+                          child: SizedBox(
+                              width: widget.size.width * .8,
+                              child: Text(item)));
+                    }).toList(),
+                    onChanged: (value) {
+                      if (value != null) {
+                        widget.gender.text = value;
+                        setState(() {
+                          isValue = value.isNotEmpty;
+                        });
+                      }
+                    },
+                    underline: const SizedBox(),
+                    borderRadius: BorderRadius.circular(12),
+                  ))
       ],
     );
   }

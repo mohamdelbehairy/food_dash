@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -7,14 +9,14 @@ part 'pick_image_state.dart';
 class PickImageCubit extends Cubit<PickImageState> {
   PickImageCubit() : super(PickImageInitial());
 
-  XFile image = XFile('');
+  File image = File('');
 
   Future<void> pickImage({required ImageSource source}) async {
     try {
       final returnImage = await ImagePicker().pickImage(source: source);
 
       if (returnImage != null) {
-        image = XFile(returnImage.path);
+        image = File(returnImage.path);
         debugPrint('image picker: ${image.path}');
         emit(PickImageSuccess());
       }

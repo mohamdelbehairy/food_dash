@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../pick_image/logic/pick_image/pick_image_cubit.dart';
+import '../../../image/logic/pick_image/pick_image_cubit.dart';
 import 'user_data_view_icon_image.dart';
 import 'user_data_view_image.dart';
 
 class UserDataViewImageItem extends StatelessWidget {
-  const UserDataViewImageItem({super.key});
+  const UserDataViewImageItem({super.key, required this.isLoading});
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class UserDataViewImageItem extends StatelessWidget {
           child: Stack(
             children: [
               UserDataViewCustomImage(),
-              UserDataViewIconImage(pickImage: pickImage),
+              UserDataViewIconImage(pickImage: pickImage, isLoading: isLoading),
             ],
           ),
         );

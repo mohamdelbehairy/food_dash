@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/features/pick_image/logic/pick_image/pick_image_cubit.dart';
+import 'package:food_dash/features/image/logic/pick_image/pick_image_cubit.dart';
 
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/utils/components/custom_divider_item.dart';
