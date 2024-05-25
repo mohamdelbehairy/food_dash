@@ -6,9 +6,11 @@ import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/components/custom_text_field.dart';
 
 class DateOfBirthTextField extends StatefulWidget {
-  const DateOfBirthTextField({super.key, required this.dateOfBirth});
+  const DateOfBirthTextField(
+      {super.key, required this.dateOfBirth, required this.isLoading});
 
   final TextEditingController dateOfBirth;
+  final bool isLoading;
 
   @override
   State<DateOfBirthTextField> createState() => _DateOfBirthTextFieldState();
@@ -17,35 +19,15 @@ class DateOfBirthTextField extends StatefulWidget {
 class _DateOfBirthTextFieldState extends State<DateOfBirthTextField> {
   bool isValue = false;
 
-  _showDatePicker() {
-    showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(2000),
-            lastDate: DateTime(2025))
-        .then((value) {
-      widget.dateOfBirth.text = '${value!.month}-${value.day}-${value.year}';
-      setState(() {
-        isValue = true;
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         CustomTextField(
             textFieldModel: TextFieldModel(
-          enabled: false,
-          controller: widget.dateOfBirth,
-          // onChanged: (value) {
-          //   setState(() {
-          //     isValue = value.isNotEmpty;
-          //   });
-          // },
-          hintText: 'Date of Birth',
-        )),
+                enabled: false,
+                controller: widget.dateOfBirth,
+                hintText: 'Date of Birth')),
         Positioned(
             right: 16,
             bottom: 16,
@@ -54,12 +36,28 @@ class _DateOfBirthTextFieldState extends State<DateOfBirthTextField> {
               child: Icon(
                 FontAwesomeIcons.calendarDays,
                 size: 14,
-                color: isValue
-                    ? Colors.black54
-                    : AppColors.textFieldHintColor,
+                color: isValue ? Colors.black54 : AppColors.textFieldHintColor,
               ),
             ))
       ],
     );
+  }
+
+  _showDatePicker() {
+    if (!widget.isLoading) {
+      showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(2000),
+              lastDate: DateTime(2025))
+          .then((value) {
+        if (value != null) {
+          widget.dateOfBirth.text = '${value.month}-${value.day}-${value.year}';
+          setState(() {
+            isValue = true;
+          });
+        }
+      });
+    }
   }
 }

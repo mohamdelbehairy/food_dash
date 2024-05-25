@@ -6,10 +6,14 @@ import 'phone_number_text_field.dart';
 
 class UserDataPhoneNumberTextField extends StatefulWidget {
   const UserDataPhoneNumberTextField(
-      {super.key, required this.size, required this.phoneNumber});
+      {super.key,
+      required this.size,
+      required this.phoneNumber,
+      required this.isLoading});
 
   final Size size;
   final TextEditingController phoneNumber;
+  final bool isLoading;
 
   @override
   State<UserDataPhoneNumberTextField> createState() =>
@@ -23,6 +27,7 @@ class _UserDataPhoneNumberTextFieldState
   Widget build(BuildContext context) {
     return PhoneNumberTextField(
         size: widget.size,
+        isLoading: widget.isLoading,
         textFieldModel: TextFieldModel(
             keyboardType: TextInputType.emailAddress,
             controller: widget.phoneNumber,

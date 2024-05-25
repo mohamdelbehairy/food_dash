@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/features/pick_image/ui/models/bottom_sheet_item_model.dart';
+import 'package:food_dash/features/image/ui/models/bottom_sheet_item_model.dart';
 
 import '../../../../core/utils/app_styles.dart';
 

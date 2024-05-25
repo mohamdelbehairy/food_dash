@@ -7,18 +7,21 @@ import '../../../../core/utils/app_styles.dart';
 
 class PhoneNumberTextField extends StatelessWidget {
   const PhoneNumberTextField(
-      {super.key, required this.size, required this.textFieldModel});
+      {super.key,
+      required this.size,
+      required this.textFieldModel,
+      required this.isLoading});
   final Size size;
   final TextFieldModel textFieldModel;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
         borderRadius: BorderRadius.circular(size.width * .02),
         child: IntlPhoneField(
-            enabled: true,
-            // flagsButtonPadding: EdgeInsets.only(left: !enabled ? 28 : 0),
-
+            enabled: !isLoading,
+            flagsButtonPadding: EdgeInsets.only(left: isLoading ? 28 : 0),
             onChanged: textFieldModel.onChangedPhoneNumber,
             initialCountryCode: 'EG',
             disableLengthCheck: textFieldModel.controller.text.isEmpty,

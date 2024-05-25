@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'user_data_view_component.dart';
 
 class UserDataViewSection extends StatefulWidget {
-  const UserDataViewSection({super.key, required this.size});
+  const UserDataViewSection(
+      {super.key, required this.size, required this.isLoading});
 
   final Size size;
+  final bool isLoading;
 
   @override
   State<UserDataViewSection> createState() => _UserDataViewSectionState();
@@ -37,6 +39,7 @@ class _UserDataViewSectionState extends State<UserDataViewSection> {
     return Form(
         key: globalKey,
         child: UserDataViewComponenet(
+            isLoading: widget.isLoading,
             size: widget.size,
             fullName: fullName,
             nickName: nickName,

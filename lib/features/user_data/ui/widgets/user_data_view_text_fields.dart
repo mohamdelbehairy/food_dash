@@ -17,7 +17,8 @@ class UserDataViewTextFields extends StatelessWidget {
       required this.dateOfBirth,
       required this.email,
       required this.phoneNumber,
-      required this.gender});
+      required this.gender,
+      required this.isLoading});
   final Size size;
   final TextEditingController fullName;
   final TextEditingController nickName;
@@ -25,26 +26,29 @@ class UserDataViewTextFields extends StatelessWidget {
   final TextEditingController email;
   final TextEditingController phoneNumber;
   final TextEditingController gender;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FullNameTextField(fullName: fullName),
+        FullNameTextField(fullName: fullName, isLoading: isLoading),
         const SizedBox(height: 20),
         CustomTextField(
-            textFieldModel:
-                TextFieldModel(controller: nickName, hintText: 'Nickname')),
+            textFieldModel: TextFieldModel(
+                controller: nickName,
+                hintText: 'Nickname',
+                enabled: !isLoading)),
         const SizedBox(height: 20),
-        DateOfBirthTextField(dateOfBirth: dateOfBirth),
+        DateOfBirthTextField(dateOfBirth: dateOfBirth, isLoading: isLoading),
         const SizedBox(height: 20),
-        UserDataPhoneNumberTextField(size: size, phoneNumber: phoneNumber),
+        UserDataPhoneNumberTextField(
+            size: size, phoneNumber: phoneNumber, isLoading: isLoading),
         const SizedBox(height: 20),
-        EmailTextField(email: email),
+        EmailTextField(email: email, isLoading: isLoading),
         const SizedBox(height: 20),
-        GenderTextField(gender: gender),
+        GenderTextField(gender: gender, size: size, isLoading: isLoading),
       ],
     );
   }
 }
-

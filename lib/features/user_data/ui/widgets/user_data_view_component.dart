@@ -14,7 +14,8 @@ class UserDataViewComponenet extends StatelessWidget {
       required this.email,
       required this.phoneNumber,
       required this.gender,
-      required this.globalKey});
+      required this.globalKey,
+      required this.isLoading});
 
   final Size size;
   final TextEditingController fullName;
@@ -24,13 +25,15 @@ class UserDataViewComponenet extends StatelessWidget {
   final TextEditingController phoneNumber;
   final TextEditingController gender;
   final GlobalKey<FormState> globalKey;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        UserDataViewImageItem(),
+        UserDataViewImageItem(isLoading: isLoading),
         UserDataViewTextFields(
+            isLoading: isLoading,
             size: size,
             fullName: fullName,
             nickName: nickName,
@@ -40,6 +43,7 @@ class UserDataViewComponenet extends StatelessWidget {
             gender: gender),
         const SizedBox(height: 32),
         UserDataViewButton(
+            isLoading: isLoading,
             size: size,
             fullName: fullName,
             nickName: nickName,
