@@ -5,9 +5,9 @@ sealed class PickImageState {}
 final class PickImageInitial extends PickImageState {}
 
 final class PickImageSuccess extends PickImageState {
-  // final XFile image;
+  final File image;
 
-  // PickImageSuccess({required this.image});
+  PickImageSuccess({required this.image});
 }
 
 final class PickImageFailure extends PickImageState {

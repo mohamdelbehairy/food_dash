@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/features/image/logic/pick_image/pick_image_cubit.dart';
 import 'package:food_dash/features/image/logic/upload_image/upload_image_cubit.dart';
 
+import '../../../../constants.dart';
 import '../../../../core/utils/components/custom_button_item.dart';
+import '../../logic/store_user_data/store_user_data_cubit.dart';
 
 class UserDataViewButton extends StatelessWidget {
   const UserDataViewButton(
@@ -16,7 +19,8 @@ class UserDataViewButton extends StatelessWidget {
       required this.phoneNumber,
       required this.gender,
       required this.globalKey,
-      required this.isLoading});
+      required this.isLoading,
+      required this.image});
 
   final Size size;
   final TextEditingController fullName;
@@ -27,11 +31,13 @@ class UserDataViewButton extends StatelessWidget {
   final TextEditingController gender;
   final GlobalKey<FormState> globalKey;
   final bool isLoading;
+  final File image;
 
   @override
   Widget build(BuildContext context) {
-    var image = context.read<PickImageCubit>().image;
     var uploadImage = context.read<UploadImageCubit>();
+    var storeUserData = context.read<StoreUserDataCubit>();
+
     return CustomButtonItem(
         size: size,
         isLoading: isLoading,
@@ -39,18 +45,25 @@ class UserDataViewButton extends StatelessWidget {
         onTap: () async {
           if (globalKey.currentState!.validate()) {
             globalKey.currentState!.save();
-            String imageUrl = await uploadImage.uploadImage(imageFile: image);
-            if (imageUrl.isNotEmpty) {
-              debugPrint('imageUrl: $imageUrl');
+            debugPrint('path: ${image.path}');
+            String imageUrl = '';
+            if (image.path.isNotEmpty) {
+              debugPrint('path: ${image.path}');
+              imageUrl = await uploadImage.uploadImage(imageFile: image);
             }
 
-            // debugPrint('image: ${image.path}');
-            // debugPrint('fullName: ${fullName.text}');
-            // debugPrint('nickName: ${nickName.text}');
-            // debugPrint('dateOfBirth: ${dateOfBirth.text}');
-            // debugPrint('email: ${email.text}');
-            // debugPrint('phoneNumber: ${phoneNumber.text}');
-            // debugPrint('gender: ${gender.text}');
+            await storeUserData.storeUserData(
+                profileImage: imageUrl.isNotEmpty
+                    ? imageUrl
+                    : Constants.userDataViewImageUrl,
+                fullName: fullName.text,
+                nickName: nickName.text,
+                dateOfBirth: dateOfBirth.text,
+                email: email.text.isNotEmpty
+                    ? email.text
+                    : Constants.currentUser.email!,
+                phoneNumber: phoneNumber.text,
+                gender: gender.text);
           }
         });
   }

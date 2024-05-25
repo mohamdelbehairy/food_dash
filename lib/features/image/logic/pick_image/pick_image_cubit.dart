@@ -18,7 +18,7 @@ class PickImageCubit extends Cubit<PickImageState> {
       if (returnImage != null) {
         image = File(returnImage.path);
         debugPrint('image picker: ${image.path}');
-        emit(PickImageSuccess());
+        emit(PickImageSuccess(image: image));
       }
     } catch (e) {
       debugPrint('error from pick image cubit: ${e.toString()}');
