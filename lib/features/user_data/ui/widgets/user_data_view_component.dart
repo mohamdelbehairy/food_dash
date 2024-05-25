@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/features/image/logic/pick_image/pick_image_cubit.dart';
 
-import 'user_data_view_button.dart';
-import 'user_data_view_image_item.dart';
-import 'user_data_view_text_fields.dart';
+import 'user_data_view_component_details.dart';
 
 class UserDataViewComponenet extends StatelessWidget {
   const UserDataViewComponenet(
@@ -29,31 +29,25 @@ class UserDataViewComponenet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        UserDataViewImageItem(isLoading: isLoading),
-        UserDataViewTextFields(
-            isLoading: isLoading,
-            size: size,
-            fullName: fullName,
-            nickName: nickName,
-            dateOfBirth: dateOfBirth,
-            email: email,
-            phoneNumber: phoneNumber,
-            gender: gender),
-        const SizedBox(height: 32),
-        UserDataViewButton(
-            isLoading: isLoading,
-            size: size,
-            fullName: fullName,
-            nickName: nickName,
-            dateOfBirth: dateOfBirth,
-            email: email,
-            phoneNumber: phoneNumber,
-            gender: gender,
-            globalKey: globalKey),
-        const SizedBox(height: 24),
-      ],
-    );
+    var pickImage = context.read<PickImageCubit>();
+    return BlocConsumer<PickImageCubit, PickImageState>(
+        listener: (context, state) {
+      if (state is PickImageSuccess) {
+        pickImage.image = state.image;
+        Navigator.pop(context);
+      }
+    }, builder: (context, state) {
+      return UserDataViewComponentDetails(
+          isLoading: isLoading,
+          pickImage: pickImage,
+          size: size,
+          fullName: fullName,
+          nickName: nickName,
+          dateOfBirth: dateOfBirth,
+          email: email,
+          phoneNumber: phoneNumber,
+          gender: gender,
+          globalKey: globalKey);
+    });
   }
 }

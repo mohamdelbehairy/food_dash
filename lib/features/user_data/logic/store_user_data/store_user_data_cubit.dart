@@ -9,6 +9,7 @@ part 'store_user_data_state.dart';
 class StoreUserDataCubit extends Cubit<StoreUserDataState> {
   StoreUserDataCubit() : super(StoreUserDataInitial());
 
+  bool isLoading = false;
   Future<void> storeUserData({
     required String profileImage,
     required String fullName,
@@ -18,7 +19,7 @@ class StoreUserDataCubit extends Cubit<StoreUserDataState> {
     required String phoneNumber,
     required String gender,
   }) async {
-    emit(StoreUserDataLoading());
+    emit(StoreUserDataLoading(isLoading: true));
     try {
       UserDataModel userDataModel = UserDataModel.fromJson({
         'userID': Constants.currentUser.uid,
@@ -35,8 +36,10 @@ class StoreUserDataCubit extends Cubit<StoreUserDataState> {
           .doc(Constants.currentUser.uid)
           .set(userDataModel.toJson());
       emit(StoreUserDataSuccess());
+      emit(StoreUserDataLoading(isLoading: false));
     } catch (e) {
       emit(StoreUserDataFailure(errorMessage: e.toString()));
+      emit(StoreUserDataLoading(isLoading: false));
       debugPrint('error from store user data cubit: ${e.toString()}');
     }
   }
