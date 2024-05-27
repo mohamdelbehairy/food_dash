@@ -8,6 +8,8 @@ import 'package:food_dash/features/splash/ui/views/splash_view.dart';
 import 'package:food_dash/features/user_data/ui/views/user_data_view.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/ui/views/verification_view.dart';
+
 abstract class AppRouter {
   static const providerAuthView = '/providerAuthView';
   static const onboardingView = '/onboardingView';
@@ -15,6 +17,7 @@ abstract class AppRouter {
   static const loginView = '/loginView';
   static const optPhoneNumberView = '/optPhoneNumberView';
   static const userDataView = '/userDataView';
+  static const verificationView = '/verificationView';
 
   static final GlobalKey<NavigatorState> navigatorState =
       GlobalKey<NavigatorState>();
@@ -31,6 +34,8 @@ abstract class AppRouter {
     GoRoute(
         path: optPhoneNumberView,
         builder: (context, state) => OptPhoneNumberView()),
-    GoRoute(path: userDataView, builder: (context, state) => UserDataView())
+    GoRoute(path: userDataView, builder: (context, state) => UserDataView()),
+    GoRoute(
+        path: verificationView, builder: (context, state) => VerificationView())
   ]);
 }

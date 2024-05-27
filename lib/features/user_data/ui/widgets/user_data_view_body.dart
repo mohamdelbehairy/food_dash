@@ -31,12 +31,11 @@ class UserDataViewBody extends StatelessWidget {
             return SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: UserDataViewSection(
-                    size: size,
-                    isLoading:
-                        uploadImage == true ? uploadImage : storeUserData),
-              ),
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: UserDataViewSection(
+                      size: size,
+                      isLoading:
+                          uploadImage == true ? uploadImage : storeUserData)),
             );
           },
         );
