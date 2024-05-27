@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/image/logic/upload_image/upload_image_cubit.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../constants.dart';
+import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/components/custom_button_item.dart';
 import '../../logic/store_user_data/store_user_data_cubit.dart';
 
@@ -38,33 +40,40 @@ class UserDataViewButton extends StatelessWidget {
     var uploadImage = context.read<UploadImageCubit>();
     var storeUserData = context.read<StoreUserDataCubit>();
 
-    return CustomButtonItem(
-        size: size,
-        isLoading: isLoading,
-        buttonName: 'Continue',
-        onTap: () async {
-          if (globalKey.currentState!.validate()) {
-            globalKey.currentState!.save();
-            debugPrint('path: ${image.path}');
-            String imageUrl = '';
-            if (image.path.isNotEmpty) {
+    return BlocListener<StoreUserDataCubit, StoreUserDataState>(
+      listener: (context, state) {
+        if (state is StoreUserDataSuccess) {
+          GoRouter.of(context).push(AppRouter.verificationView);
+        }
+      },
+      child: CustomButtonItem(
+          size: size,
+          isLoading: isLoading,
+          buttonName: 'Continue',
+          onTap: () async {
+            if (globalKey.currentState!.validate()) {
+              globalKey.currentState!.save();
               debugPrint('path: ${image.path}');
-              imageUrl = await uploadImage.uploadImage(imageFile: image);
-            }
+              String imageUrl = '';
+              if (image.path.isNotEmpty) {
+                debugPrint('path: ${image.path}');
+                imageUrl = await uploadImage.uploadImage(imageFile: image);
+              }
 
-            await storeUserData.storeUserData(
-                profileImage: imageUrl.isNotEmpty
-                    ? imageUrl
-                    : Constants.userDataViewImageUrl,
-                fullName: fullName.text,
-                nickName: nickName.text,
-                dateOfBirth: dateOfBirth.text,
-                email: email.text.isNotEmpty
-                    ? email.text
-                    : Constants.currentUser.email!,
-                phoneNumber: phoneNumber.text,
-                gender: gender.text);
-          }
-        });
+              await storeUserData.storeUserData(
+                  profileImage: imageUrl.isNotEmpty
+                      ? imageUrl
+                      : Constants.userDataViewImageUrl,
+                  fullName: fullName.text,
+                  nickName: nickName.text,
+                  dateOfBirth: dateOfBirth.text,
+                  email: email.text.isNotEmpty
+                      ? email.text
+                      : Constants.currentUser.email!,
+                  phoneNumber: phoneNumber.text,
+                  gender: gender.text);
+            }
+          }),
+    );
   }
 }

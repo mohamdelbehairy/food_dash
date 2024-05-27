@@ -17,7 +17,7 @@ class UserDataView extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => PickImageCubit()),
         BlocProvider(create: (context) => UploadImageCubit()),
-        BlocProvider(create: (context) => StoreUserDataCubit())
+        BlocProvider(create: (context) => StoreUserDataCubit()),
       ],
       child: Scaffold(
           appBar:
