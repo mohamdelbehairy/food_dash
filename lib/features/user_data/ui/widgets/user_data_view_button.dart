@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/image/logic/upload_image/upload_image_cubit.dart';
@@ -69,7 +70,7 @@ class UserDataViewButton extends StatelessWidget {
                   dateOfBirth: dateOfBirth.text,
                   email: email.text.isNotEmpty
                       ? email.text
-                      : Constants.currentUser.email!,
+                      : FirebaseAuth.instance.currentUser!.email!,
                   phoneNumber: phoneNumber.text,
                   gender: gender.text);
             }
