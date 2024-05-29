@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/core/utils/components/custom_app_bar.dart';
+import 'package:food_dash/core/utils/widgets/custom_app_bar.dart';
 import 'package:food_dash/features/image/logic/pick_image/pick_image_cubit.dart';
 import 'package:food_dash/features/image/logic/upload_image/upload_image_cubit.dart';
 import 'package:food_dash/features/user_data/logic/store_user_data/store_user_data_cubit.dart';

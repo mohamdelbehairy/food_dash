@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/components/custom_app_bar.dart';
+import '../../../../core/utils/widgets/custom_app_bar.dart';
 import '../widgets/opt_phone_number_view_body.dart';
 
 class OptPhoneNumberView extends StatelessWidget {

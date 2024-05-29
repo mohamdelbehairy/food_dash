@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/utils/custom_snack_bar_item.dart';
 import 'package:food_dash/features/auth/logic/auth_setting/auth_settings_cubit.dart';
 
-import '../../../../core/utils/components/custom_button_item.dart';
+import '../../../../core/utils/widgets/custom_button_item.dart';
 
 class VerificationViewButton extends StatelessWidget {
   const VerificationViewButton({super.key, required this.size});

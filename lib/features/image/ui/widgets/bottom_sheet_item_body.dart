@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_dash/features/image/logic/pick_image/pick_image_cubit.dart';
 
 import '../../../../core/utils/app_styles.dart';
-import '../../../../core/utils/components/custom_divider_item.dart';
-import '../../../../core/utils/components/custom_text_item.dart';
+import '../../../../core/utils/widgets/custom_divider_item.dart';
+import '../../../../core/utils/widgets/custom_text_item.dart';
 import 'bottom_sheet_list_view.dart';
 
 class BottomSheetItemBody extends StatelessWidget {

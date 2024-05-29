@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_styles.dart';
-import '../../../../core/utils/components/custom_button_item.dart';
-import '../../../../core/utils/components/custom_text_item.dart';
+import '../../../../core/utils/widgets/custom_button_item.dart';
+import '../../../../core/utils/widgets/custom_text_item.dart';
 import 'opt_phone_number_view_pinput.dart';
 import 'resend_code_widget.dart';
 

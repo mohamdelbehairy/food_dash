@@ -5,12 +5,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_router.dart';
 import '../../../../core/utils/app_styles.dart';
-import '../../../../core/utils/components/custom_button_item.dart';
-import '../../../../core/utils/components/already_have_account_or_not.dart';
-import '../../../../core/utils/components/divider_text_item.dart';
+import '../../../../core/utils/widgets/custom_button_item.dart';
+import '../../../../core/utils/widgets/already_have_account_or_not.dart';
+import '../../../../core/utils/widgets/divider_text_item.dart';
 import 'provider_auth_view_image.dart';
 import 'provider_auth_view_list_view.dart';
-import '../../../../core/utils/components/custom_text_item.dart';
+import '../../../../core/utils/widgets/custom_text_item.dart';
 
 class ProviderAuthViewBody extends StatelessWidget {
   const ProviderAuthViewBody({super.key, required this.size});

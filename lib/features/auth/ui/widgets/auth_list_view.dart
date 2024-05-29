@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/models/text_field_model.dart';
-import '../../../../core/utils/components/custom_text_field.dart';
+import '../../../../core/utils/widgets/custom_text_field.dart';
 
 class AuthListView extends StatelessWidget {
   const AuthListView({super.key, required this.items});

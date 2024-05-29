@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/components/custom_button_item.dart';
+import '../../../../core/utils/widgets/custom_button_item.dart';
 import '../../logic/store_user_data/store_user_data_cubit.dart';
 
 class UserDataViewButton extends StatelessWidget {

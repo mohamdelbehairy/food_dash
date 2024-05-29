@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/utils/app_images.dart';
-import '../../../../core/utils/components/custom_provider_way.dart';
+import '../../../../core/utils/widgets/custom_provider_way.dart';
 
 class AuthProviderWays extends StatelessWidget {
   const AuthProviderWays({super.key, required this.size});

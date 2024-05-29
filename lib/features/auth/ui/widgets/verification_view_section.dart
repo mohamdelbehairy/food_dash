@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_dash/core/utils/app_colors.dart';
-import 'package:food_dash/core/utils/components/custom_circle_indicator.dart';
+import 'package:food_dash/core/utils/widgets/custom_circle_indicator.dart';
 
 import 'verification_view_button.dart';
 import 'verification_view_texts.dart';

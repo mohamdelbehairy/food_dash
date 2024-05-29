@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_styles.dart';
-import '../../../../core/utils/components/custom_text_item.dart';
+import '../../../../core/utils/widgets/custom_text_item.dart';
 
 class ResendCodeWidget extends StatelessWidget {
   const ResendCodeWidget({super.key});

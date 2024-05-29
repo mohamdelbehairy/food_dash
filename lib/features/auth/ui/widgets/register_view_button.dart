@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/auth/logic/email/email_register/email_register_cubit.dart';
 
-import '../../../../core/utils/components/custom_button_item.dart';
+import '../../../../core/utils/widgets/custom_button_item.dart';
 
 class RegisterViewButton extends StatelessWidget {
   const RegisterViewButton(
