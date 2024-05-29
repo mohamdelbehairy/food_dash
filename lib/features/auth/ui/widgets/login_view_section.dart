@@ -1,8 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubit.dart';
 
-import '../../../../constants.dart';
 import 'login_view_component.dart';
 
 class LoginViewSection extends StatefulWidget {
@@ -39,7 +39,7 @@ class _LoginViewSectionState extends State<LoginViewSection> {
       listener: (context, state) async {
         if (state is EmailLoginSuccess &&
             await widget.isUserData &&
-            Constants.currentUser.emailVerified) {
+            FirebaseAuth.instance.currentUser!.emailVerified) {
           email.clear();
           password.clear();
         }

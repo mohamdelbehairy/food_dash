@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/constants.dart';
 import 'package:food_dash/core/utils/logic/is_user_data/is_user_data_cubit.dart';
 import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubit.dart';
 import 'package:food_dash/features/auth/ui/widgets/login_view_section.dart';
@@ -21,10 +21,10 @@ class LoginvViewBody extends StatelessWidget {
     return BlocConsumer<EmailLoginCubit, EmailLoginState>(
       listener: (context, state) async {
         if (state is EmailLoginSuccess) {
-          if (await isUserData && Constants.currentUser.emailVerified) {
+          if (await isUserData && FirebaseAuth.instance.currentUser!.emailVerified) {
             debugPrint('تسجيل دخول ناجح');
           } else {
-            if (!Constants.currentUser.emailVerified && await isUserData) {
+            if (!FirebaseAuth.instance.currentUser!.emailVerified && await isUserData) {
               customSnackBarItem(
                   context,
                   Row(

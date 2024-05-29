@@ -27,7 +27,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     );
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
     _controller.forward();
-    _controller.addListener(() {
+    _controller.addListener(() async {
       if (_controller.isCompleted) {
         GoRouter.of(context).go(AppRouter.onboardingView);
       }

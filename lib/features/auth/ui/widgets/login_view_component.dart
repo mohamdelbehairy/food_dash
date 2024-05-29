@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/features/auth/logic/remember_me/remember_me_cubit.dart';
 import 'package:food_dash/features/auth/ui/widgets/login_list_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -29,33 +31,46 @@ class LoginViewComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const SizedBox(height: 90),
-        drawSvgIconColored('app_icon1', height: 100, width: 100),
-        const SizedBox(height: 32),
-        CustomTextItem(
-            style: AppStyles.styleSemiBold28, text: 'Login to Your Account'),
-        const SizedBox(height: 28),
-        LoginListView(email: email, password: password, isLoading: isLoading),
-        RememberMeItem(),
-        const SizedBox(height: 16),
-        LoginViewButton(
-            isLoading: isLoading,
-            size: size,
-            email: email,
-            password: password,
-            globalKey: globalKey),
-        DividerTextitem(
-            dividerSize: size.width * .25, text: 'or continue with'),
-        AuthProviderWays(size: size),
-        const SizedBox(height: 16),
-        AlreadyHaveAccountOrNot(
-            text: 'Don\'t have an account?',
-            textButton: 'Sign up',
-            onTap: () => GoRouter.of(context).push(AppRouter.registerView))
-      ],
+    var isClick = context.read<RememberMeCubit>();
+    return BlocConsumer<RememberMeCubit, RememberMeState>(
+      listener: (context, state) {
+        if (state is RememberMeSuccess) {
+          isClick.isClick = state.isClick;
+        }
+      },
+      builder: (context, state) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 90),
+            drawSvgIconColored('app_icon1', height: 100, width: 100),
+            const SizedBox(height: 32),
+            CustomTextItem(
+                style: AppStyles.styleSemiBold28,
+                text: 'Login to Your Account'),
+            const SizedBox(height: 28),
+            LoginListView(
+                email: email, password: password, isLoading: isLoading),
+            RememberMeItem(isClick: isClick),
+            const SizedBox(height: 16),
+            LoginViewButton(
+                isClick: isClick,
+                isLoading: isLoading,
+                size: size,
+                email: email,
+                password: password,
+                globalKey: globalKey),
+            DividerTextitem(
+                dividerSize: size.width * .25, text: 'or continue with'),
+            AuthProviderWays(size: size),
+            const SizedBox(height: 16),
+            AlreadyHaveAccountOrNot(
+                text: 'Don\'t have an account?',
+                textButton: 'Sign up',
+                onTap: () => GoRouter.of(context).push(AppRouter.registerView))
+          ],
+        );
+      },
     );
   }
 }

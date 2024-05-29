@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/constants.dart';
@@ -22,7 +23,7 @@ class StoreUserDataCubit extends Cubit<StoreUserDataState> {
     emit(StoreUserDataLoading(isLoading: true));
     try {
       UserDataModel userDataModel = UserDataModel.fromJson({
-        'userID': Constants.currentUser.uid,
+        'userID': FirebaseAuth.instance.currentUser!.uid,
         'profileImage': profileImage,
         'fullName': fullName,
         'nickName': nickName,
@@ -33,7 +34,7 @@ class StoreUserDataCubit extends Cubit<StoreUserDataState> {
       });
       await FirebaseFirestore.instance
           .collection(Constants.userCollection)
-          .doc(Constants.currentUser.uid)
+          .doc(userDataModel.userID)
           .set(userDataModel.toJson());
       emit(StoreUserDataSuccess());
       emit(StoreUserDataLoading(isLoading: false));
