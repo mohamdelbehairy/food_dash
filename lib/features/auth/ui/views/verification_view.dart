@@ -21,9 +21,8 @@ class VerificationView extends StatelessWidget {
                 statusBarIconBrightness: Brightness.dark,
                 systemNavigationBarColor: Colors.black,
                 systemNavigationBarIconBrightness: Brightness.dark)),
-        body:  VerificationViewBody(size: size),
+        body: VerificationViewBody(size: size),
       ),
     );
   }
 }
-

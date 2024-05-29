@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/constants.dart';
 import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_colors.dart';
 import 'package:food_dash/core/utils/app_router.dart';
 import 'package:food_dash/core/utils/app_styles.dart';
+import 'package:food_dash/core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
@@ -29,7 +32,18 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
     _controller.forward();
     _controller.addListener(() async {
       if (_controller.isCompleted) {
-        GoRouter.of(context).go(AppRouter.onboardingView);
+        var getSharedPref = context.read<SharedPrefCubit>();
+        final token =
+            await getSharedPref.getSharedPref(key: Constants.userSharedPref);
+        final userAppFirstTime =
+            await getSharedPref.getSharedPref(key: Constants.useAppFirstTime);
+        if (token.isNotEmpty && userAppFirstTime.isNotEmpty) {
+          GoRouter.of(context).go(AppRouter.homeView);
+        } else if (token.isEmpty && userAppFirstTime.isNotEmpty) {
+           GoRouter.of(context).go(AppRouter.providerAuthView);
+        } else {
+          GoRouter.of(context).go(AppRouter.onboardingView);
+        }
       }
     });
     _leftPhotoAnimation = Tween<Offset>(

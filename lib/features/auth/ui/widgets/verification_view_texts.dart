@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_styles.dart';
@@ -20,7 +21,8 @@ class VerificationViewTexts extends StatelessWidget {
             text: 'You\'re almost there! We sent an email to'),
         SizedBox(height: size.width * .01),
         CustomTextItem(
-            style: AppStyles.styleSemiBold14, text: 'totomohamad016@gmail.com'),
+            style: AppStyles.styleSemiBold14,
+            text: FirebaseAuth.instance.currentUser!.email ?? ''),
         SizedBox(height: size.width * .04),
         CustomTextItem(
             style: AppStyles.styleBold14,

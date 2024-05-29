@@ -6,19 +6,18 @@ import 'user_data_view_image_item.dart';
 import 'user_data_view_text_fields.dart';
 
 class UserDataViewComponentDetails extends StatelessWidget {
-  const UserDataViewComponentDetails({
-    super.key,
-    required this.isLoading,
-    required this.pickImage,
-    required this.size,
-    required this.fullName,
-    required this.nickName,
-    required this.dateOfBirth,
-    required this.email,
-    required this.phoneNumber,
-    required this.gender,
-    required this.globalKey,
-  });
+  const UserDataViewComponentDetails(
+      {super.key,
+      required this.isLoading,
+      required this.pickImage,
+      required this.size,
+      required this.fullName,
+      required this.nickName,
+      required this.dateOfBirth,
+      required this.email,
+      required this.phoneNumber,
+      required this.gender,
+      required this.globalKey});
 
   final bool isLoading;
   final PickImageCubit pickImage;
