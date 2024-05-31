@@ -1,22 +1,16 @@
 class UserDataModel {
-  final String userID,
-      profileImage,
-      fullName,
-      nickName,
-      dateOfBirth,
-      email,
-      phoneNumber,
-      gender;
+  final String userID, profileImage, fullName, email;
+  String? nickName, dateOfBirth, phoneNumber, gender;
 
   UserDataModel(
       {required this.userID,
       required this.profileImage,
       required this.fullName,
-      required this.nickName,
-      required this.dateOfBirth,
       required this.email,
-      required this.phoneNumber,
-      required this.gender});
+      this.nickName,
+      this.dateOfBirth,
+      this.phoneNumber,
+      this.gender});
 
   factory UserDataModel.fromJson(jsonData) {
     return UserDataModel(

@@ -8,6 +8,7 @@ import 'core/utils/app_system_ui_style.dart';
 import 'core/utils/logic/is_user_data/is_user_data_cubit.dart';
 import 'core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import 'features/auth/logic/auth_setting/auth_settings_cubit.dart';
+import 'features/user_data/logic/store_user_data/store_user_data_cubit.dart';
 
 class FoodDash extends StatelessWidget {
   const FoodDash({super.key});
@@ -21,7 +22,8 @@ class FoodDash extends StatelessWidget {
           BlocProvider(create: (context) => AuthSettingsCubit()),
           BlocProvider(create: (context) => SharedPrefCubit()),
           BlocProvider(create: (constext) => IsUserDataCubit()..isUserData()),
-          BlocProvider(create: (context) => GoogleAuthCubit())
+          BlocProvider(create: (context) => GoogleAuthCubit()),
+          BlocProvider(create: (context) => StoreUserDataCubit()),
         ],
         child: MaterialApp.router(
             debugShowCheckedModeBanner: false,

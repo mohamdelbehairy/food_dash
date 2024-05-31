@@ -14,11 +14,11 @@ class StoreUserDataCubit extends Cubit<StoreUserDataState> {
   Future<void> storeUserData({
     required String profileImage,
     required String fullName,
-    required String nickName,
-    required String dateOfBirth,
     required String email,
-    required String phoneNumber,
-    required String gender,
+    String? nickName,
+    String? dateOfBirth,
+    String? phoneNumber,
+    String? gender,
   }) async {
     emit(StoreUserDataLoading(isLoading: true));
     try {

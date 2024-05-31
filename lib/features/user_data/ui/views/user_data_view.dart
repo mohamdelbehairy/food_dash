@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/utils/widgets/custom_app_bar.dart';
 import 'package:food_dash/features/image/logic/pick_image/pick_image_cubit.dart';
 import 'package:food_dash/features/image/logic/upload_image/upload_image_cubit.dart';
-import 'package:food_dash/features/user_data/logic/store_user_data/store_user_data_cubit.dart';
 
 import '../widgets/user_data_view_body.dart';
 
@@ -17,7 +16,6 @@ class UserDataView extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => PickImageCubit()),
         BlocProvider(create: (context) => UploadImageCubit()),
-        BlocProvider(create: (context) => StoreUserDataCubit()),
       ],
       child: Scaffold(
           appBar:
