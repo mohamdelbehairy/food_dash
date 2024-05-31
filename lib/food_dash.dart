@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/features/auth/logic/google_auth/google_auth_cubit.dart';
 
 import 'core/utils/app_router.dart';
 import 'core/utils/app_system_ui_style.dart';
@@ -20,6 +21,7 @@ class FoodDash extends StatelessWidget {
           BlocProvider(create: (context) => AuthSettingsCubit()),
           BlocProvider(create: (context) => SharedPrefCubit()),
           BlocProvider(create: (constext) => IsUserDataCubit()..isUserData()),
+          BlocProvider(create: (context) => GoogleAuthCubit())
         ],
         child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
@@ -30,6 +32,4 @@ class FoodDash extends StatelessWidget {
                     backgroundColor: Colors.transparent)),
             routerConfig: AppRouter.router));
   }
-
-
 }
