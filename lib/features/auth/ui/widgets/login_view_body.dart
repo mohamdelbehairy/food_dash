@@ -1,83 +1,59 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/constants.dart';
-import 'package:food_dash/core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
-import 'package:food_dash/core/utils/logic/shared_pref/shared_pref_cubit.dart';
-import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubit.dart';
-import 'package:food_dash/features/auth/ui/widgets/login_view_section.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/custom_snack_bar_item.dart';
+import '../../../../constants.dart';
+import '../../../../core/models/modal_progress_model.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
+import '../../../../core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
+import '../../../../core/utils/widgets/custom_modal_progress_hud.dart';
+import '../../../user_data/logic/store_user_data/store_user_data_cubit.dart';
+import '../../logic/google_auth/google_auth_cubit.dart';
+import 'login_view_details.dart';
 
-class LoginvViewBody extends StatelessWidget {
-  const LoginvViewBody({super.key, required this.size});
+class LoginViewBody extends StatelessWidget {
+  const LoginViewBody(
+      {super.key,
+      required this.isUserData,
+      required this.storeUserData,
+      required this.isLoading,
+      required this.setSharedPref,
+      required this.size});
+
+  final UserDataSettingCubit isUserData;
+  final StoreUserDataCubit storeUserData;
+  final GoogleAuthCubit isLoading;
+  final SharedPrefCubit setSharedPref;
   final Size size;
 
   @override
   Widget build(BuildContext context) {
-    var isLoading = context.read<EmailLoginCubit>().isLoading;
-    var isUserData = context.read<UserDataSettingCubit>().isUserData();
-    var setSharedPref = context.read<SharedPrefCubit>();
-
-    return BlocConsumer<EmailLoginCubit, EmailLoginState>(
+    return BlocConsumer<GoogleAuthCubit, GoogleAuthState>(
       listener: (context, state) async {
-        if (state is EmailLoginSuccess) {
-          if (await isUserData &&
-              FirebaseAuth.instance.currentUser!.emailVerified) {
-            await setSharedPref.setSharedPref(
-                key: Constants.useAppFirstTime, value: 'done');
-            GoRouter.of(context).go(AppRouter.homeView);
-            debugPrint('تسجيل دخول ناجح');
-          } else {
-            if (!FirebaseAuth.instance.currentUser!.emailVerified &&
-                await isUserData) {
-              customSnackBarItem(
-                  context,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('email not verified'),
-                      IconButton(
-                          onPressed: () => GoRouter.of(context)
-                              .go(AppRouter.verificationView),
-                          icon: Icon(Icons.verified, color: Colors.white))
-                    ],
-                  ));
-            }
-            if (!await isUserData) {
-              customSnackBarItem(
-                  context,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('add user data first after login'),
-                      IconButton(
-                          onPressed: () =>
-                              GoRouter.of(context).go(AppRouter.userDataView),
-                          icon: Icon(Icons.person_add_alt_1_sharp,
-                              color: Colors.white))
-                    ],
-                  ));
-            }
+        if (state is GoogleAuthSuccess && state.isLoading) {
+          if (!await isUserData.isUserData()) {
+            await storeUserData.storeUserData(
+                profileImage: state.user.photoURL!,
+                fullName: state.user.displayName!,
+                email: state.user.email!,
+                phoneNumber: state.user.phoneNumber,
+                isGoogleAuth: true);
           }
-        }
-        if (state is EmailLoginLoading) {
-          isLoading = state.isLoading;
-        }
-        if (state is EmailLoginFailure &&
-            state.errorMessage == 'invalid-credential') {
-          customSnackBarItem(context, Text('invalid-credential'));
+          isLoading.isLoading = state.isLoading;
+          await setSharedPref.setSharedPref(
+              key: Constants.useAppFirstTime, value: 'done');
         }
       },
       builder: (context, state) {
-        return SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
-          child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
-              child: LoginViewSection(
-                  size: size, isLoading: isLoading, isUserData: isUserData)),
+        return CustomModalprogressHUD(
+          modalProgressModel: ModalProgressModel(
+              inAsyncCall: isLoading.isLoading,
+              offset: Offset(size.width * 0.45, size.height * .55),
+              opacity: 0.2,
+              progressIndicatorColor: AppColors.mainColor,
+              modalprogressColor: AppColors.mainColor,
+              child: Scaffold(
+                  appBar: AppBar(), body: LoginViewDetails(size: size))),
         );
       },
     );

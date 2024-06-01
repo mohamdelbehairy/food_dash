@@ -8,7 +8,7 @@ part 'google_auth_state.dart';
 class GoogleAuthCubit extends Cubit<GoogleAuthState> {
   GoogleAuthCubit() : super(GoogleAuthInitial());
 
-  User user = FirebaseAuth.instance.currentUser!;
+  User? user = FirebaseAuth.instance.currentUser;
 
   bool isLoading = false;
   Future<UserCredential?> signInWithGoogle() async {
@@ -24,14 +24,16 @@ class GoogleAuthCubit extends Cubit<GoogleAuthState> {
             accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
         final userCredential =
             await FirebaseAuth.instance.signInWithCredential(credential);
-        user = userCredential.user!;
-        isLoading = true;
-        emit(GoogleAuthSuccess(user: user, isLoading: isLoading));
-        Future.delayed(const Duration(seconds: 2), () {
-          isLoading = false;
-        emit(GoogleAuthSuccess(user: user, isLoading: isLoading));
-        });
-        return userCredential;
+        if (userCredential.user != null) {
+          user = userCredential.user;
+          isLoading = true;
+          emit(GoogleAuthSuccess(user: user!, isLoading: isLoading));
+          Future.delayed(const Duration(seconds: 2), () {
+            isLoading = false;
+            emit(GoogleAuthSuccess(user: user!, isLoading: isLoading));
+          });
+          return userCredential;
+        }
       }
     } catch (e) {
       isLoading = false;

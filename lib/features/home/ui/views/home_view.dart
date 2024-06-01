@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/models/awsome_dialog_model.dart';
 import 'package:food_dash/core/utils/logic/get_user_data/get_user_data_cubit.dart';
-import 'package:food_dash/core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/utils/custom_awsome_dialog.dart';
@@ -15,29 +14,22 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var userSharedPref = context.read<SharedPrefCubit>();
-    var updateUserData = context.read<UserDataSettingCubit>();
     return BlocListener<GetUserDataCubit, GetUserDataState>(
-      listener: (context, state) {
-        if (state is GetUserDataSuccess && state.user.isNotEmpty) {
-          final userData = state.user.firstWhere((element) =>
-              element.userID == FirebaseAuth.instance.currentUser!.uid);
-
-          if (userData.isRememberMe == null) {
-            customAwsomeDialog(
-                awsomeDialogModel: AwsomeDialogModel(
-                    context: context,
-                    showCloseIcon: true,
-                    title: "Remember me",
-                    desc: "Are you want to remember this account?",
-                    btnOkOnPress: () async {
-                      await userSharedPref.setSharedPref(
-                          key: Constants.userSharedPref,
-                          value: FirebaseAuth.instance.currentUser!.uid);
-                      await updateUserData.updateUserData(
-                          fieldName: Constants.isRememberMeField,
-                          fieldValueBool: true);
-                    })).show();
-          }
+      listener: (context, state) async {
+        final token =
+            await userSharedPref.getSharedPref(key: Constants.userSharedPref);
+        if (token.isEmpty) {
+          customAwsomeDialog(
+              awsomeDialogModel: AwsomeDialogModel(
+                  context: context,
+                  showCloseIcon: true,
+                  title: "Remember me",
+                  desc: "Are you want to remember this account?",
+                  btnOkOnPress: () async {
+                    await userSharedPref.setSharedPref(
+                        key: Constants.userSharedPref,
+                        value: FirebaseAuth.instance.currentUser!.uid);
+                  })).show();
         }
       },
       child: const Scaffold(),

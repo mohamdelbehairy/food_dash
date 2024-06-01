@@ -11,19 +11,17 @@ class StoreUserDataCubit extends Cubit<StoreUserDataState> {
   StoreUserDataCubit() : super(StoreUserDataInitial());
 
   bool isLoading = false;
-  Future<void> storeUserData({
-    required String profileImage,
-    required String fullName,
-    required String email,
-    String? nickName,
-    String? dateOfBirth,
-    String? phoneNumber,
-    String? gender,
-    bool? isFacbookAuth,
-    bool? isGoogleAuth,
-    bool? isEmailAuth,
-    bool? isRememberMe,
-  }) async {
+  Future<void> storeUserData(
+      {required String profileImage,
+      required String fullName,
+      required String email,
+      String? nickName,
+      String? dateOfBirth,
+      String? phoneNumber,
+      String? gender,
+      bool? isFacbookAuth,
+      bool? isGoogleAuth,
+      bool? isEmailAuth}) async {
     emit(StoreUserDataLoading(isLoading: true));
     try {
       UserDataModel userDataModel = UserDataModel.fromJson({
@@ -37,8 +35,7 @@ class StoreUserDataCubit extends Cubit<StoreUserDataState> {
         Constants.genderField: gender,
         Constants.isFacbookAuthField: isFacbookAuth,
         Constants.isGoogleAuthField: isGoogleAuth,
-        Constants.isEmailAuthField: isEmailAuth,
-        Constants.isRememberMeField: isRememberMe
+        Constants.isEmailAuthField: isEmailAuth
       });
       await FirebaseFirestore.instance
           .collection(Constants.userCollection)
