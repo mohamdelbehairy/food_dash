@@ -14,6 +14,7 @@ class AuthProviderWays extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         CustomProviderWay(
+          
             size: size,
             onTap: () {},
             widget: const Icon(FontAwesomeIcons.facebook,

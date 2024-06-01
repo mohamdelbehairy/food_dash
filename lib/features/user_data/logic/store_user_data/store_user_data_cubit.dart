@@ -14,23 +14,31 @@ class StoreUserDataCubit extends Cubit<StoreUserDataState> {
   Future<void> storeUserData({
     required String profileImage,
     required String fullName,
-    required String nickName,
-    required String dateOfBirth,
     required String email,
-    required String phoneNumber,
-    required String gender,
+    String? nickName,
+    String? dateOfBirth,
+    String? phoneNumber,
+    String? gender,
+    bool? isFacbookAuth,
+    bool? isGoogleAuth,
+    bool? isEmailAuth,
+    bool? isRememberMe,
   }) async {
     emit(StoreUserDataLoading(isLoading: true));
     try {
       UserDataModel userDataModel = UserDataModel.fromJson({
-        'userID': FirebaseAuth.instance.currentUser!.uid,
-        'profileImage': profileImage,
-        'fullName': fullName,
-        'nickName': nickName,
-        'dateOfBirth': dateOfBirth,
-        'email': email,
-        'phoneNumber': phoneNumber,
-        'gender': gender
+        Constants.userField: FirebaseAuth.instance.currentUser!.uid,
+        Constants.profileImageField: profileImage,
+        Constants.fullNameField: fullName,
+        Constants.nickNameField: nickName,
+        Constants.dateOfBirthField: dateOfBirth,
+        Constants.emailField: email,
+        Constants.phoneNumberField: phoneNumber,
+        Constants.genderField: gender,
+        Constants.isFacbookAuthField: isFacbookAuth,
+        Constants.isGoogleAuthField: isGoogleAuth,
+        Constants.isEmailAuthField: isEmailAuth,
+        Constants.isRememberMeField: isRememberMe
       });
       await FirebaseFirestore.instance
           .collection(Constants.userCollection)
