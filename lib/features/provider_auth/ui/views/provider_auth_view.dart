@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/core/models/modal_progress_model.dart';
 import 'package:food_dash/core/utils/app_colors.dart';
 import 'package:food_dash/core/utils/app_router.dart';
+import 'package:food_dash/core/utils/widgets/custom_modal_progress_hud.dart';
 import 'package:go_router/go_router.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
@@ -32,8 +33,7 @@ class ProviderAuthView extends StatelessWidget {
                 fullName: state.user.displayName!,
                 email: state.user.email!,
                 phoneNumber: state.user.phoneNumber,
-                isGoogleAuth: true,
-                isRememberMe: false);
+                isGoogleAuth: true);
           }
           isLoading.isLoading = state.isLoading;
           Future.delayed(const Duration(seconds: 2), () async {
@@ -44,15 +44,15 @@ class ProviderAuthView extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return ModalProgressHUD(
-            inAsyncCall: isLoading.isLoading,
-            offset: Offset(size.width * 0.45, size.height * .55),
-            progressIndicator:
-                CircularProgressIndicator(color: AppColors.mainColor),
-            opacity: 0.2,
-            color: AppColors.mainColor,
-            child: Scaffold(
-                appBar: AppBar(), body: ProviderAuthViewBody(size: size)));
+        return CustomModalprogressHUD(
+            modalProgressModel: ModalProgressModel(
+                inAsyncCall: isLoading.isLoading,
+                offset: Offset(size.width * 0.45, size.height * .55),
+                opacity: 0.2,
+                progressIndicatorColor: AppColors.mainColor,
+                modalprogressColor: AppColors.mainColor,
+                child: Scaffold(
+                    appBar: AppBar(), body: ProviderAuthViewBody(size: size))));
       },
     );
   }

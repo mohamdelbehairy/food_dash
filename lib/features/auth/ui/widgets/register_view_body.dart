@@ -1,44 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/features/auth/logic/email/email_register/email_register_cubit.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/custom_snack_bar_item.dart';
-import 'register_view_section.dart';
+import '../../../../constants.dart';
+import '../../../../core/models/modal_progress_model.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
+import '../../../../core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
+import '../../../../core/utils/widgets/custom_modal_progress_hud.dart';
+import '../../../user_data/logic/store_user_data/store_user_data_cubit.dart';
+import '../../logic/google_auth/google_auth_cubit.dart';
+import 'register_view_details.dart';
 
-class RegisterViewBody extends StatelessWidget {
-  const RegisterViewBody({super.key, required this.size});
+class RegisterrViewBody extends StatelessWidget {
+  const RegisterrViewBody(
+      {super.key,
+      required this.isUserData,
+      required this.storeUserData,
+      required this.isLoading,
+      required this.setSharedPref,
+      required this.size});
+
+  final UserDataSettingCubit isUserData;
+  final StoreUserDataCubit storeUserData;
+  final GoogleAuthCubit isLoading;
+  final SharedPrefCubit setSharedPref;
   final Size size;
 
   @override
   Widget build(BuildContext context) {
-    var isLoading = context.read<EmailRegisterCubit>().isLoading;
-    return BlocConsumer<EmailRegisterCubit, EmailRegisterState>(
-      listener: (context, state) {
-        if (state is EmailRegisterSuccess) {
-          debugPrint('تسجيل دخول جديد ناجح');
-          GoRouter.of(context).go(AppRouter.userDataView);
-        }
-        if (state is EmailRegisterLoading) {
-          isLoading = state.isLoading;
-        }
-        if (state is EmailRegisterFailure &&
-            state.errorMessage == 'weak-password') {
-          customSnackBarItem(context, Text('weak-password'));
-        }
-        if (state is EmailRegisterFailure &&
-            state.errorMessage == 'email-already-in-use') {
-          customSnackBarItem(context, Text('email-already-in-use'));
+    return BlocConsumer<GoogleAuthCubit, GoogleAuthState>(
+      listener: (context, state) async {
+        if (state is GoogleAuthSuccess && state.isLoading) {
+          if (!await isUserData.isUserData()) {
+            await storeUserData.storeUserData(
+                profileImage: state.user.photoURL!,
+                fullName: state.user.displayName!,
+                email: state.user.email!,
+                phoneNumber: state.user.phoneNumber,
+                isGoogleAuth: true);
+          }
+          isLoading.isLoading = state.isLoading;
+          await setSharedPref.setSharedPref(
+              key: Constants.useAppFirstTime, value: 'done');
         }
       },
       builder: (context, state) {
-        return SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
-            child: RegisterViewSection(size: size, isLoading: isLoading),
-          ),
+        return CustomModalprogressHUD(
+          modalProgressModel: ModalProgressModel(
+              inAsyncCall: isLoading.isLoading,
+              offset: Offset(size.width * 0.45, size.height * .55),
+              opacity: 0.2,
+              progressIndicatorColor: AppColors.mainColor,
+              modalprogressColor: AppColors.mainColor,
+              child: Scaffold(
+                  appBar: AppBar(), body: RegisterViewDetails(size: size))),
         );
       },
     );

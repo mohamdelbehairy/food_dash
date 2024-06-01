@@ -50,11 +50,11 @@ class CustomButtonItem extends StatelessWidget {
             ),
         child: Center(
             child: isLoading
-                ? CustomCircleIndicator()
+                ? SizedBox(
+                    height: 30, width: 30, child: CustomCircleIndicator())
                 : Text(buttonName,
                     style: textStyle ?? AppStyles.styleExtrallLight16)),
       ),
     );
   }
 }
-
