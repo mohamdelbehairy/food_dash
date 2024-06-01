@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/constants.dart';
-import 'package:food_dash/core/utils/logic/is_user_data/is_user_data_cubit.dart';
+import 'package:food_dash/core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
 import 'package:food_dash/core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubit.dart';
 import 'package:food_dash/features/auth/ui/widgets/login_view_section.dart';
@@ -18,7 +18,7 @@ class LoginvViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isLoading = context.read<EmailLoginCubit>().isLoading;
-    var isUserData = context.read<IsUserDataCubit>().isUserData();
+    var isUserData = context.read<UserDataSettingCubit>().isUserData();
     var setSharedPref = context.read<SharedPrefCubit>();
 
     return BlocConsumer<EmailLoginCubit, EmailLoginState>(

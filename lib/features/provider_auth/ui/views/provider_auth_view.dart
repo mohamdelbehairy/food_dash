@@ -5,7 +5,9 @@ import 'package:food_dash/core/utils/app_router.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-import '../../../../core/utils/logic/is_user_data/is_user_data_cubit.dart';
+import '../../../../constants.dart';
+import '../../../../core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
+import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import '../../../auth/logic/google_auth/google_auth_cubit.dart';
 import '../../../user_data/logic/store_user_data/store_user_data_cubit.dart';
 import '../widgets/provider_auth_view_body.dart';
@@ -17,8 +19,9 @@ class ProviderAuthView extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
     var storeUserData = context.read<StoreUserDataCubit>();
-    var isUserData = context.read<IsUserDataCubit>();
+    var isUserData = context.read<UserDataSettingCubit>();
     var isLoading = context.read<GoogleAuthCubit>();
+    var setSharedPref = context.read<SharedPrefCubit>();
 
     return BlocConsumer<GoogleAuthCubit, GoogleAuthState>(
       listener: (context, state) async {
@@ -28,10 +31,14 @@ class ProviderAuthView extends StatelessWidget {
                 profileImage: state.user.photoURL!,
                 fullName: state.user.displayName!,
                 email: state.user.email!,
-                phoneNumber: state.user.phoneNumber);
+                phoneNumber: state.user.phoneNumber,
+                isGoogleAuth: true,
+                isRememberMe: false);
           }
           isLoading.isLoading = state.isLoading;
-          Future.delayed(const Duration(seconds: 2), () {
+          Future.delayed(const Duration(seconds: 2), () async {
+            await setSharedPref.setSharedPref(
+                key: Constants.useAppFirstTime, value: 'done');
             GoRouter.of(context).push(AppRouter.homeView);
           });
         }

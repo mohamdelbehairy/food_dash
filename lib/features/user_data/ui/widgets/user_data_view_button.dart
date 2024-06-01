@@ -62,17 +62,19 @@ class UserDataViewButton extends StatelessWidget {
               }
 
               await storeUserData.storeUserData(
-                  profileImage: imageUrl.isNotEmpty
-                      ? imageUrl
-                      : Constants.userDataViewImageUrl,
-                  fullName: fullName.text,
-                  nickName: nickName.text,
-                  dateOfBirth: dateOfBirth.text,
-                  email: email.text.isNotEmpty
-                      ? email.text
-                      : FirebaseAuth.instance.currentUser!.email!,
-                  phoneNumber: phoneNumber.text,
-                  gender: gender.text);
+                profileImage: imageUrl.isNotEmpty
+                    ? imageUrl
+                    : Constants.userDataViewImageUrl,
+                fullName: fullName.text,
+                nickName: nickName.text,
+                dateOfBirth: dateOfBirth.text,
+                email: email.text.isNotEmpty
+                    ? email.text
+                    : FirebaseAuth.instance.currentUser!.email!,
+                phoneNumber: phoneNumber.text,
+                gender: gender.text,
+                isEmailAuth: true,
+              );
             }
           }),
     );

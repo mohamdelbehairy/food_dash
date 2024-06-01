@@ -1,6 +1,22 @@
 class Constants {
   // firebase
+  // - collections
   static const userCollection = 'users';
+
+  // - fields
+  static const userField = 'userID';
+  static const profileImageField = 'profileImage';
+  static const fullNameField = 'fullName';
+  static const nickNameField = 'nickName';
+  static const dateOfBirthField = 'dateOfBirth';
+  static const emailField = 'email';
+  static const phoneNumberField = 'phoneNumber';
+  static const genderField = 'gender';
+  static const isFacbookAuthField = 'isFacbookAuth';
+  static const isGoogleAuthField = 'isGoogleAuth';
+  static const isEmailAuthField = 'isEmailAuth';
+  static const isRememberMeField = 'isRememberMe';
+ 
 
   // urls
   static const userDataViewImageUrl =

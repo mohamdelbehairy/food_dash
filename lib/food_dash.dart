@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/core/utils/logic/get_user_data/get_user_data_cubit.dart';
 import 'package:food_dash/features/auth/logic/google_auth/google_auth_cubit.dart';
 
 import 'core/utils/app_router.dart';
 import 'core/utils/app_system_ui_style.dart';
-import 'core/utils/logic/is_user_data/is_user_data_cubit.dart';
+import 'core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
 import 'core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import 'features/auth/logic/auth_setting/auth_settings_cubit.dart';
 import 'features/user_data/logic/store_user_data/store_user_data_cubit.dart';
@@ -21,9 +22,10 @@ class FoodDash extends StatelessWidget {
         providers: [
           BlocProvider(create: (context) => AuthSettingsCubit()),
           BlocProvider(create: (context) => SharedPrefCubit()),
-          BlocProvider(create: (constext) => IsUserDataCubit()..isUserData()),
+          BlocProvider(create: (constext) => UserDataSettingCubit()..isUserData()),
           BlocProvider(create: (context) => GoogleAuthCubit()),
           BlocProvider(create: (context) => StoreUserDataCubit()),
+          BlocProvider(create: (context) => GetUserDataCubit()..getUserData())
         ],
         child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
