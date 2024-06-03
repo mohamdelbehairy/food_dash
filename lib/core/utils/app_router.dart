@@ -21,7 +21,8 @@ abstract class AppRouter {
   static const userDataView = '/userDataView';
   static const verificationView = '/verificationView';
   static const homeView = '/homeView';
-  static const phoneNumberView = '/phoneNumberView';
+  static const registerPhoneNumber = '/registerPhoneNumber';
+  static const loginPhoneNumber = '/loginPhoneNumber';
 
   static final GlobalKey<NavigatorState> navigatorState =
       GlobalKey<NavigatorState>();
@@ -43,6 +44,13 @@ abstract class AppRouter {
         path: verificationView,
         builder: (context, state) => VerificationView()),
     GoRoute(path: homeView, builder: (context, state) => HomeView()),
-    GoRoute(path: phoneNumberView,builder: (context,state)=> PhoneNumberView())
+    GoRoute(
+        path: registerPhoneNumber,
+        builder: (context, state) =>
+            PhoneNumberView(text: 'Create New Account')),
+    GoRoute(
+        path: loginPhoneNumber,
+        builder: (context, state) =>
+            PhoneNumberView(text: 'Login to Your Account')),
   ]);
 }

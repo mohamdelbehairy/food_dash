@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/core/utils/app_router.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/widgets/custom_button_item.dart';
 import '../../logic/remember_me/remember_me_cubit.dart';
@@ -9,7 +11,8 @@ class PhoneNumberViewColumnTwo extends StatelessWidget {
   const PhoneNumberViewColumnTwo(
       {super.key,
       required this.size,
-      required this.number, required this.controller});
+      required this.number,
+      required this.controller});
 
   final Size size;
   final String number;
@@ -18,12 +21,7 @@ class PhoneNumberViewColumnTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isClick = context.read<RememberMeCubit>();
-    return BlocConsumer<RememberMeCubit, RememberMeState>(
-      listener: (context, state) {
-        if (state is RememberMeSuccess) {
-          isClick.isClick = state.isClick;
-        }
-      },
+    return BlocBuilder<RememberMeCubit, RememberMeState>(
       builder: (context, state) {
         return Column(
           children: [
@@ -33,10 +31,11 @@ class PhoneNumberViewColumnTwo extends StatelessWidget {
                 size: size,
                 buttonName: 'Sign up',
                 onTap: () {
-                 if(controller.text.isNotEmpty) {
-                   debugPrint('number: $number');
+                  if (controller.text.isNotEmpty) {
+                    debugPrint('number: $number');
                     debugPrint('number: ${controller.text}');
-                 }
+                  }
+                  GoRouter.of(context).push(AppRouter.optPhoneNumberView);
                 })
           ],
         );

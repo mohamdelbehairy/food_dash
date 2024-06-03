@@ -32,12 +32,7 @@ class LoginViewComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isClick = context.read<RememberMeCubit>();
-    return BlocConsumer<RememberMeCubit, RememberMeState>(
-      listener: (context, state) {
-        if (state is RememberMeSuccess) {
-          isClick.isClick = state.isClick;
-        }
-      },
+    return BlocBuilder<RememberMeCubit, RememberMeState>(
       builder: (context, state) {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -66,7 +61,7 @@ class LoginViewComponent extends StatelessWidget {
                 size: size,
                 icon: Icons.phone,
                 onTap: () =>
-                    GoRouter.of(context).push(AppRouter.phoneNumberView)),
+                    GoRouter.of(context).push(AppRouter.loginPhoneNumber)),
             const SizedBox(height: 16),
             AlreadyHaveAccountOrNot(
                 text: 'Don\'t have an account?',

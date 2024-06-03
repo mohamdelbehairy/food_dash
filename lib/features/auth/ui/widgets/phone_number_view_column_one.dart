@@ -14,12 +14,14 @@ class PhoneNumberViewColumnOne extends StatelessWidget {
       required this.size,
       required this.isValue,
       required this.controller,
-      this.onChangedPhoneNumber});
+      this.onChangedPhoneNumber,
+      required this.text});
 
   final Size size;
   final bool isValue;
   final TextEditingController controller;
   final Function(PhoneNumber)? onChangedPhoneNumber;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +30,17 @@ class PhoneNumberViewColumnOne extends StatelessWidget {
         const SizedBox(height: 90),
         drawSvgIconColored('app_icon1', height: 100, width: 100),
         const SizedBox(height: 32),
-        CustomTextItem(
-            style: AppStyles.styleSemiBold28, text: 'Create New Account'),
+        CustomTextItem(style: AppStyles.styleSemiBold28, text: text),
         const SizedBox(height: 28),
         PhoneNumberTextField(
             size: size,
             isLoading: false,
             textFieldModel: TextFieldModel(
                 hintText: '000 000 000',
+                fillColor: isValue
+                    ? AppColors.textFieldFocusColor
+                    : const Color(0xfffafbfb),
+                borderSideColor: isValue ? AppColors.mainColor:Colors.transparent,
                 suffixIconColor:
                     isValue ? Colors.black : AppColors.textFieldHintColor,
                 controller: controller,

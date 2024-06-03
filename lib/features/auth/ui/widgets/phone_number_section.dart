@@ -16,14 +16,15 @@ class PhoneNumberSection extends StatelessWidget {
       required this.isValue,
       required this.controller,
       this.onChangedPhoneNumber,
-      required this.number});
+      required this.number,
+      required this.text});
 
   final Size size;
   final bool isValue;
   final TextEditingController controller;
   final Function(PhoneNumber)? onChangedPhoneNumber;
 
-  final String number;
+  final String number, text;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,7 @@ class PhoneNumberSection extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         PhoneNumberViewColumnOne(
+            text: text,
             onChangedPhoneNumber: onChangedPhoneNumber,
             size: size,
             isValue: isValue,
@@ -45,9 +47,17 @@ class PhoneNumberSection extends StatelessWidget {
             onTap: () => GoRouter.of(context).push(AppRouter.registerView)),
         const SizedBox(height: 16),
         AlreadyHaveAccountOrNot(
-            text: 'Don\'t have an account?',
-            textButton: 'Sign up',
-            onTap: () => GoRouter.of(context).push(AppRouter.registerView))
+            text: text == 'Create New Account'
+                ? 'Already have an account?'
+                : 'Don\'t have an account?',
+            textButton: text == 'Create New Account' ? 'Sign in': 'Sign up',
+            onTap: () {
+              if (text == 'Create New Account') {
+                GoRouter.of(context).push(AppRouter.loginPhoneNumber);
+              } else {
+                GoRouter.of(context).push(AppRouter.registerPhoneNumber);
+              }
+            })
       ],
     );
   }

@@ -55,7 +55,7 @@ class RegisterViewComponent extends StatelessWidget {
         AuthProviderWays(
             size: widget.size,
             icon: Icons.phone,
-            onTap: () => GoRouter.of(context).push(AppRouter.phoneNumberView)),
+            onTap: () => GoRouter.of(context).push(AppRouter.registerPhoneNumber)),
         const SizedBox(height: 16),
         AlreadyHaveAccountOrNot(
             text: 'Already have an account?',

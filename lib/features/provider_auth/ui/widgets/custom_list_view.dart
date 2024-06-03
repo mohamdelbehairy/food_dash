@@ -34,7 +34,7 @@ class CustomListView extends StatelessWidget {
                 await signInWithGoogle.signInWithGoogle();
               } else {
                 debugPrint('Continue with Phone');
-                GoRouter.of(context).push(AppRouter.phoneNumberView);
+                GoRouter.of(context).push(AppRouter.registerPhoneNumber);
               }
             },
           );

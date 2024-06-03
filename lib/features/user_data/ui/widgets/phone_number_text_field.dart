@@ -38,6 +38,11 @@ class PhoneNumberTextField extends StatelessWidget {
                 fontSize: size.width * .035),
             decoration: InputDecoration(
                 border: InputBorder.none,
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(size.width * .02),
+                    borderSide: BorderSide(
+                        color: textFieldModel.borderSideColor ??
+                            Colors.transparent)),
                 contentPadding: EdgeInsets.symmetric(vertical: 18),
                 hintText: textFieldModel.hintText,
                 hintStyle: AppStyles.styleReqular14

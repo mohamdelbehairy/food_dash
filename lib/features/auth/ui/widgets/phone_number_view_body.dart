@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'phone_number_section.dart';
 
 class PhoneNumberViewBody extends StatefulWidget {
-  const PhoneNumberViewBody({super.key, required this.size});
+  const PhoneNumberViewBody({super.key, required this.size, required this.text});
   final Size size;
+  final String text;
 
   @override
   State<PhoneNumberViewBody> createState() => _PhoneNumberViewBodyState();
@@ -30,6 +31,7 @@ class _PhoneNumberViewBodyState extends State<PhoneNumberViewBody> {
         padding: EdgeInsets.only(top: 24),
         physics: const NeverScrollableScrollPhysics(),
         child: PhoneNumberSection(
+          text: widget.text,
             number: number,
             size: widget.size,
             isValue: isValue,
