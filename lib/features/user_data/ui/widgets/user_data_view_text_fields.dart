@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/models/text_field_model.dart';
@@ -41,11 +42,15 @@ class UserDataViewTextFields extends StatelessWidget {
                 enabled: !isLoading)),
         const SizedBox(height: 20),
         DateOfBirthTextField(dateOfBirth: dateOfBirth, isLoading: isLoading),
-        const SizedBox(height: 20),
-        UserDataPhoneNumberTextField(
-            size: size, phoneNumber: phoneNumber, isLoading: isLoading),
-        const SizedBox(height: 20),
-        EmailTextField(email: email, isLoading: isLoading),
+        if (FirebaseAuth.instance.currentUser!.phoneNumber == null)
+          const SizedBox(height: 20),
+        if (FirebaseAuth.instance.currentUser!.phoneNumber == null)
+          UserDataPhoneNumberTextField(
+              size: size, phoneNumber: phoneNumber, isLoading: isLoading),
+        if (FirebaseAuth.instance.currentUser!.email == null)
+          const SizedBox(height: 20),
+        if (FirebaseAuth.instance.currentUser!.email == null)
+          EmailTextField(email: email, isLoading: isLoading),
         const SizedBox(height: 20),
         GenderTextField(gender: gender, size: size, isLoading: isLoading),
       ],

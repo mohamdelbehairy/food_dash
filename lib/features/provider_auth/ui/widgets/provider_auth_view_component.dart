@@ -11,18 +11,16 @@ import 'provider_auth_view_list_view.dart';
 import '../../../../core/utils/widgets/custom_text_item.dart';
 
 class ProviderAuthViewComponent extends StatelessWidget {
-  const ProviderAuthViewComponent(
-      {super.key, required this.size});
+  const ProviderAuthViewComponent({super.key, required this.size});
 
   final Size size;
- 
 
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: 24),
+        SizedBox(height: size.width * .02),
         ProviderAuthViewImage(size: size),
         const CustomTextItem(
             text: 'Let\'s you in', style: AppStyles.styleSemiBold40),

@@ -15,12 +15,14 @@ class Constants {
   static const isFacbookAuthField = 'isFacbookAuth';
   static const isGoogleAuthField = 'isGoogleAuth';
   static const isEmailAuthField = 'isEmailAuth';
+  static const isPhoneAuthField = 'isPhoneAuth';
 
   // urls
   static const userDataViewImageUrl =
       'https://t4.ftcdn.net/jpg/04/10/43/77/360_F_410437733_hdq4Q3QOH9uwh0mcqAhRFzOKfrCR24Ta.jpg';
-  
+
   // shared prefs
   static const userSharedPref = 'userID';
   static const useAppFirstTime = 'userAppFirstTime';
+  static const mobileInfo = 'mobileInfo';
 }

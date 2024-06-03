@@ -1,20 +1,21 @@
 class UserDataModel {
-  final String userID, profileImage, fullName, email;
-  String? nickName, dateOfBirth, phoneNumber, gender;
-  bool? isFacbookAuth, isGoogleAuth, isEmailAuth;
+  final String userID, profileImage, fullName;
+  String? email, nickName, dateOfBirth, phoneNumber, gender;
+  bool? isFacbookAuth, isGoogleAuth, isEmailAuth, isPhoneAuth;
 
   UserDataModel(
       {required this.userID,
       required this.profileImage,
       required this.fullName,
-      required this.email,
+      this.email,
       this.nickName,
       this.dateOfBirth,
       this.phoneNumber,
       this.gender,
       this.isFacbookAuth,
       this.isGoogleAuth,
-      this.isEmailAuth});
+      this.isEmailAuth,
+      this.isPhoneAuth});
 
   factory UserDataModel.fromJson(jsonData) {
     return UserDataModel(
@@ -28,7 +29,8 @@ class UserDataModel {
         gender: jsonData['gender'],
         isFacbookAuth: jsonData['isFacbookAuth'],
         isGoogleAuth: jsonData['isGoogleAuth'],
-        isEmailAuth: jsonData['isEmailAuth']);
+        isEmailAuth: jsonData['isEmailAuth'],
+        isPhoneAuth: jsonData['isPhoneAuth']);
   }
 
   Map<String, dynamic> toJson() {
@@ -43,7 +45,8 @@ class UserDataModel {
       'gender': gender,
       'isFacbookAuth': isFacbookAuth,
       'isGoogleAuth': isGoogleAuth,
-      'isEmailAuth': isEmailAuth
+      'isEmailAuth': isEmailAuth,
+      'isPhoneAuth': isPhoneAuth
     };
   }
 }

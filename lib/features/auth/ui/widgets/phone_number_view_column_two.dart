@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/core/utils/app_router.dart';
-import 'package:go_router/go_router.dart';
+import 'package:food_dash/features/auth/logic/phone_number/phone_number_cubit.dart';
 
 import '../../../../core/utils/widgets/custom_button_item.dart';
 import '../../logic/remember_me/remember_me_cubit.dart';
@@ -12,15 +11,19 @@ class PhoneNumberViewColumnTwo extends StatelessWidget {
       {super.key,
       required this.size,
       required this.number,
-      required this.controller});
+      required this.controller,
+      required this.isLoading});
 
   final Size size;
   final String number;
   final TextEditingController controller;
+  final PhoneNumberCubit isLoading;
 
   @override
   Widget build(BuildContext context) {
     var isClick = context.read<RememberMeCubit>();
+    var signiInWithPhoneNumber = context.read<PhoneNumberCubit>();
+
     return BlocBuilder<RememberMeCubit, RememberMeState>(
       builder: (context, state) {
         return Column(
@@ -28,14 +31,14 @@ class PhoneNumberViewColumnTwo extends StatelessWidget {
             RememberMeItem(isClick: isClick),
             const SizedBox(height: 16),
             CustomButtonItem(
+                isLoading: isLoading.isLoading,
                 size: size,
                 buttonName: 'Sign up',
-                onTap: () {
+                onTap: () async {
                   if (controller.text.isNotEmpty) {
-                    debugPrint('number: $number');
-                    debugPrint('number: ${controller.text}');
+                    await signiInWithPhoneNumber.signInWithPhoneNumber(
+                        phoneNumber: number);
                   }
-                  GoRouter.of(context).push(AppRouter.optPhoneNumberView);
                 })
           ],
         );
