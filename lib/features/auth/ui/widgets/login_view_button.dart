@@ -26,7 +26,7 @@ class LoginViewButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var loginRegister = context.read<EmailLoginCubit>();
+    var emailLogin = context.read<EmailLoginCubit>();
     var userSharedPref = context.read<SharedPrefCubit>();
     return CustomButtonItem(
         size: size,
@@ -35,7 +35,7 @@ class LoginViewButton extends StatelessWidget {
         onTap: () async {
           if (globalKey.currentState!.validate()) {
             globalKey.currentState!.save();
-            await loginRegister.emailLogin(
+            await emailLogin.emailLogin(
                 email: email.text, password: password.text);
             if (isClick.isClick) {
               await userSharedPref.setSharedPref(

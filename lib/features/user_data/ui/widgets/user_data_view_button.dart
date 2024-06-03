@@ -44,7 +44,11 @@ class UserDataViewButton extends StatelessWidget {
     return BlocListener<StoreUserDataCubit, StoreUserDataState>(
       listener: (context, state) {
         if (state is StoreUserDataSuccess) {
-          GoRouter.of(context).push(AppRouter.verificationView);
+          if (FirebaseAuth.instance.currentUser!.email != null) {
+            GoRouter.of(context).push(AppRouter.verificationView);
+          } else {
+            GoRouter.of(context).push(AppRouter.homeView);
+          }
         }
       },
       child: CustomButtonItem(
@@ -70,10 +74,18 @@ class UserDataViewButton extends StatelessWidget {
                 dateOfBirth: dateOfBirth.text,
                 email: email.text.isNotEmpty
                     ? email.text
-                    : FirebaseAuth.instance.currentUser!.email!,
-                phoneNumber: phoneNumber.text,
+                    : FirebaseAuth.instance.currentUser?.email,
+                phoneNumber: phoneNumber.text.isNotEmpty
+                    ? phoneNumber.text
+                    : FirebaseAuth.instance.currentUser?.phoneNumber,
                 gender: gender.text,
-                isEmailAuth: true,
+                isEmailAuth: FirebaseAuth.instance.currentUser?.email != null
+                    ? true
+                    : null,
+                isPhoneAuth:
+                    FirebaseAuth.instance.currentUser?.phoneNumber != null
+                        ? true
+                        : null,
               );
             }
           }),

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/constants.dart';
@@ -37,10 +38,15 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
             await getSharedPref.getSharedPref(key: Constants.userSharedPref);
         final userAppFirstTime =
             await getSharedPref.getSharedPref(key: Constants.useAppFirstTime);
-        if (token.isNotEmpty && userAppFirstTime.isNotEmpty) {
+        if (token.isNotEmpty &&
+            userAppFirstTime.isNotEmpty &&
+            ((FirebaseAuth.instance.currentUser!.phoneNumber != null &&
+                    FirebaseAuth
+                        .instance.currentUser!.phoneNumber!.isNotEmpty) ||
+                FirebaseAuth.instance.currentUser!.emailVerified)) {
           GoRouter.of(context).go(AppRouter.homeView);
         } else if (token.isEmpty && userAppFirstTime.isNotEmpty) {
-           GoRouter.of(context).go(AppRouter.providerAuthView);
+          GoRouter.of(context).go(AppRouter.providerAuthView);
         } else {
           GoRouter.of(context).go(AppRouter.onboardingView);
         }
