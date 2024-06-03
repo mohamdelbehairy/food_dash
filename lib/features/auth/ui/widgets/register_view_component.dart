@@ -43,7 +43,6 @@ class RegisterViewComponent extends StatelessWidget {
             email: email,
             password: password,
             confirmPassword: confirmPassword),
-        // RememberMeItem(),
         const SizedBox(height: 16),
         RegisterViewButton(
             isLoading: widget.isLoading,
@@ -53,7 +52,10 @@ class RegisterViewComponent extends StatelessWidget {
             password: password),
         DividerTextitem(
             dividerSize: widget.size.width * .25, text: 'or continue with'),
-        AuthProviderWays(size: widget.size),
+        AuthProviderWays(
+            size: widget.size,
+            icon: Icons.phone,
+            onTap: () => GoRouter.of(context).push(AppRouter.phoneNumberView)),
         const SizedBox(height: 16),
         AlreadyHaveAccountOrNot(
             text: 'Already have an account?',

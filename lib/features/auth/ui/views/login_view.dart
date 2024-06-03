@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubit.dart';
 import 'package:food_dash/features/auth/logic/google_auth/google_auth_cubit.dart';
-import 'package:food_dash/features/auth/logic/remember_me/remember_me_cubit.dart';
 
 import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import '../../../../core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
@@ -20,11 +19,8 @@ class LoginView extends StatelessWidget {
     var isLoading = context.read<GoogleAuthCubit>();
     var setSharedPref = context.read<SharedPrefCubit>();
 
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (constext) => EmailLoginCubit()),
-        BlocProvider(create: (context) => RememberMeCubit()),
-      ],
+    return BlocProvider(
+      create: (context) => EmailLoginCubit(),
       child: LoginViewBody(
           isUserData: isUserData,
           storeUserData: storeUserData,

@@ -11,8 +11,8 @@ import '../../../user_data/logic/store_user_data/store_user_data_cubit.dart';
 import '../../logic/google_auth/google_auth_cubit.dart';
 import 'register_view_details.dart';
 
-class RegisterrViewBody extends StatelessWidget {
-  const RegisterrViewBody(
+class RegisterViewBody extends StatelessWidget {
+  const RegisterViewBody(
       {super.key,
       required this.isUserData,
       required this.storeUserData,

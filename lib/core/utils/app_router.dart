@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_dash/features/auth/ui/views/login_view.dart';
 import 'package:food_dash/features/auth/ui/views/opt_phone_number_view.dart';
+import 'package:food_dash/features/auth/ui/views/phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/register_view.dart';
 import 'package:food_dash/features/home/ui/views/home_view.dart';
 import 'package:food_dash/features/onboarding/ui/views/onboarding_screen.dart';
@@ -20,6 +21,7 @@ abstract class AppRouter {
   static const userDataView = '/userDataView';
   static const verificationView = '/verificationView';
   static const homeView = '/homeView';
+  static const phoneNumberView = '/phoneNumberView';
 
   static final GlobalKey<NavigatorState> navigatorState =
       GlobalKey<NavigatorState>();
@@ -41,5 +43,6 @@ abstract class AppRouter {
         path: verificationView,
         builder: (context, state) => VerificationView()),
     GoRoute(path: homeView, builder: (context, state) => HomeView()),
+    GoRoute(path: phoneNumberView,builder: (context,state)=> PhoneNumberView())
   ]);
 }

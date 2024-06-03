@@ -20,7 +20,7 @@ class RegisterView extends StatelessWidget {
 
     return BlocProvider(
         create: (context) => EmailRegisterCubit(),
-        child: RegisterrViewBody(
+        child: RegisterViewBody(
             isUserData: isUserData,
             storeUserData: storeUserData,
             isLoading: isLoading,
