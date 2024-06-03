@@ -21,6 +21,7 @@ class PhoneNumberTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(size.width * .02),
         child: IntlPhoneField(
             enabled: !isLoading,
+            validator: textFieldModel.phoneNumberValidator,
             flagsButtonPadding: EdgeInsets.only(left: isLoading ? 28 : 0),
             onChanged: textFieldModel.onChangedPhoneNumber,
             initialCountryCode: 'EG',
@@ -29,15 +30,15 @@ class PhoneNumberTextField extends StatelessWidget {
             dropdownIcon:
                 Icon(Icons.expand_more, color: textFieldModel.suffixIconColor),
             dropdownTextStyle: TextStyle(
-              color: textFieldModel.suffixIconColor,
-              fontWeight: FontWeight.w500,
-            ),
+                color: textFieldModel.suffixIconColor,
+                fontWeight: FontWeight.w500),
             style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
                 fontSize: size.width * .035),
             decoration: InputDecoration(
                 border: InputBorder.none,
+                contentPadding: EdgeInsets.symmetric(vertical: 18),
                 hintText: textFieldModel.hintText,
                 hintStyle: AppStyles.styleReqular14
                     .copyWith(color: AppColors.textFieldHintColor),

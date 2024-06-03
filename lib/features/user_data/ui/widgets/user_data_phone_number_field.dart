@@ -29,17 +29,18 @@ class _UserDataPhoneNumberTextFieldState
         size: widget.size,
         isLoading: widget.isLoading,
         textFieldModel: TextFieldModel(
-            keyboardType: TextInputType.emailAddress,
-            controller: widget.phoneNumber,
-            hintText: '000 000 000',
-            suffixIconColor:
-                isValue ? Colors.black : AppColors.textFieldHintColor,
-            onChangedPhoneNumber: (phoneNumber) {
-              setState(() {
-                isValue = phoneNumber.number.isNotEmpty;
-              });
+          keyboardType: TextInputType.emailAddress,
+          controller: widget.phoneNumber,
+          hintText: '000 000 000',
+          suffixIconColor:
+              isValue ? Colors.black : AppColors.textFieldHintColor,
+          onChangedPhoneNumber: (phoneNumber) {
+            setState(() {
+              isValue = phoneNumber.number.isNotEmpty;
+            });
 
-              debugPrint(phoneNumber.completeNumber);
-            }));
+            debugPrint(phoneNumber.completeNumber);
+          },
+        ));
   }
 }

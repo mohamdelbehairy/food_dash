@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
@@ -13,6 +15,7 @@ class TextFieldModel {
   String? Function(String?)? validator;
   final Function()? suffixIconFunction;
   final Function(PhoneNumber)? onChangedPhoneNumber;
+  FutureOr<String?> Function(PhoneNumber?)? phoneNumberValidator;
 
   TextFieldModel(
       {required this.hintText,
@@ -29,5 +32,6 @@ class TextFieldModel {
       this.validator,
       this.suffixIconFunction,
       this.suffixIconColor,
-      this.onChangedPhoneNumber});
+      this.onChangedPhoneNumber,
+      this.phoneNumberValidator});
 }

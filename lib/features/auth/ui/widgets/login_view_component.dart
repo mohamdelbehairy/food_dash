@@ -62,7 +62,11 @@ class LoginViewComponent extends StatelessWidget {
                 globalKey: globalKey),
             DividerTextitem(
                 dividerSize: size.width * .25, text: 'or continue with'),
-            AuthProviderWays(size: size),
+            AuthProviderWays(
+                size: size,
+                icon: Icons.phone,
+                onTap: () =>
+                    GoRouter.of(context).push(AppRouter.phoneNumberView)),
             const SizedBox(height: 16),
             AlreadyHaveAccountOrNot(
                 text: 'Don\'t have an account?',

@@ -7,8 +7,11 @@ import '../../../../core/utils/widgets/custom_provider_way.dart';
 import '../../logic/google_auth/google_auth_cubit.dart';
 
 class AuthProviderWays extends StatelessWidget {
-  const AuthProviderWays({super.key, required this.size});
+  const AuthProviderWays(
+      {super.key, required this.size, required this.icon, required this.onTap});
   final Size size;
+  final IconData icon;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +29,7 @@ class AuthProviderWays extends StatelessWidget {
             onTap: () async => signInWithGoogle.signInWithGoogle(),
             widget: Image.asset(Assets.imagesGoogleIcon, width: 25)),
         CustomProviderWay(
-            size: size, onTap: () {}, widget: const Icon(Icons.phone, size: 22))
+            size: size, onTap: onTap, widget: Icon(icon, size: 22))
       ],
     );
   }
