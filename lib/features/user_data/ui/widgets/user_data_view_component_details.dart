@@ -5,7 +5,7 @@ import 'user_data_view_button.dart';
 import 'user_data_view_image_item.dart';
 import 'user_data_view_text_fields.dart';
 
-class UserDataViewComponentDetails extends StatelessWidget {
+class UserDataViewComponentDetails extends StatefulWidget {
   const UserDataViewComponentDetails(
       {super.key,
       required this.isLoading,
@@ -31,31 +31,50 @@ class UserDataViewComponentDetails extends StatelessWidget {
   final GlobalKey<FormState> globalKey;
 
   @override
+  State<UserDataViewComponentDetails> createState() =>
+      _UserDataViewComponentDetailsState();
+}
+
+class _UserDataViewComponentDetailsState
+    extends State<UserDataViewComponentDetails> {
+  bool isValue = false;
+  String number = '';
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        UserDataViewImageItem(isLoading: isLoading, pickImage: pickImage),
+        UserDataViewImageItem(
+            isLoading: widget.isLoading, pickImage: widget.pickImage),
         UserDataViewTextFields(
-            isLoading: isLoading,
-            size: size,
-            fullName: fullName,
-            nickName: nickName,
-            dateOfBirth: dateOfBirth,
-            email: email,
-            phoneNumber: phoneNumber,
-            gender: gender),
+          isValue: isValue,
+          isLoading: widget.isLoading,
+          size: widget.size,
+          fullName: widget.fullName,
+          nickName: widget.nickName,
+          dateOfBirth: widget.dateOfBirth,
+          email: widget.email,
+          phoneNumber: widget.phoneNumber,
+          gender: widget.gender,
+          onChangedPhoneNumber: (phoneNumber) {
+            setState(() {
+              isValue = phoneNumber.number.isNotEmpty;
+            });
+            number = phoneNumber.completeNumber;
+          },
+        ),
         const SizedBox(height: 32),
         UserDataViewButton(
-            image: pickImage.image,
-            isLoading: isLoading,
-            size: size,
-            fullName: fullName,
-            nickName: nickName,
-            dateOfBirth: dateOfBirth,
-            email: email,
-            phoneNumber: phoneNumber,
-            gender: gender,
-            globalKey: globalKey),
+            number: number,
+            image: widget.pickImage.image,
+            isLoading: widget.isLoading,
+            size: widget.size,
+            fullName: widget.fullName,
+            nickName: widget.nickName,
+            dateOfBirth: widget.dateOfBirth,
+            email: widget.email,
+            phoneNumber: widget.phoneNumber,
+            gender: widget.gender,
+            globalKey: widget.globalKey),
         const SizedBox(height: 24),
       ],
     );

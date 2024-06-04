@@ -23,18 +23,21 @@ class UserDataViewButton extends StatelessWidget {
       required this.gender,
       required this.globalKey,
       required this.isLoading,
-      required this.image});
+      required this.image,
+      required this.number});
 
   final Size size;
-  final TextEditingController fullName;
-  final TextEditingController nickName;
-  final TextEditingController dateOfBirth;
-  final TextEditingController email;
-  final TextEditingController phoneNumber;
-  final TextEditingController gender;
+  final TextEditingController fullName,
+      nickName,
+      dateOfBirth,
+      email,
+      phoneNumber,
+      gender;
+
   final GlobalKey<FormState> globalKey;
   final bool isLoading;
   final File image;
+  final String number;
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +78,8 @@ class UserDataViewButton extends StatelessWidget {
                 email: email.text.isNotEmpty
                     ? email.text
                     : FirebaseAuth.instance.currentUser?.email,
-                phoneNumber: phoneNumber.text.isNotEmpty
-                    ? phoneNumber.text
+                phoneNumber: number.isNotEmpty
+                    ? number
                     : FirebaseAuth.instance.currentUser?.phoneNumber,
                 gender: gender.text,
                 isEmailAuth: FirebaseAuth.instance.currentUser?.email != null

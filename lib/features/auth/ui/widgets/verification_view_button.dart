@@ -1,8 +1,11 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/core/utils/custom_snack_bar_item.dart';
+
 import 'package:food_dash/features/auth/logic/auth_setting/auth_settings_cubit.dart';
 
+import '../../../../core/models/awsome_dialog_model.dart';
+import '../../../../core/utils/custom_awsome_dialog.dart';
 import '../../../../core/utils/widgets/custom_button_item.dart';
 
 class VerificationViewButton extends StatelessWidget {
@@ -15,10 +18,15 @@ class VerificationViewButton extends StatelessWidget {
     return BlocListener<AuthSettingsCubit, AuthSettingsState>(
       listener: (context, state) {
         if (state is SendEmailVerificationSuccess) {
-          customSnackBarItem(
-              context,
-              Text(
-                  'Verification link sent successful, Please check your email.'));
+          customAwsomeDialog(
+              awsomeDialogModel: AwsomeDialogModel(
+                  context: context,
+                  autoHide: const Duration(seconds: 4),
+                  horizontal: 12,
+                  title: 'Verification email sent',
+                  desc:
+                      'Verification link sent successful, Please check your email.',
+                  dialogType: DialogType.success));
         }
       },
       child: CustomButtonItem(

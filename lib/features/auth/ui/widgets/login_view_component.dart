@@ -37,7 +37,7 @@ class LoginViewComponent extends StatelessWidget {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(height: 90),
+             SizedBox(height: size.height * .05),
             drawSvgIconColored('app_icon1', height: 100, width: 100),
             const SizedBox(height: 32),
             CustomTextItem(
