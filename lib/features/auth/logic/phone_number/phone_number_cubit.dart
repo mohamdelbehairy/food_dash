@@ -9,6 +9,7 @@ class PhoneNumberCubit extends Cubit<PhoneNumberState> {
 
   String verificationID = '';
   bool isLoading = false;
+  String number = '';
   Future<void> signInWithPhoneNumber({required String phoneNumber}) async {
     emit(SendCodeLoading(isLoading: true));
     await FirebaseAuth.instance.verifyPhoneNumber(
@@ -30,6 +31,7 @@ class PhoneNumberCubit extends Cubit<PhoneNumberState> {
       },
       codeSent: (String verificationId, int? resendToken) {
         emit(SendCodeSuccess());
+        number = phoneNumber;
         verificationID = verificationId;
         emit(SendCodeLoading(isLoading: false));
       },
@@ -50,5 +52,9 @@ class PhoneNumberCubit extends Cubit<PhoneNumberState> {
       emit(VerifyPhoneNumberFailure(errorMessage: e.toString()));
       debugPrint('error from verify phone number method: $e');
     }
+  }
+
+  String getNumber() {
+    return number;
   }
 }
