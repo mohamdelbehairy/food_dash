@@ -20,7 +20,7 @@ class ProviderAuthViewComponent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: size.width * .02),
+        SizedBox(height: size.width * .015),
         ProviderAuthViewImage(size: size),
         const CustomTextItem(
             text: 'Let\'s you in', style: AppStyles.styleSemiBold40),

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/phone_number.dart';
 
 import '../../../../core/models/text_field_model.dart';
 import '../../../../core/utils/widgets/custom_text_field.dart';
@@ -19,7 +20,8 @@ class UserDataViewTextFields extends StatelessWidget {
       required this.email,
       required this.phoneNumber,
       required this.gender,
-      required this.isLoading});
+      required this.isLoading,
+      this.onChangedPhoneNumber, required this.isValue});
   final Size size;
   final TextEditingController fullName;
   final TextEditingController nickName;
@@ -27,7 +29,8 @@ class UserDataViewTextFields extends StatelessWidget {
   final TextEditingController email;
   final TextEditingController phoneNumber;
   final TextEditingController gender;
-  final bool isLoading;
+  final bool isLoading,isValue;
+  final Function(PhoneNumber)? onChangedPhoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +49,11 @@ class UserDataViewTextFields extends StatelessWidget {
           const SizedBox(height: 20),
         if (FirebaseAuth.instance.currentUser!.phoneNumber == null)
           UserDataPhoneNumberTextField(
-              size: size, phoneNumber: phoneNumber, isLoading: isLoading),
+              onChangedPhoneNumber: onChangedPhoneNumber,
+              isValue: isValue,
+              size: size,
+              phoneNumber: phoneNumber,
+              isLoading: isLoading),
         if (FirebaseAuth.instance.currentUser!.email == null)
           const SizedBox(height: 20),
         if (FirebaseAuth.instance.currentUser!.email == null)

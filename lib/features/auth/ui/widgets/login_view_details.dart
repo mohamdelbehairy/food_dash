@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,8 +9,9 @@ import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubi
 import 'package:food_dash/features/auth/ui/widgets/login_view_section.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/models/awsome_dialog_model.dart';
 import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/custom_snack_bar_item.dart';
+import '../../../../core/utils/custom_awsome_dialog.dart';
 
 class LoginViewDetails extends StatelessWidget {
   const LoginViewDetails({super.key, required this.size});
@@ -24,43 +26,36 @@ class LoginViewDetails extends StatelessWidget {
     return BlocConsumer<EmailLoginCubit, EmailLoginState>(
       listener: (context, state) async {
         if (state is EmailLoginSuccess) {
-          if (await isUserData &&
-              FirebaseAuth.instance.currentUser!.emailVerified) {
+          if (FirebaseAuth.instance.currentUser!.emailVerified) {
             await setSharedPref.setSharedPref(
                 key: Constants.useAppFirstTime, value: 'done');
             GoRouter.of(context).go(AppRouter.homeView);
-            debugPrint('تسجيل دخول ناجح');
           } else {
             if (!FirebaseAuth.instance.currentUser!.emailVerified &&
                 await isUserData) {
-              customSnackBarItem(
-                  context,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('email not verified'),
-                      IconButton(
-                          onPressed: () => GoRouter.of(context)
-                              .go(AppRouter.verificationView),
-                          icon: Icon(Icons.verified, color: Colors.white))
-                    ],
-                  ));
+              customAwsomeDialog(
+                  awsomeDialogModel: AwsomeDialogModel(
+                      context: context,
+                      showCloseIcon: true,
+                      title: 'Email is not verified',
+                      desc: 'Please verified you email and login again.',
+                      dialogType: DialogType.error,
+                      btnCancelText: 'Verified now',
+                      btnCancelOnPress: () =>
+                          GoRouter.of(context).go(AppRouter.verificationView)));
             }
-            if (!await isUserData) {
-              customSnackBarItem(
-                  context,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('add user data first after login'),
-                      IconButton(
-                          onPressed: () =>
-                              GoRouter.of(context).go(AppRouter.userDataView),
-                          icon: Icon(Icons.person_add_alt_1_sharp,
-                              color: Colors.white))
-                    ],
-                  ));
-            }
+            // if (!await isUserData) {
+            //   customAwsomeDialog(
+            //       awsomeDialogModel: AwsomeDialogModel(
+            //           context: context,
+            //           showCloseIcon: true,
+            //           title: 'Your data is not added',
+            //           desc: 'Please add user data first after login.',
+            //           dialogType: DialogType.error,
+            //           btnCancelText: 'Add now',
+            //           btnCancelOnPress: () =>
+            //               GoRouter.of(context).go(AppRouter.userDataView)));
+            // }
           }
         }
         if (state is EmailLoginLoading) {
@@ -68,7 +63,15 @@ class LoginViewDetails extends StatelessWidget {
         }
         if (state is EmailLoginFailure &&
             state.errorMessage == 'invalid-credential') {
-          customSnackBarItem(context, Text('invalid-credential'));
+          customAwsomeDialog(
+              awsomeDialogModel: AwsomeDialogModel(
+                  context: context,
+                  autoHide: const Duration(seconds: 4),
+                  horizontal: 16,
+                  title: 'Login Failed',
+                  desc:
+                      'Opps, There was a problem logging in. Check your email and password or create an account.',
+                  dialogType: DialogType.error));
         }
       },
       builder: (context, state) {

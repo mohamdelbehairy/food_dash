@@ -32,7 +32,7 @@ class RegisterViewComponent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SizedBox(height: 50),
+        SizedBox(height: widget.size.width * .05),
         drawSvgIconColored('app_icon1', height: 100, width: 100),
         const SizedBox(height: 20),
         CustomTextItem(
@@ -55,7 +55,8 @@ class RegisterViewComponent extends StatelessWidget {
         AuthProviderWays(
             size: widget.size,
             icon: Icons.phone,
-            onTap: () => GoRouter.of(context).push(AppRouter.registerPhoneNumber)),
+            onTap: () =>
+                GoRouter.of(context).push(AppRouter.registerPhoneNumber)),
         const SizedBox(height: 16),
         AlreadyHaveAccountOrNot(
             text: 'Already have an account?',

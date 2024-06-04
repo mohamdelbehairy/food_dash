@@ -29,7 +29,7 @@ class HomeView extends StatelessWidget {
                     await userSharedPref.setSharedPref(
                         key: Constants.userSharedPref,
                         value: FirebaseAuth.instance.currentUser!.uid);
-                  })).show();
+                  }));
         }
       },
       child: const Scaffold(),

@@ -12,17 +12,16 @@ class VerificationView extends StatelessWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        appBar: AppBar(
-            automaticallyImplyLeading: false,
-            backgroundColor: Colors.grey.withOpacity(.010),
-            elevation: 0,
-            systemOverlayStyle: SystemUiOverlayStyle(
-                statusBarColor: Colors.transparent,
-                statusBarIconBrightness: Brightness.dark,
-                systemNavigationBarColor: Colors.black,
-                systemNavigationBarIconBrightness: Brightness.dark)),
-        body: VerificationViewBody(size: size),
-      ),
+          appBar: AppBar(
+              automaticallyImplyLeading: false,
+              backgroundColor: Colors.grey.withOpacity(.010),
+              elevation: 0,
+              systemOverlayStyle: SystemUiOverlayStyle(
+                  statusBarColor: Colors.transparent,
+                  statusBarIconBrightness: Brightness.dark,
+                  systemNavigationBarColor: Colors.black,
+                  systemNavigationBarIconBrightness: Brightness.dark)),
+          body: VerificationViewBody(size: size)),
     );
   }
 }
