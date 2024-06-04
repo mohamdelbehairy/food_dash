@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/utils/app_styles.dart';
-import '../../../../core/utils/widgets/custom_text_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/features/auth/logic/phone_number/phone_number_cubit.dart';
+import 'resend_code_button.dart';
+import 'resend_code_timer.dart';
 
 class ResendCodeWidget extends StatelessWidget {
-  const ResendCodeWidget({super.key});
+  const ResendCodeWidget({super.key, required this.start});
+  final int start;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CustomTextItem(
-            style: AppStyles.styleReqular14.copyWith(color: Colors.black),
-            text: 'Resend Code in '),
-        CustomTextItem(style: AppStyles.styleMedium16, text: '55 '),
-        CustomTextItem(
-            style: AppStyles.styleReqular16.copyWith(color: Colors.black),
-            text: 's')
-      ],
-    );
+    var getNumber = context.read<PhoneNumberCubit>();
+    return start == 0
+        ? ResendCodeButton(getNumber: getNumber)
+        : ResendCodeTimer(start: start);
   }
 }
+
