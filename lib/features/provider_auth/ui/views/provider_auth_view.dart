@@ -38,6 +38,8 @@ class ProviderAuthView extends StatelessWidget {
           Future.delayed(const Duration(seconds: 2), () async {
             await setSharedPref.setSharedPref(
                 key: Constants.useAppFirstTime, value: 'done');
+            await setSharedPref.setSharedPref(
+                key: Constants.isGoogleAuth, value: 'google');
             GoRouter.of(context).push(AppRouter.homeView);
           });
         }

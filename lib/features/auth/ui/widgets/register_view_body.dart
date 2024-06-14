@@ -45,7 +45,7 @@ class RegisterViewBody extends StatelessWidget {
           await setSharedPref.setSharedPref(
               key: Constants.useAppFirstTime, value: 'done');
           await setSharedPref.setSharedPref(
-              key: Constants.isGoogleAuth, value: 'googel');
+              key: Constants.isGoogleAuth, value: 'google');
         }
       },
       builder: (context, state) {

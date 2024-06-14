@@ -25,14 +25,13 @@ class VerificationViewSection extends StatelessWidget {
           if (isEmailVerified) SizedBox(height: size.width * .1),
           if (isEmailVerified)
             SizedBox(
-               height: 30,
-      width: 30,
-              child: CustomCircleIndicator(color: AppColors.mainColor)),
+                height: 30,
+                width: 30,
+                child: CustomCircleIndicator(color: AppColors.mainColor)),
           SizedBox(height: size.width * .15),
-          VerificationViewButton(size: size)
+          if (!isEmailVerified) VerificationViewButton(size: size)
         ],
       ),
     );
   }
 }
-

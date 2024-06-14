@@ -18,7 +18,9 @@ class HomeView extends StatelessWidget {
       listener: (context, state) async {
         final token =
             await userSharedPref.getSharedPref(key: Constants.userSharedPref);
-        if (token.isEmpty) {
+        final isGoogleAuth =
+            await userSharedPref.getSharedPref(key: Constants.isGoogleAuth);
+        if (token.isEmpty && isGoogleAuth == 'google') {
           customAwsomeDialog(
               awsomeDialogModel: AwsomeDialogModel(
                   context: context,
