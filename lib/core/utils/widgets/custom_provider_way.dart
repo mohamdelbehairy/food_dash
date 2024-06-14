@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/core/utils/app_styles.dart';
+import 'package:food_dash/core/utils/app_details/app_styles.dart';
 
 class CustomProviderWay extends StatelessWidget {
   const CustomProviderWay(

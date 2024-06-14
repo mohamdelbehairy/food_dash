@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_dash/features/image/ui/models/bottom_sheet_item_model.dart';
 
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_details/app_styles.dart';
 
 class BottomSheetItem extends StatelessWidget {
   const BottomSheetItem({super.key, required this.bottomSheetItemModel});

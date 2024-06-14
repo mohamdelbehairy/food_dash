@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/handler/icon_handler.dart';
-import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_details/app_router.dart';
+import '../../../../core/utils/app_details/app_styles.dart';
 import '../../../../core/utils/widgets/already_have_account_or_not.dart';
 import '../../../../core/utils/widgets/custom_text_item.dart';
 import '../../../../core/utils/widgets/divider_text_item.dart';
@@ -32,7 +32,7 @@ class RegisterViewComponent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: widget.size.width * .05),
+        SizedBox(height: widget.size.width * .2),
         drawSvgIconColored('app_icon1', height: 100, width: 100),
         const SizedBox(height: 20),
         CustomTextItem(

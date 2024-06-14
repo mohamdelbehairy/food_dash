@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/models/text_field_model.dart';
-import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_details/app_colors.dart';
 import '../../../../core/utils/widgets/custom_text_field.dart';
 
 class EmailTextField extends StatefulWidget {

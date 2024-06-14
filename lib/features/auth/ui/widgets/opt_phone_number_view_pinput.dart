@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_details/app_colors.dart';
 
 class OptPhoneNumberViewPinput extends StatelessWidget {
   const OptPhoneNumberViewPinput(

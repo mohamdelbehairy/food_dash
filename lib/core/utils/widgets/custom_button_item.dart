@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../app_colors.dart';
-import '../app_styles.dart';
+import '../app_details/app_colors.dart';
+import '../app_details/app_styles.dart';
 import 'custom_circle_indicator.dart';
 
 class CustomButtonItem extends StatelessWidget {

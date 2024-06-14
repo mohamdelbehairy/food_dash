@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../app_styles.dart';
+import '../app_details/app_styles.dart';
 import 'custom_text_item.dart';
 
 class AlreadyHaveAccountOrNot extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/core/utils/app_colors.dart';
+import 'package:food_dash/core/utils/app_details/app_colors.dart';
 
-import '../app_styles.dart';
+import '../app_details/app_styles.dart';
 import '../../models/text_field_model.dart';
 
 class CustomTextField extends StatelessWidget {

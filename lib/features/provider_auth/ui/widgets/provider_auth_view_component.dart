@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_details/app_router.dart';
+import '../../../../core/utils/app_details/app_styles.dart';
 import '../../../../core/utils/widgets/custom_button_item.dart';
 import '../../../../core/utils/widgets/already_have_account_or_not.dart';
 import '../../../../core/utils/widgets/divider_text_item.dart';
@@ -20,7 +20,7 @@ class ProviderAuthViewComponent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: size.width * .015),
+        SizedBox(height: size.width * .1),
         ProviderAuthViewImage(size: size),
         const CustomTextItem(
             text: 'Let\'s you in', style: AppStyles.styleSemiBold40),

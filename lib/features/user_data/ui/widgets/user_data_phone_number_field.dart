@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/core/utils/app_colors.dart';
+import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
 import '../../../../core/models/text_field_model.dart';

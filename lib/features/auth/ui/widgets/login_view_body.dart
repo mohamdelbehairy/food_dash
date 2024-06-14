@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/features/auth/ui/widgets/app_bar_auth.dart';
 
 import '../../../../constants.dart';
 import '../../../../core/models/modal_progress_model.dart';
-import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_details/app_colors.dart';
 import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import '../../../../core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
 import '../../../../core/utils/widgets/custom_modal_progress_hud.dart';
 import '../../../user_data/logic/store_user_data/store_user_data_cubit.dart';
 import '../../logic/google_auth/google_auth_cubit.dart';
+import '../../logic/remember_me/remember_me_cubit.dart';
 import 'login_view_details.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -28,6 +30,7 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isClick = context.read<RememberMeCubit>();
     return BlocConsumer<GoogleAuthCubit, GoogleAuthState>(
       listener: (context, state) async {
         if (state is GoogleAuthSuccess && state.isLoading) {
@@ -53,7 +56,7 @@ class LoginViewBody extends StatelessWidget {
               progressIndicatorColor: AppColors.mainColor,
               modalprogressColor: AppColors.mainColor,
               child: Scaffold(
-                  appBar: AppBar(), body: LoginViewDetails(size: size))),
+                  appBar: authAppBar(context, isClick), body: LoginViewDetails(size: size))),
         );
       },
     );

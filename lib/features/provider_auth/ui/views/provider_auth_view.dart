@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/models/modal_progress_model.dart';
-import 'package:food_dash/core/utils/app_colors.dart';
-import 'package:food_dash/core/utils/app_router.dart';
+import 'package:food_dash/core/utils/app_details/app_colors.dart';
+import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:food_dash/core/utils/widgets/custom_modal_progress_hud.dart';
 import 'package:go_router/go_router.dart';
 

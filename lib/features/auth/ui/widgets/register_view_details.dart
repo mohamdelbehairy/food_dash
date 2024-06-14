@@ -5,8 +5,8 @@ import 'package:food_dash/core/models/awsome_dialog_model.dart';
 import 'package:food_dash/features/auth/logic/email/email_register/email_register_cubit.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/custom_awsome_dialog.dart';
+import '../../../../core/utils/app_details/app_router.dart';
+import '../../../../core/utils/app_details/custom_awsome_dialog.dart';
 import 'register_view_section.dart';
 
 class RegisterViewDetails extends StatelessWidget {

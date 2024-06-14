@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_details/app_styles.dart';
 import '../../../../core/utils/widgets/custom_button_item.dart';
 import '../../../../core/utils/widgets/custom_text_item.dart';
 import '../../logic/phone_number/phone_number_cubit.dart';

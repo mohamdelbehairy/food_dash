@@ -3,7 +3,7 @@ import 'package:food_dash/features/auth/logic/phone_number/phone_number_cubit.da
 import 'package:go_router/go_router.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
-import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/app_details/app_router.dart';
 import '../../../../core/utils/widgets/already_have_account_or_not.dart';
 import '../../../../core/utils/widgets/divider_text_item.dart';
 import 'auth_provider_ways.dart';

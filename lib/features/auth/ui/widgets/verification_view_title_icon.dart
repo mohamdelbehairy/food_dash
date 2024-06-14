@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_details/app_colors.dart';
 
 class VerificationViewTitleIcon extends StatelessWidget {
   const VerificationViewTitleIcon({super.key, required this.size});

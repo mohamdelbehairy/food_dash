@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/core/utils/app_router.dart';
+import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:food_dash/features/auth/logic/auth_setting/auth_settings_cubit.dart';
 import 'package:go_router/go_router.dart';
 import 'verification_view_section.dart';

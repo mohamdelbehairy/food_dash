@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/app_details/app_images.dart';
 
 class ProviderAuthViewImage extends StatelessWidget {
   const ProviderAuthViewImage({super.key, required this.size});

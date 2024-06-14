@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/core/utils/app_images.dart';
+import 'package:food_dash/core/utils/app_details/app_images.dart';
 import 'package:food_dash/features/image/logic/pick_image/pick_image_cubit.dart';
 
 class UserDataViewCustomImage extends StatelessWidget {

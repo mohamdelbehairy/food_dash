@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_details/app_colors.dart';
+import '../../../../core/utils/app_details/app_styles.dart';
 import '../../../../core/utils/widgets/custom_text_item.dart';
 import '../../logic/remember_me/remember_me_cubit.dart';
 

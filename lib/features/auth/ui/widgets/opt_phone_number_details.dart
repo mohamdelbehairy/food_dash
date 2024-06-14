@@ -2,7 +2,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/core/utils/app_router.dart';
+import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../constants.dart';

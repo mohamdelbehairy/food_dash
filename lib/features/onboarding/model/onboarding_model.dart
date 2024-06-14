@@ -1,4 +1,4 @@
-import 'package:food_dash/core/utils/app_images.dart';
+import 'package:food_dash/core/utils/app_details/app_images.dart';
 
 class OnBoardingtModel {
   List<String> titles = [

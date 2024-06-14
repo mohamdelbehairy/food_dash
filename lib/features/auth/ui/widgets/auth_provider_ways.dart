@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/app_details/app_images.dart';
 import '../../../../core/utils/widgets/custom_provider_way.dart';
 import '../../logic/google_auth/google_auth_cubit.dart';
 

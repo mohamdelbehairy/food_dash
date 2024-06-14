@@ -5,8 +5,8 @@ import 'package:food_dash/features/auth/ui/widgets/login_list_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/handler/icon_handler.dart';
-import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_details/app_router.dart';
+import '../../../../core/utils/app_details/app_styles.dart';
 import '../../../../core/utils/widgets/already_have_account_or_not.dart';
 import '../../../../core/utils/widgets/custom_text_item.dart';
 import '../../../../core/utils/widgets/divider_text_item.dart';
@@ -37,7 +37,7 @@ class LoginViewComponent extends StatelessWidget {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             SizedBox(height: size.height * .05),
+            SizedBox(height: size.height * .15),
             drawSvgIconColored('app_icon1', height: 100, width: 100),
             const SizedBox(height: 32),
             CustomTextItem(
@@ -60,13 +60,22 @@ class LoginViewComponent extends StatelessWidget {
             AuthProviderWays(
                 size: size,
                 icon: Icons.phone,
-                onTap: () =>
-                    GoRouter.of(context).push(AppRouter.loginPhoneNumber)),
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.loginPhoneNumber);
+                  if (isClick.isClick) {
+                    isClick.rememberMe();
+                  }
+                }),
             const SizedBox(height: 16),
             AlreadyHaveAccountOrNot(
                 text: 'Don\'t have an account?',
                 textButton: 'Sign up',
-                onTap: () => GoRouter.of(context).push(AppRouter.registerView))
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.registerView);
+                  if (isClick.isClick) {
+                    isClick.rememberMe();
+                  }
+                })
           ],
         );
       },

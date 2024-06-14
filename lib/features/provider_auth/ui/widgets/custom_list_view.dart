@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/auth/logic/google_auth/google_auth_cubit.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/app_router.dart';
+import '../../../../core/utils/app_details/app_router.dart';
 import '../models/provider_auth_item_model.dart';
 import 'provider_auth_list_view_item.dart';
 

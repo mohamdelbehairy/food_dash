@@ -10,8 +10,8 @@ import 'package:food_dash/features/auth/ui/widgets/login_view_section.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/models/awsome_dialog_model.dart';
-import '../../../../core/utils/app_router.dart';
-import '../../../../core/utils/custom_awsome_dialog.dart';
+import '../../../../core/utils/app_details/app_router.dart';
+import '../../../../core/utils/app_details/custom_awsome_dialog.dart';
 
 class LoginViewDetails extends StatelessWidget {
   const LoginViewDetails({super.key, required this.size});

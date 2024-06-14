@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_details/app_colors.dart';
 
 import '../../../image/logic/pick_image/pick_image_cubit.dart';
 import '../../../image/ui/widgets/bottom_sheet_item_body.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../../../core/utils/app_images.dart';
+import '../../../../core/utils/app_details/app_images.dart';
 import '../models/provider_auth_item_model.dart';
 import 'custom_list_view.dart';
 

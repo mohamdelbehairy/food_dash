@@ -3,8 +3,8 @@ import 'package:intl_phone_field/phone_number.dart';
 
 import '../../../../core/handler/icon_handler.dart';
 import '../../../../core/models/text_field_model.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_details/app_colors.dart';
+import '../../../../core/utils/app_details/app_styles.dart';
 import '../../../../core/utils/widgets/custom_text_item.dart';
 import '../../../user_data/ui/widgets/phone_number_text_field.dart';
 import '../../logic/phone_number/phone_number_cubit.dart';

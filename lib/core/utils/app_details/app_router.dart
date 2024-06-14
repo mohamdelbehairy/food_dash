@@ -10,7 +10,7 @@ import 'package:food_dash/features/splash/ui/views/splash_view.dart';
 import 'package:food_dash/features/user_data/ui/views/user_data_view.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/auth/ui/views/verification_view.dart';
+import '../../../features/auth/ui/views/verification_view.dart';
 
 abstract class AppRouter {
   static const providerAuthView = '/providerAuthView';

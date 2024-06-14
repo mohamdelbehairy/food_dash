@@ -5,7 +5,7 @@ import 'package:food_dash/core/models/awsome_dialog_model.dart';
 import 'package:food_dash/core/utils/logic/get_user_data/get_user_data_cubit.dart';
 
 import '../../../../constants.dart';
-import '../../../../core/utils/custom_awsome_dialog.dart';
+import '../../../../core/utils/app_details/custom_awsome_dialog.dart';
 import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
 
 class HomeView extends StatelessWidget {

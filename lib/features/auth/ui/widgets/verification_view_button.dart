@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/auth/logic/auth_setting/auth_settings_cubit.dart';
 
 import '../../../../core/models/awsome_dialog_model.dart';
-import '../../../../core/utils/custom_awsome_dialog.dart';
+import '../../../../core/utils/app_details/custom_awsome_dialog.dart';
 import '../../../../core/utils/widgets/custom_button_item.dart';
 
 class VerificationViewButton extends StatelessWidget {

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 import '../../../../core/models/text_field_model.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../core/utils/app_details/app_colors.dart';
+import '../../../../core/utils/app_details/app_styles.dart';
 
 class PhoneNumberTextField extends StatelessWidget {
   const PhoneNumberTextField(
