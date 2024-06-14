@@ -12,10 +12,6 @@ class Constants {
   static const emailField = 'email';
   static const phoneNumberField = 'phoneNumber';
   static const genderField = 'gender';
-  static const isFacbookAuthField = 'isFacbookAuth';
-  static const isGoogleAuthField = 'isGoogleAuth';
-  static const isEmailAuthField = 'isEmailAuth';
-  static const isPhoneAuthField = 'isPhoneAuth';
 
   // urls
   static const userDataViewImageUrl =
@@ -25,4 +21,8 @@ class Constants {
   static const userSharedPref = 'userID';
   static const useAppFirstTime = 'userAppFirstTime';
   static const mobileInfo = 'mobileInfo';
+  static const isFacbookAuth = 'isFacbookAuth';
+  static const isGoogleAuth = 'isGoogleAuth';
+  static const isEmailAuth = 'isEmailAuth';
+  static const isPhoneAuth = 'isPhoneAuth';
 }

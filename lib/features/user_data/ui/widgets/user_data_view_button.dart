@@ -81,14 +81,7 @@ class UserDataViewButton extends StatelessWidget {
                 phoneNumber: number.isNotEmpty
                     ? number
                     : FirebaseAuth.instance.currentUser?.phoneNumber,
-                gender: gender.text,
-                isEmailAuth: FirebaseAuth.instance.currentUser?.email != null
-                    ? true
-                    : null,
-                isPhoneAuth:
-                    FirebaseAuth.instance.currentUser?.phoneNumber != null
-                        ? true
-                        : null,
+                gender: gender.text
               );
             }
           }),

@@ -39,8 +39,7 @@ class LoginViewBody extends StatelessWidget {
                 profileImage: state.user.photoURL!,
                 fullName: state.user.displayName!,
                 email: state.user.email!,
-                phoneNumber: state.user.phoneNumber,
-                isGoogleAuth: true);
+                phoneNumber: state.user.phoneNumber);
           }
           isLoading.isLoading = state.isLoading;
           await setSharedPref.setSharedPref(
