@@ -1,4 +1,3 @@
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/utils/app_details/app_router.dart';
@@ -30,7 +29,7 @@ class PhoneNumberSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var isLoading = context.read<PhoneNumberCubit>();
-    var getSharedPref = context.read<SharedPrefCubit>();
+    var sharedPref = context.read<SharedPrefCubit>();
 
     return BlocConsumer<PhoneNumberCubit, PhoneNumberState>(
       listener: (context, state) async {
@@ -39,15 +38,15 @@ class PhoneNumberSection extends StatelessWidget {
           debugPrint('isLoading: ${isLoading.isLoading}');
         }
 
-        var device = DeviceInfoPlugin();
-        var android = await device.androidInfo;
-        final mobileInfo =
-            await getSharedPref.getSharedPref(key: Constants.mobileInfo);
+        final phoneNumber =
+            await sharedPref.getSharedPref(key: Constants.phoneNumber);
 
-        if (mobileInfo == android.board) {
+        if (phoneNumber.isNotEmpty && number.isNotEmpty) {
           GoRouter.of(context).push(AppRouter.homeView);
+          await sharedPref.setSharedPref(
+              key: Constants.isPhoneAuth, value: 'phone');
         }
-        if (state is SendCodeSuccess && mobileInfo != android.board) {
+        if (state is SendCodeSuccess && phoneNumber.isEmpty) {
           GoRouter.of(context).push(AppRouter.optPhoneNumberView);
         }
       },

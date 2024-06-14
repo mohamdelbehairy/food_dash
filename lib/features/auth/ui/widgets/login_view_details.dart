@@ -29,6 +29,8 @@ class LoginViewDetails extends StatelessWidget {
           if (FirebaseAuth.instance.currentUser!.emailVerified) {
             await setSharedPref.setSharedPref(
                 key: Constants.useAppFirstTime, value: 'done');
+            await setSharedPref.setSharedPref(
+                key: Constants.isEmailAuth, value: 'email');
             GoRouter.of(context).go(AppRouter.homeView);
           } else {
             if (!FirebaseAuth.instance.currentUser!.emailVerified &&

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/auth/logic/phone_number/phone_number_cubit.dart';
+import 'package:food_dash/features/auth/logic/remember_me/remember_me_cubit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
@@ -31,6 +33,8 @@ class PhoneNumberComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isClick = context.read<RememberMeCubit>();
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -51,7 +55,19 @@ class PhoneNumberComponent extends StatelessWidget {
         AuthProviderWays(
             size: size,
             icon: Icons.email,
-            onTap: () => GoRouter.of(context).push(AppRouter.registerView)),
+            onTap: () {
+              if (text == 'Create New Account') {
+                GoRouter.of(context).push(AppRouter.registerView);
+                if (isClick.isClick) {
+                  isClick.rememberMe();
+                }
+              } else {
+                GoRouter.of(context).push(AppRouter.loginView);
+                if (isClick.isClick) {
+                  isClick.rememberMe();
+                }
+              }
+            }),
         const SizedBox(height: 16),
         AlreadyHaveAccountOrNot(
             text: text == 'Create New Account'

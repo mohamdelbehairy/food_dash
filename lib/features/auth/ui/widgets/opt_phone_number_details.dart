@@ -1,4 +1,3 @@
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,10 +32,11 @@ class OptPhoneNumberDetails extends StatelessWidget {
             }
             await sharedPref.setSharedPref(
                 key: Constants.useAppFirstTime, value: 'done');
-            var device = DeviceInfoPlugin();
-            var android = await device.androidInfo;
             await sharedPref.setSharedPref(
-                key: Constants.mobileInfo, value: android.board);
+                key: Constants.isPhoneAuth, value: 'phone');
+
+            await sharedPref.setSharedPref(
+                key: Constants.phoneNumber, value: verifyNumber.getNumber());
             Future.delayed(const Duration(seconds: 2),
                 () => GoRouter.of(context).go(AppRouter.userDataView));
           }

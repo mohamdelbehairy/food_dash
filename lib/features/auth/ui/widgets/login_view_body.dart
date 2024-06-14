@@ -44,6 +44,8 @@ class LoginViewBody extends StatelessWidget {
           isLoading.isLoading = state.isLoading;
           await setSharedPref.setSharedPref(
               key: Constants.useAppFirstTime, value: 'done');
+          await setSharedPref.setSharedPref(
+              key: Constants.isGoogleAuth, value: 'googel');
         }
       },
       builder: (context, state) {
@@ -55,7 +57,8 @@ class LoginViewBody extends StatelessWidget {
               progressIndicatorColor: AppColors.mainColor,
               modalprogressColor: AppColors.mainColor,
               child: Scaffold(
-                  appBar: authAppBar(context, isClick), body: LoginViewDetails(size: size))),
+                  appBar: authAppBar(context, isClick),
+                  body: LoginViewDetails(size: size))),
         );
       },
     );

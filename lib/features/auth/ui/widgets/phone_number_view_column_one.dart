@@ -30,7 +30,7 @@ class PhoneNumberViewColumnOne extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: size.height * .1),
+        SizedBox(height: size.height * .15),
         drawSvgIconColored('app_icon1', height: 100, width: 100),
         const SizedBox(height: 32),
         CustomTextItem(style: AppStyles.styleSemiBold28, text: text),
