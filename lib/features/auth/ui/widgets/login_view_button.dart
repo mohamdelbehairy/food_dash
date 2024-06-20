@@ -28,6 +28,7 @@ class LoginViewButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var emailLogin = context.read<EmailLoginCubit>();
     var userSharedPref = context.read<SharedPrefCubit>();
+
     return CustomButtonItem(
         size: size,
         isLoading: isLoading,
@@ -41,6 +42,7 @@ class LoginViewButton extends StatelessWidget {
               await userSharedPref.setSharedPref(
                   key: Constants.userSharedPref,
                   value: FirebaseAuth.instance.currentUser!.uid);
+              isClick.rememberMe();
             }
           }
         });

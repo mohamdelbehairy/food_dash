@@ -29,13 +29,13 @@ class OptPhoneNumberDetails extends StatelessWidget {
               await sharedPref.setSharedPref(
                   key: Constants.userSharedPref,
                   value: FirebaseAuth.instance.currentUser!.uid);
+              isClick.rememberMe();
             }
             await sharedPref.setSharedPref(
                 key: Constants.useAppFirstTime, value: 'done');
             await sharedPref.setSharedPref(
                 key: Constants.isPhoneAuth, value: 'phone');
 
-            
             Future.delayed(const Duration(seconds: 2),
                 () => GoRouter.of(context).go(AppRouter.userDataView));
           }
