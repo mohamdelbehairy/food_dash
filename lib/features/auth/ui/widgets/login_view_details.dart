@@ -46,18 +46,6 @@ class LoginViewDetails extends StatelessWidget {
                       btnCancelOnPress: () =>
                           GoRouter.of(context).go(AppRouter.verificationView)));
             }
-            // if (!await isUserData) {
-            //   customAwsomeDialog(
-            //       awsomeDialogModel: AwsomeDialogModel(
-            //           context: context,
-            //           showCloseIcon: true,
-            //           title: 'Your data is not added',
-            //           desc: 'Please add user data first after login.',
-            //           dialogType: DialogType.error,
-            //           btnCancelText: 'Add now',
-            //           btnCancelOnPress: () =>
-            //               GoRouter.of(context).go(AppRouter.userDataView)));
-            // }
           }
         }
         if (state is EmailLoginLoading) {
