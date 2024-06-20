@@ -35,8 +35,7 @@ class OptPhoneNumberDetails extends StatelessWidget {
             await sharedPref.setSharedPref(
                 key: Constants.isPhoneAuth, value: 'phone');
 
-            await sharedPref.setSharedPref(
-                key: Constants.phoneNumber, value: verifyNumber.getNumber());
+            
             Future.delayed(const Duration(seconds: 2),
                 () => GoRouter.of(context).go(AppRouter.userDataView));
           }

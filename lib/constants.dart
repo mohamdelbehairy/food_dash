@@ -20,7 +20,6 @@ class Constants {
   // shared prefs
   static const userSharedPref = 'userID';
   static const useAppFirstTime = 'userAppFirstTime';
-  static const phoneNumber = 'phoneNumber';
   static const isFacbookAuth = 'isFacbookAuth';
   static const isGoogleAuth = 'isGoogleAuth';
   static const isEmailAuth = 'isEmailAuth';
