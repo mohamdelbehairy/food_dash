@@ -7,9 +7,10 @@ import 'package:food_dash/core/utils/logic/get_user_data/get_user_data_cubit.dar
 import '../../../../constants.dart';
 import '../../../../core/utils/app_details/custom_awsome_dialog.dart';
 import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
+import '../widgets/bottom_navigation_bar_view_body.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class BottomNavigationBarView extends StatelessWidget {
+  const BottomNavigationBarView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,7 @@ class HomeView extends StatelessWidget {
                   }));
         }
       },
-      child: const Scaffold(),
+      child: BottomNavigationBarViewBody(),
     );
   }
 }
