@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:food_dash/core/utils/app_details/app_colors.dart';
-import 'package:food_dash/core/utils/app_details/app_images.dart';
+import 'custom_bottom_navigation_bar.dart';
 
 class BottomNavigationBarViewBody extends StatefulWidget {
   const BottomNavigationBarViewBody({super.key});
@@ -31,44 +29,13 @@ class _BottomNavigationBarViewBodyState
         child: ClipRRect(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-          child: BottomNavigationBar(
+          child: CustomBottomNavigationBar(
               currentIndex: _currentIndex,
-              selectedItemColor: AppColors.mainColor,
-              showUnselectedLabels: true,
-              unselectedItemColor: Color(0xffa9a8a9),
               onTap: (index) {
                 setState(() {
                   _currentIndex = index;
                 });
-              },
-              items: [
-                BottomNavigationBarItem(
-                    icon: SvgPicture.asset(Assets.imagesUnselectedHome,
-                        colorFilter: ColorFilter.mode(
-                            Color(0xffa9a8a9), BlendMode.srcIn),
-                        height: 24),
-                    activeIcon: SvgPicture.asset(Assets.imagesSelectedHome,
-                        height: 24,
-                        colorFilter: ColorFilter.mode(
-                            AppColors.mainColor, BlendMode.srcIn)),
-                    label: 'Home'),
-                BottomNavigationBarItem(
-                    icon:
-                        SvgPicture.asset(Assets.imagesSelectedHome, height: 20),
-                    label: 'Orders'),
-                BottomNavigationBarItem(
-                    icon:
-                        SvgPicture.asset(Assets.imagesSelectedHome, height: 20),
-                    label: 'Message'),
-                BottomNavigationBarItem(
-                    icon:
-                        SvgPicture.asset(Assets.imagesSelectedHome, height: 20),
-                    label: 'E-Wallet'),
-                BottomNavigationBarItem(
-                    icon:
-                        SvgPicture.asset(Assets.imagesSelectedHome, height: 20),
-                    label: 'Profile'),
-              ]),
+              }),
         ),
       ),
     );
