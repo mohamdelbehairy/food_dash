@@ -21,6 +21,14 @@ class Assets {
   /// assets/images/provider-auth.png
   static const String imagesProviderAuth = "assets/images/provider-auth.png";
 
+  /// Assets for imagesSelectedHome
+  /// assets/images/selected_home.svg
+  static const String imagesSelectedHome = "assets/images/selected_home.svg";
+
+  /// Assets for imagesUnselectedHome
+  /// assets/images/unselected_home.svg
+  static const String imagesUnselectedHome = "assets/images/unselected_home.svg";
+
   /// Assets for imagesUserDataViewAsset
   /// assets/images/user-data-view-asset.jpg
   static const String imagesUserDataViewAsset = "assets/images/user-data-view-asset.jpg";

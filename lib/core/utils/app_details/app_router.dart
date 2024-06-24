@@ -3,7 +3,7 @@ import 'package:food_dash/features/auth/ui/views/login_view.dart';
 import 'package:food_dash/features/auth/ui/views/opt_phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/register_view.dart';
-import 'package:food_dash/features/home/ui/views/home_view.dart';
+import 'package:food_dash/features/bottom_navigation_bar/ui/views/bottom_navigaton_bar_view.dart';
 import 'package:food_dash/features/onboarding/ui/views/onboarding_screen.dart';
 import 'package:food_dash/features/provider_auth/ui/views/provider_auth_view.dart';
 import 'package:food_dash/features/splash/ui/views/splash_view.dart';
@@ -43,7 +43,7 @@ abstract class AppRouter {
     GoRoute(
         path: verificationView,
         builder: (context, state) => VerificationView()),
-    GoRoute(path: homeView, builder: (context, state) => HomeView()),
+    GoRoute(path: homeView, builder: (context, state) => BottomNavigationBarView()),
     GoRoute(
         path: registerPhoneNumber,
         builder: (context, state) =>
