@@ -102,7 +102,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                drawSvgIconColored('app_icon1',
+                                drawSvgIconColored('burger',
                                     height: 52, width: 52),
                               ],
                             ),

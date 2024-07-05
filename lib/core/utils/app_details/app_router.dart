@@ -4,8 +4,10 @@ import 'package:food_dash/features/auth/ui/views/opt_phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/register_view.dart';
 import 'package:food_dash/features/bottom_navigation_bar/ui/views/bottom_navigaton_bar_view.dart';
+import 'package:food_dash/features/myCart/ui/views/cart.dart';
 import 'package:food_dash/features/onboarding/ui/views/onboarding_screen.dart';
 import 'package:food_dash/features/provider_auth/ui/views/provider_auth_view.dart';
+import 'package:food_dash/features/special_offers/ui/views/special_offers_page.dart';
 import 'package:food_dash/features/splash/ui/views/splash_view.dart';
 import 'package:food_dash/features/user_data/ui/views/user_data_view.dart';
 import 'package:go_router/go_router.dart';
@@ -23,6 +25,8 @@ abstract class AppRouter {
   static const homeView = '/homeView';
   static const registerPhoneNumber = '/registerPhoneNumber';
   static const loginPhoneNumber = '/loginPhoneNumber';
+  static const cart = '/cart';
+  static const special_offers = '/special_offers';
 
   static final GlobalKey<NavigatorState> navigatorState =
       GlobalKey<NavigatorState>();
@@ -52,5 +56,13 @@ abstract class AppRouter {
         path: loginPhoneNumber,
         builder: (context, state) =>
             PhoneNumberView(text: 'Login to Your Account')),
+    GoRoute(
+        path: cart,
+        builder: (context, state) =>
+            MyCart()),
+    GoRoute(
+        path: special_offers,
+        builder: (context, state) =>
+            SpecialOffersPage()),
   ]);
 }
