@@ -1,6 +1,18 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesDialogEnhanced
+  /// assets/images/dialog_enhanced.png
+  static const String imagesDialogEnhanced = "assets/images/dialog_enhanced.png";
+
+  /// Assets for imagesDialogImage
+  /// assets/images/dialog_image.png
+  static const String imagesDialogImage = "assets/images/dialog_image.png";
+
+  /// Assets for imagesDialogImage1
+  /// assets/images/dialog_image1.jpg
+  static const String imagesDialogImage1 = "assets/images/dialog_image1.jpg";
+
   /// Assets for imagesGoogleIcon
   /// assets/images/google-icon.png
   static const String imagesGoogleIcon = "assets/images/google-icon.png";
@@ -8,6 +20,10 @@ class Assets {
   /// Assets for imagesHome
   /// assets/images/home.svg
   static const String imagesHome = "assets/images/home.svg";
+
+  /// Assets for imagesIcons8Marker50
+  /// assets/images/icons8-marker-50.png
+  static const String imagesIcons8Marker50 = "assets/images/icons8-marker-50.png";
 
   /// Assets for imagesMessage
   /// assets/images/message.svg
@@ -32,6 +48,10 @@ class Assets {
   /// Assets for imagesPerson
   /// assets/images/person.svg
   static const String imagesPerson = "assets/images/person.svg";
+
+  /// Assets for imagesProfile
+  /// assets/images/profile.jpeg
+  static const String imagesProfile = "assets/images/profile.jpeg";
 
   /// Assets for imagesProviderAuth
   /// assets/images/provider-auth.png

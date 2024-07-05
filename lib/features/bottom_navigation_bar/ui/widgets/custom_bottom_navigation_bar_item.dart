@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/utils/app_details/app_colors.dart';
-import '../models/bottom_navigation_bar_model.dart';
+import '../../models/bottom_navigation_bar_model.dart';
 
 BottomNavigationBarItem customBottomNavigationBarItem(
     {required BottomNavigationBarModel bottomNavigationBarModel}) {

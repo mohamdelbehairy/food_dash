@@ -33,7 +33,7 @@ class RegisterViewComponent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(height: widget.size.width * .2),
-        drawSvgIconColored('app_icon1', height: 100, width: 100),
+        drawSvgIconColored('burger', height: 100, width: 100),
         const SizedBox(height: 20),
         CustomTextItem(
             style: AppStyles.styleSemiBold28, text: 'Create New Account'),

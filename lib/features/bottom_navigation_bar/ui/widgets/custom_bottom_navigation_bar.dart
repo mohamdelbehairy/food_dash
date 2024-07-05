@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_details/app_colors.dart';
 import '../../../../core/utils/app_details/app_images.dart';
-import '../models/bottom_navigation_bar_model.dart';
+import '../../models/bottom_navigation_bar_model.dart';
 import 'custom_bottom_navigation_bar_item.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -34,6 +34,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
               bottomNavigationBarModel: BottomNavigationBarModel(
                   currentIndex: currentIndex,
                   label: 'Orders',
+
                   image: Assets.imagesOrders,
                   index: 1)),
           customBottomNavigationBarItem(
@@ -52,6 +53,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
           customBottomNavigationBarItem(
               bottomNavigationBarModel: BottomNavigationBarModel(
                   currentIndex: currentIndex,
+
                   label: 'Profile',
                   image: Assets.imagesPerson,
                   index: 4)),
