@@ -83,7 +83,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                   Text(
                                     contentModel.titles[index],
                                     textAlign: TextAlign.center,
-                                    style: AppStyles.styleSemiBold40.copyWith(
+                                    style: AppStyles.styleSemiBold38.copyWith(
                                         color: const Color.fromARGB(
                                             255, 11, 248, 90)),
                                   ),

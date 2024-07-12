@@ -53,7 +53,7 @@ class CustomButtonItem extends StatelessWidget {
                 ? SizedBox(
                     height: 30, width: 30, child: CustomCircleIndicator())
                 : Text(buttonName,
-                    style: textStyle ?? AppStyles.styleExtrallLight16)),
+                    style: textStyle ?? AppStyles.styleExtrallLight15)),
       ),
     );
   }

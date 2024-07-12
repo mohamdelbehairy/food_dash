@@ -9,37 +9,35 @@ class DiscountGuaranteed extends StatelessWidget {
     return Column(
       children: [
         Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Discount Guaranteed',
-                            style: AppStyles.styleSemiBold16
-                                .copyWith(color: Colors.black),
-                          ),
-                          SizedBox(
-                            width: 4,
-                          ),
-                          Text(
-                            '👌',
-                            style: AppStyles.styleSemiBold14,
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'See All',
-                        style: AppStyles.styleSemiBold16,
-                      ),
-                    ],
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Discount Guaranteed',
+                    style:
+                        AppStyles.styleSemiBold16.copyWith(color: Colors.black),
                   ),
-                ),
-                
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Text(
+                    '👌',
+                    style: AppStyles.styleSemiBold14,
+                  ),
+                ],
+              ),
+              Text(
+                'See All',
+                style: AppStyles.styleSemiBold16,
+              ),
+            ],
+          ),
+        ),
         DiscountGuaranteedBody()
       ],
     );

@@ -7,8 +7,8 @@ import 'package:food_dash/features/home/ui/widgets/recommended_for_you_body.dart
 import 'package:food_dash/features/home/ui/widgets/recpmended_header.dart';
 import 'package:food_dash/features/home/ui/widgets/special_offers.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +19,7 @@ class HomePage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                SizedBox(
-                  height: 26,
-                ),
+                SizedBox(height: 26),
                 HomeHeader(),
                 HomeSearch(),
                 SpecialOffers(),
