@@ -1,125 +1,129 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 abstract class AppStyles {
   // final BuildContext context;
   // AppStyles({required this.context});
 
-  static const TextStyle styleReqular16 = TextStyle(
+  static TextStyle styleReqular16 = TextStyle(
       color: Color(0xFFb5b3b2),
-      fontSize: 16,
+      fontSize: getResponsiveFontSize(fontSize: 16),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w400);
 
-  static const TextStyle styleAppBar = TextStyle(
+  static TextStyle styleAppBar = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 22,
+      fontSize: getResponsiveFontSize(fontSize: 22),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
 
-  static const TextStyle styleMedium16 = TextStyle(
+  static TextStyle styleMedium16 = TextStyle(
       color: Color(0xFF35be63),
-      fontSize: 16,
+      fontSize: getResponsiveFontSize(fontSize: 16),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
-  static const TextStyle styleSemiBold16 = TextStyle(
+  static TextStyle styleSemiBold16 = TextStyle(
       color: Color(0xFF35be63),
-      fontSize: 16,
+      fontSize: getResponsiveFontSize(fontSize: 16),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
-      
 
-  static const TextStyle styleSemiBold20 = TextStyle(
+  static TextStyle styleSemiBold20 = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 20,
+      fontSize: getResponsiveFontSize(fontSize: 20),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
-  static const TextStyle styleSemiBold14 = TextStyle(
+  static TextStyle styleSemiBold14 = TextStyle(
       color: Color(0xFF35be63),
-      fontSize: 14,
+      fontSize: getResponsiveFontSize(fontSize: 14),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
 
-  static const TextStyle styleReqular14 = TextStyle(
+  static TextStyle styleReqular14 = TextStyle(
       color: Color(0xFFbbbbbc),
-      fontSize: 14,
+      fontSize: getResponsiveFontSize(fontSize: 14),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w400);
 
-  static const TextStyle styleSemiBold24 = TextStyle(
+  static TextStyle styleSemiBold24 = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 24,
+      fontSize: getResponsiveFontSize(fontSize: 24),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
-  static const TextStyle styleSemiBold18 = TextStyle(
+  static TextStyle styleSemiBold18 = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 18,
+      fontSize: getResponsiveFontSize(fontSize: 18),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
-  static const TextStyle styleBold14 = TextStyle(
+  static TextStyle styleBold14 = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 14,
+      fontSize: getResponsiveFontSize(fontSize: 14),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w700);
 
-  static const TextStyle styleBold16 = TextStyle(
+  static TextStyle styleBold16 = TextStyle(
       color: Color(0xFF393737),
-      fontSize: 16,
+      fontSize: getResponsiveFontSize(fontSize: 16),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w700);
 
-  static const TextStyle styleMedium20 = TextStyle(
+  static TextStyle styleMedium20 = TextStyle(
       color: Color(0xFFFFFFFF),
-      fontSize: 20,
+      fontSize: getResponsiveFontSize(fontSize: 20),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w500);
 
-  static const TextStyle styleExtrallLight16 = TextStyle(
+  static TextStyle styleExtrallLight15 = TextStyle(
       color: Color(0xFFFFFFFF),
-      fontSize: 15,
+      fontSize: getResponsiveFontSize(fontSize: 15),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w200);
 
-  static const TextStyle styleSemiBold48 = TextStyle(
+  static TextStyle styleSemiBold48 = TextStyle(
       color: Color(0xFF35be63),
-      fontSize: 48,
+      fontSize: getResponsiveFontSize(fontSize: 48),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
 
-  static const TextStyle styleSemiBold40 = TextStyle(
+  static TextStyle styleSemiBold38 = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 38,
+      fontSize: getResponsiveFontSize(fontSize: 38),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
 
-  static const TextStyle styleSemiBold28 = TextStyle(
+  static TextStyle styleSemiBold28 = TextStyle(
       color: Color(0xFF000000),
-      fontSize: 28,
+      fontSize: getResponsiveFontSize(fontSize: 28),
       fontFamily: 'Sofia',
       fontWeight: FontWeight.w600);
+}
 
-  // double getResponsiveFontSize({required double fontSize}) {
-  //   double scallFactor = getScallFactor(context);
+double getResponsiveFontSize({required double fontSize}) {
+  double scallFactor = getScallFactor();
 
-  //   double responsiveFontSize = fontSize * scallFactor;
-  //   double lowerLimit = fontSize * .8;
-  //   double upperLimit = fontSize * 1.2;
+  double responsiveFontSize = fontSize * scallFactor;
+  double lowerLimit = fontSize * .8;
+  double upperLimit = fontSize * 1.2;
 
-  //   return responsiveFontSize.clamp(lowerLimit, upperLimit);
-  // }
+  return responsiveFontSize.clamp(lowerLimit, upperLimit);
+}
 
-  // double getScallFactor(BuildContext context) {
-  //   double widget = MediaQuery.sizeOf(context).width;
+double getScallFactor() {
+  var dispatcher = PlatformDispatcher.instance;
+  var physicalSize = dispatcher.views.first.physicalSize.width;
+  var devicePixelRatio = dispatcher.views.first.devicePixelRatio;
 
-  //   if (widget < 600) {
-  //     return widget / 400;
-  //   } else if (widget < 900) {
-  //     return widget / 700;
-  //   } else {
-  //     return widget / 1000;
-  //   }
-  // }
+  double width = physicalSize / devicePixelRatio;
+
+  if (width < 600) {
+    return width / 400;
+  } else if (width < 900) {
+    return width / 700;
+  } else {
+    return width / 1000;
+  }
 }

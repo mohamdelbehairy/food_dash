@@ -113,7 +113,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
                           FadeTransition(
                             opacity: _animation,
                             child: Text("Food Dash",
-                                style: AppStyles.styleSemiBold40
+                                style: AppStyles.styleSemiBold38
                                     .copyWith(fontSize: 40)),
                           ),
                         ],

@@ -22,8 +22,7 @@ class ProviderAuthViewComponent extends StatelessWidget {
       children: [
         SizedBox(height: size.width * .1),
         ProviderAuthViewImage(size: size),
-        const CustomTextItem(
-            text: 'Let\'s you in', style: AppStyles.styleSemiBold40),
+        CustomTextItem(text: 'Let\'s you in', style: AppStyles.styleSemiBold38),
         ProviderAuthViewListView(size: size),
         DividerTextitem(dividerSize: size.width * .36, text: 'or'),
         CustomButtonItem(
