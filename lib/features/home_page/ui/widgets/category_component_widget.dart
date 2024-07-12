@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_dash/core/handler/icon_handler.dart';
-import 'package:food_dash/features/homePage/model/categories_model.dart';
+import 'package:food_dash/features/home_page/model/categories_model.dart';
 
 // ignore: must_be_immutable
 class CategoryComponentWidget extends StatelessWidget {

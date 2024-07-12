@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
 import 'package:food_dash/features/special_offers/model/special_offers_model.dart';
 

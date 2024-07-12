@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/bottom_navigation_bar/bloc/navigation/navigation_state.dart';
 import 'package:food_dash/features/e_wallet/ui/views/e_wallet.dart';
-import 'package:food_dash/features/homePage/ui/views/home_page.dart';
+import 'package:food_dash/features/home_page/ui/views/home_page.dart';
 import 'package:food_dash/features/message/ui/views/message_page.dart';
 import 'package:food_dash/features/orders/ui/views/order_page.dart';
 import 'package:food_dash/features/profile/ui/views/profile.dart';

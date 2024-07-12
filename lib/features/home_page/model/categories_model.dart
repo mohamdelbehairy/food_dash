@@ -14,7 +14,7 @@ class CategoriesModel {
   static List<CategoriesModel> CreateCategoriesCard() {
     return [
       CategoriesModel(
-          image: drawSvgIconColored('burger',height: 36, width: 36),
+          image: drawSvgIconColored('burger',height: 38, width: 38),
           ServicesName: 'Hamburger',
           route: () {
            
@@ -29,37 +29,37 @@ class CategoriesModel {
            
           }),
       CategoriesModel(
-          image: drawSvgIconColored('Instant_noodles',height: 34, width: 34),
+          image: drawSvgIconColored('Instant_noodles',height: 36, width: 36),
           ServicesName: 'Noodles',
           route: () {
             
           }),
       CategoriesModel(
-          image: drawSvgIconColored('Fresh_meat',height: 34, width: 34),
+          image: drawSvgIconColored('Fresh_meat',height: 36, width: 36),
           ServicesName: 'Meat',
           route: () {
             
           }),
       CategoriesModel(
-          image: drawSvgIconColored('Vegetables',height: 34, width: 34),
+          image: drawSvgIconColored('Vegetables',height: 36, width: 36),
           ServicesName: 'Vegetable',
           route: () {
             
           }),
       CategoriesModel(
-          image: drawSvgIconColored('Blueberry_cake',height: 34, width: 34),
+          image: drawSvgIconColored('Blueberry_cake',height: 36, width: 36),
           ServicesName: 'Dessert',
           route: () {
             
           }),
       CategoriesModel(
-          image: drawSvgIconColored('Drink2',height: 34, width: 34),
+          image: drawSvgIconColored('Drink2',height: 36, width: 36),
           ServicesName: 'Drink',
           route: () {
             
           }),
       CategoriesModel(
-          image: drawSvgIconColored('Fast_food',height: 34, width: 34),
+          image: drawSvgIconColored('Fast_food',height: 36, width: 36),
           ServicesName: 'More',
           route: () {
             

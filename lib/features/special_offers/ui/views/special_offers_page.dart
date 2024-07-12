@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/homePage/ui/widgets/special_offer_body.dart';
 import 'package:food_dash/features/special_offers/ui/widgets/special_offers_body.dart';
 import 'package:go_router/go_router.dart';
 
