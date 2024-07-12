@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
+import 'package:go_router/go_router.dart';
 
 class SpecialOfferHeader extends StatelessWidget {
   const SpecialOfferHeader({super.key});
@@ -13,9 +15,14 @@ class SpecialOfferHeader extends StatelessWidget {
           'Special Offers',
           style: AppStyles.styleSemiBold16.copyWith(color: Colors.black),
         ),
-        Text(
-          'See All',
-          style: AppStyles.styleSemiBold16,
+        GestureDetector(
+          onTap: () => GoRouter.of(context).go(
+            AppRouter.special_offers,
+          ),
+          child: Text(
+            'See All',
+            style: AppStyles.styleSemiBold16,
+          ),
         ),
       ],
     );
