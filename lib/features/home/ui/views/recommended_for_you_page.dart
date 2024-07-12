@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/home_page/ui/widgets/recommended_for_you_body.dart';
+import 'package:food_dash/features/home/ui/widgets/recommended_for_you_body.dart';
 import 'package:go_router/go_router.dart';
 
 class RecommendedForYouPage extends StatefulWidget {

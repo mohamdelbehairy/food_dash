@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/features/home_page/logic/discount_guaranteed/discount_guaranteed_cubit.dart';
-import 'package:food_dash/features/home_page/logic/discount_guaranteed/discount_guaranteed_state.dart';
-import 'package:food_dash/features/home_page/ui/widgets/discount_category_widget.dart';
+import 'package:food_dash/features/home/logic/discount_guaranteed/discount_guaranteed_cubit.dart';
+import 'package:food_dash/features/home/logic/discount_guaranteed/discount_guaranteed_state.dart';
+import 'package:food_dash/features/home/ui/widgets/discount_category_widget.dart';
 
 class DiscountGuaranteedBody extends StatelessWidget {
   const DiscountGuaranteedBody({super.key});

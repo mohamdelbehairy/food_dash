@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/home_page/model/recommed_model.dart';
+import 'package:food_dash/features/home/model/recommed_model.dart';
 import 'package:food_dash/features/myCart/ui/widgets/cart_image.dart';
 
 // ignore: must_be_immutable

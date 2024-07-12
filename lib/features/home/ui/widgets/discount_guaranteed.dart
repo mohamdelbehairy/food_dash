@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/home_page/ui/widgets/discount_guaranteed_body.dart';
+import 'package:food_dash/features/home/ui/widgets/discount_guaranteed_body.dart';
 
 class DiscountGuaranteed extends StatelessWidget {
   const DiscountGuaranteed({super.key});

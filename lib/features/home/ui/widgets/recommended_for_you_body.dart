@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/home_page/logic/recommended/recommended_cubit.dart';
-import 'package:food_dash/features/home_page/logic/recommended/recommended_state.dart';
-import 'package:food_dash/features/home_page/model/recommed_model.dart';
-import 'package:food_dash/features/home_page/ui/widgets/recommended_product_body.dart';
+import 'package:food_dash/features/home/logic/recommended/recommended_cubit.dart';
+import 'package:food_dash/features/home/logic/recommended/recommended_state.dart';
+import 'package:food_dash/features/home/model/recommed_model.dart';
+import 'package:food_dash/features/home/ui/widgets/recommended_product_body.dart';
 
 class RecommendedForYouBody extends StatefulWidget {
   const RecommendedForYouBody({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/utils/app_details/app_images.dart';
-import 'package:food_dash/features/home_page/logic/recommended/recommended_state.dart';
-import 'package:food_dash/features/home_page/model/recommed_model.dart';
+import 'package:food_dash/features/home/logic/recommended/recommended_state.dart';
+import 'package:food_dash/features/home/model/recommed_model.dart';
 
 class RecommendedCubit extends Cubit<RecommendedState> {
   RecommendedCubit() : super(RecommendedInitial());

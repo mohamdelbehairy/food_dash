@@ -3,7 +3,7 @@ import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:food_dash/core/utils/app_details/app_images.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/home_page/model/discount_guaranteed_model.dart';
+import 'package:food_dash/features/home/model/discount_guaranteed_model.dart';
 // ignore: must_be_immutable
 class DiscountCategoryComponent extends StatelessWidget {
   DiscountCategoryComponent(BuildContext context, this.item, {super.key});

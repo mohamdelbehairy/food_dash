@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/features/home_page/logic/categories_cubit/categories_cubit_cubit.dart';
-import 'package:food_dash/features/home_page/logic/categories_cubit/categories_cubit_state.dart';
-import 'package:food_dash/features/home_page/ui/widgets/category_component_widget.dart';
+import 'package:food_dash/features/home/logic/categories_cubit/categories_cubit_cubit.dart';
+import 'package:food_dash/features/home/logic/categories_cubit/categories_cubit_state.dart';
+import 'package:food_dash/features/home/ui/widgets/category_component_widget.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});

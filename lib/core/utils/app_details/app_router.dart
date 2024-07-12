@@ -4,7 +4,7 @@ import 'package:food_dash/features/auth/ui/views/opt_phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/register_view.dart';
 import 'package:food_dash/features/bottom_navigation_bar/ui/views/bottom_navigaton_bar_view.dart';
-import 'package:food_dash/features/home_page/ui/views/recommended_for_you_page.dart';
+import 'package:food_dash/features/home/ui/views/recommended_for_you_page.dart';
 import 'package:food_dash/features/myCart/ui/views/cart.dart';
 import 'package:food_dash/features/onboarding/ui/views/onboarding_screen.dart';
 import 'package:food_dash/features/provider_auth/ui/views/provider_auth_view.dart';
