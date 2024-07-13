@@ -16,6 +16,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
         selectedFontSize: 12,
+        unselectedFontSize: 10,
         type: BottomNavigationBarType.shifting,
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         currentIndex: currentIndex,
@@ -28,34 +29,42 @@ class CustomBottomNavigationBar extends StatelessWidget {
               bottomNavigationBarModel: BottomNavigationBarModel(
                   currentIndex: currentIndex,
                   label: 'Home',
-                  image: Assets.imagesHome,
-                  index: 0)),
+                  activeIcon: Assets.imagesActiveHome,
+                  inActiveIcon: Assets.imagesInactiveHome,
+                  index: 0,
+                  activeItemHight: 26)),
           customBottomNavigationBarItem(
               bottomNavigationBarModel: BottomNavigationBarModel(
                   currentIndex: currentIndex,
                   label: 'Orders',
-
-                  image: Assets.imagesOrders,
+                  activeIcon: Assets.imagesActiveOrders,
+                  inActiveIcon: Assets.imagesInactiveOrders,
+                  activeItemHight: 26,
                   index: 1)),
           customBottomNavigationBarItem(
               bottomNavigationBarModel: BottomNavigationBarModel(
                   currentIndex: currentIndex,
                   label: 'Message',
-                  image: Assets.imagesMessage,
+                  activeIcon: Assets.imagesActiveMessage,
+                  inActiveIcon: Assets.imagesInactiveMessage,
+                  activeItemHight: 30,
+                  inActiveItemHight: 28,
                   index: 2)),
           customBottomNavigationBarItem(
               bottomNavigationBarModel: BottomNavigationBarModel(
                   currentIndex: currentIndex,
                   label: 'E-Wallet',
-                  image: Assets.imagesWallet,
-                  index: 3,
-                  itemHight: 22)),
+                  activeIcon: Assets.imagesActiveWallet,
+                  inActiveIcon: Assets.imagesInactiveWallet,
+                  activeItemHight: 22,
+                  index: 3)),
           customBottomNavigationBarItem(
               bottomNavigationBarModel: BottomNavigationBarModel(
                   currentIndex: currentIndex,
-
                   label: 'Profile',
-                  image: Assets.imagesPerson,
+                  activeIcon: Assets.imagesActivePerson,
+                  inActiveIcon: Assets.imagesInactivePerson,
+                  activeItemHight: 24,
                   index: 4)),
         ]);
   }

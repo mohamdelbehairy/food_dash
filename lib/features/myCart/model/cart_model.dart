@@ -24,7 +24,7 @@ class CartModel {
         image: [
           Assets.imagesOnBoardringOne,
           Assets.imagesOnBoardringTwo,
-          Assets.imagesHome
+          Assets.imagesActiveHome
         ],
         count: 3,
         distance: 16,
@@ -38,7 +38,7 @@ class CartModel {
            Assets.imagesOnBoardringTwo,
           Assets.imagesOnBoardringOne,
          
-          Assets.imagesHome
+          Assets.imagesActiveHome
         ],
         count: 6,
         distance: 27,
@@ -49,7 +49,7 @@ class CartModel {
         description:
             "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
         image: [
-            Assets.imagesHome,
+            Assets.imagesActiveHome,
           Assets.imagesOnBoardringOne,
           Assets.imagesOnBoardringTwo,
         
@@ -64,7 +64,7 @@ class CartModel {
             "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
         image: [
           Assets.imagesOnBoardringThree,
-           Assets.imagesHome,
+           Assets.imagesActiveHome,
           Assets.imagesOnBoardringTwo,
          
         ],
@@ -92,7 +92,7 @@ class CartModel {
         image: [
           Assets.imagesOnBoardringOne,
           Assets.imagesOnBoardringTwo,
-          Assets.imagesHome
+          Assets.imagesActiveHome
         ],
         count: 3,
         distance: 16,

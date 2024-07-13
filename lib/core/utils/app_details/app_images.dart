@@ -1,6 +1,26 @@
 class Assets {
   Assets._();
   
+  /// Assets for imagesActiveHome
+  /// assets/images/active_home.svg
+  static const String imagesActiveHome = "assets/images/active_home.svg";
+
+  /// Assets for imagesActiveMessage
+  /// assets/images/active_message.svg
+  static const String imagesActiveMessage = "assets/images/active_message.svg";
+
+  /// Assets for imagesActiveOrders
+  /// assets/images/active_orders.svg
+  static const String imagesActiveOrders = "assets/images/active_orders.svg";
+
+  /// Assets for imagesActivePerson
+  /// assets/images/active_person.svg
+  static const String imagesActivePerson = "assets/images/active_person.svg";
+
+  /// Assets for imagesActiveWallet
+  /// assets/images/active_wallet.svg
+  static const String imagesActiveWallet = "assets/images/active_wallet.svg";
+
   /// Assets for imagesDialogEnhanced
   /// assets/images/dialog_enhanced.png
   static const String imagesDialogEnhanced = "assets/images/dialog_enhanced.png";
@@ -17,17 +37,29 @@ class Assets {
   /// assets/images/google-icon.png
   static const String imagesGoogleIcon = "assets/images/google-icon.png";
 
-  /// Assets for imagesHome
-  /// assets/images/home.svg
-  static const String imagesHome = "assets/images/home.svg";
-
   /// Assets for imagesIcons8Marker50
   /// assets/images/icons8-marker-50.png
   static const String imagesIcons8Marker50 = "assets/images/icons8-marker-50.png";
 
-  /// Assets for imagesMessage
-  /// assets/images/message.svg
-  static const String imagesMessage = "assets/images/message.svg";
+  /// Assets for imagesInactiveHome
+  /// assets/images/inactive_home.svg
+  static const String imagesInactiveHome = "assets/images/inactive_home.svg";
+
+  /// Assets for imagesInactiveMessage
+  /// assets/images/inactive_message.svg
+  static const String imagesInactiveMessage = "assets/images/inactive_message.svg";
+
+  /// Assets for imagesInactiveOrders
+  /// assets/images/inactive_orders.svg
+  static const String imagesInactiveOrders = "assets/images/inactive_orders.svg";
+
+  /// Assets for imagesInactivePerson
+  /// assets/images/inactive_person.svg
+  static const String imagesInactivePerson = "assets/images/inactive_person.svg";
+
+  /// Assets for imagesInactiveWallet
+  /// assets/images/inactive_wallet.svg
+  static const String imagesInactiveWallet = "assets/images/inactive_wallet.svg";
 
   /// Assets for imagesOnBoardringOne
   /// assets/images/on-boardring-one.jpg
@@ -45,10 +77,6 @@ class Assets {
   /// assets/images/orders.svg
   static const String imagesOrders = "assets/images/orders.svg";
 
-  /// Assets for imagesPerson
-  /// assets/images/person.svg
-  static const String imagesPerson = "assets/images/person.svg";
-
   /// Assets for imagesProfile
   /// assets/images/profile.jpeg
   static const String imagesProfile = "assets/images/profile.jpeg";
@@ -60,10 +88,6 @@ class Assets {
   /// Assets for imagesUserDataViewAsset
   /// assets/images/user-data-view-asset.jpg
   static const String imagesUserDataViewAsset = "assets/images/user-data-view-asset.jpg";
-
-  /// Assets for imagesWallet
-  /// assets/images/wallet.svg
-  static const String imagesWallet = "assets/images/wallet.svg";
 
   /// Assets for imagesWelcomeOne
   /// assets/images/welcome-one.jpg

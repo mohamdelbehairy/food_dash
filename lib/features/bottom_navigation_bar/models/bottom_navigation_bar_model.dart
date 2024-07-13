@@ -1,12 +1,14 @@
 class BottomNavigationBarModel {
-  final String label, image;
+  final String label, activeIcon, inActiveIcon;
   final int index, currentIndex;
-  final double itemHight;
+  final double? activeItemHight, inActiveItemHight;
 
   BottomNavigationBarModel(
       {required this.label,
-      required this.image,
+      required this.activeIcon,
+      required this.inActiveIcon,
       required this.index,
       required this.currentIndex,
-      this.itemHight = 24});
+      this.activeItemHight,
+      this.inActiveItemHight = 24});
 }

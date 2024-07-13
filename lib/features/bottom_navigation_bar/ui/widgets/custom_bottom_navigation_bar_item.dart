@@ -7,12 +7,20 @@ import '../../models/bottom_navigation_bar_model.dart';
 BottomNavigationBarItem customBottomNavigationBarItem(
     {required BottomNavigationBarModel bottomNavigationBarModel}) {
   return BottomNavigationBarItem(
-      icon: SvgPicture.asset(bottomNavigationBarModel.image,
+      icon: SvgPicture.asset(
+          bottomNavigationBarModel.currentIndex ==
+                  bottomNavigationBarModel.index
+              ? bottomNavigationBarModel.activeIcon
+              : bottomNavigationBarModel.inActiveIcon,
           colorFilter: ColorFilter.mode(
-              bottomNavigationBarModel.currentIndex == bottomNavigationBarModel.index
+              bottomNavigationBarModel.currentIndex ==
+                      bottomNavigationBarModel.index
                   ? AppColors.mainColor
                   : Color(0xffa9a8a9),
               BlendMode.srcIn),
-          height: bottomNavigationBarModel.itemHight),
+          height: bottomNavigationBarModel.currentIndex ==
+                  bottomNavigationBarModel.index
+              ? bottomNavigationBarModel.activeItemHight
+              : bottomNavigationBarModel.inActiveItemHight),
       label: bottomNavigationBarModel.label);
 }

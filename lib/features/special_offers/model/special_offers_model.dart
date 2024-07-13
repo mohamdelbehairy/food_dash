@@ -34,7 +34,7 @@ class SpecialOffersModel {
           backGroundColor: Colors.deepPurple),
           SpecialOffersModel(
          backGroundColor: const Color.fromARGB(255, 54, 235, 244),
-        image: Assets.imagesHome,
+        image: Assets.imagesActiveHome,
         discount: 20,
       ),
     ];
