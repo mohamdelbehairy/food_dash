@@ -56,7 +56,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                   label: 'E-Wallet',
                   activeIcon: Assets.imagesActiveWallet,
                   inActiveIcon: Assets.imagesInactiveWallet,
-                  activeItemHight: 22,
+                  activeItemHight: 26,
                   index: 3)),
           customBottomNavigationBarItem(
               bottomNavigationBarModel: BottomNavigationBarModel(
@@ -65,6 +65,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                   activeIcon: Assets.imagesActivePerson,
                   inActiveIcon: Assets.imagesInactivePerson,
                   activeItemHight: 24,
+                  inActiveItemHight: 28,
                   index: 4)),
         ]);
   }
