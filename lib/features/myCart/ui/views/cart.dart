@@ -3,6 +3,7 @@ import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
 import 'package:food_dash/features/myCart/ui/widgets/cart_body.dart';
+import 'package:food_dash/features/myCart/ui/widgets/empty_cart.dart';
 import 'package:go_router/go_router.dart';
 
 class MyCart extends StatelessWidget {
@@ -29,6 +30,7 @@ class MyCart extends StatelessWidget {
           )
         ],
       ),
-      body: CartBody());
+      body: EmptyCart());
+      // body: CartBody());
   }
 }
