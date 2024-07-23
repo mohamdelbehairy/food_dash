@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:food_dash/features/home/logic/categories_cubit/categories_cubit_cubit.dart';
 import 'package:food_dash/features/home/logic/categories_cubit/categories_cubit_state.dart';
 import 'package:food_dash/features/home/ui/widgets/category_component_widget.dart';
+import 'package:go_router/go_router.dart';
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
@@ -28,6 +30,13 @@ class Categories extends StatelessWidget {
                       crossAxisSpacing: 2.0,
                       mainAxisSpacing: 2),
                   itemBuilder: (BuildContext context, int index) {
+                    if (index == 7) {
+                      return InkWell(
+                        onTap: () => GoRouter.of(context).push(AppRouter.all_categories),
+                        child: CategoryComponentWidget(
+                        context, categoriesCubit.categories[categoriesCubit.categories.length-1]),
+                      );
+                    }
                     return CategoryComponentWidget(
                         context, categoriesCubit.categories[index]);
                   },

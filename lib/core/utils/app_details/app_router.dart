@@ -4,6 +4,7 @@ import 'package:food_dash/features/auth/ui/views/opt_phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/phone_number_view.dart';
 import 'package:food_dash/features/auth/ui/views/register_view.dart';
 import 'package:food_dash/features/bottom_navigation_bar/ui/views/bottom_navigaton_bar_view.dart';
+import 'package:food_dash/features/home/ui/views/all_categories.dart';
 import 'package:food_dash/features/home/ui/views/recommended_for_you_page.dart';
 import 'package:food_dash/features/myCart/ui/views/cart.dart';
 import 'package:food_dash/features/onboarding/ui/views/onboarding_screen.dart';
@@ -29,6 +30,8 @@ abstract class AppRouter {
   static const cart = '/cart';
   static const special_offers = '/special_offers';
   static const recommended_for_you = '/recommended_for_you';
+  static const all_categories = '/all_categories';
+  
 
   static final GlobalKey<NavigatorState> navigatorState =
       GlobalKey<NavigatorState>();
@@ -70,5 +73,9 @@ abstract class AppRouter {
         path: recommended_for_you,
         builder: (context, state) =>
             RecommendedForYouPage()),
+    GoRoute(
+        path: all_categories,
+        builder: (context, state) =>
+            AllCategories()),
   ]);
 }
