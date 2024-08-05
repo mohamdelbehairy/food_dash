@@ -8,6 +8,7 @@ import 'package:food_dash/features/home/ui/views/all_categories.dart';
 import 'package:food_dash/features/home/ui/views/recommended_for_you_page.dart';
 import 'package:food_dash/features/myCart/ui/views/cart.dart';
 import 'package:food_dash/features/onboarding/ui/views/onboarding_screen.dart';
+import 'package:food_dash/features/payment/ui/views/paymob_view.dart';
 import 'package:food_dash/features/provider_auth/ui/views/provider_auth_view.dart';
 import 'package:food_dash/features/special_offers/ui/views/special_offers_page.dart';
 import 'package:food_dash/features/splash/ui/views/splash_view.dart';
@@ -31,7 +32,7 @@ abstract class AppRouter {
   static const special_offers = '/special_offers';
   static const recommended_for_you = '/recommended_for_you';
   static const all_categories = '/all_categories';
-  
+  static const paymobView = '/paymobView';
 
   static final GlobalKey<NavigatorState> navigatorState =
       GlobalKey<NavigatorState>();
@@ -52,7 +53,8 @@ abstract class AppRouter {
     GoRoute(
         path: verificationView,
         builder: (context, state) => VerificationView()),
-    GoRoute(path: homeView, builder: (context, state) => BottomNavigationBarView()),
+    GoRoute(
+        path: homeView, builder: (context, state) => BottomNavigationBarView()),
     GoRoute(
         path: registerPhoneNumber,
         builder: (context, state) =>
@@ -61,21 +63,13 @@ abstract class AppRouter {
         path: loginPhoneNumber,
         builder: (context, state) =>
             PhoneNumberView(text: 'Login to Your Account')),
+    GoRoute(path: cart, builder: (context, state) => MyCart()),
     GoRoute(
-        path: cart,
-        builder: (context, state) =>
-            MyCart()),
-    GoRoute(
-        path: special_offers,
-        builder: (context, state) =>
-            SpecialOffersPage()),
+        path: special_offers, builder: (context, state) => SpecialOffersPage()),
     GoRoute(
         path: recommended_for_you,
-        builder: (context, state) =>
-            RecommendedForYouPage()),
-    GoRoute(
-        path: all_categories,
-        builder: (context, state) =>
-            AllCategories()),
+        builder: (context, state) => RecommendedForYouPage()),
+    GoRoute(path: all_categories, builder: (context, state) => AllCategories()),
+    GoRoute(path: paymobView, builder: (context, state) => PaymobView()),
   ]);
 }
