@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/utils/logic/get_user_data/get_user_data_cubit.dart';
 import 'package:food_dash/features/auth/logic/google_auth/google_auth_cubit.dart';
+import 'package:food_dash/features/payment/logic/strip_payment/strip_payment_cubit.dart';
 
 import 'core/utils/app_details/app_router.dart';
 import 'core/utils/app_details/app_system_ui_style.dart';
@@ -30,7 +31,8 @@ class FoodDash extends StatelessWidget {
           BlocProvider(create: (context) => StoreUserDataCubit()),
           BlocProvider(create: (context) => GetUserDataCubit()..getUserData()),
           BlocProvider(create: (context) => RememberMeCubit()),
-          BlocProvider(create: (context) => PhoneNumberCubit())
+          BlocProvider(create: (context) => PhoneNumberCubit()),
+          BlocProvider(create: (context) => StripPaymentCubit()),
         ],
         child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
