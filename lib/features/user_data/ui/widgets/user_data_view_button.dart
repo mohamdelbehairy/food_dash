@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/core/utils/service/strip_service.dart';
 import 'package:food_dash/features/image/logic/upload_image/upload_image_cubit.dart';
 import 'package:go_router/go_router.dart';
 
@@ -67,22 +68,21 @@ class UserDataViewButton extends StatelessWidget {
                 debugPrint('path: ${image.path}');
                 imageUrl = await uploadImage.uploadImage(imageFile: image);
               }
-
+              await StripService().createCustomer(name: fullName.text);
               await storeUserData.storeUserData(
-                profileImage: imageUrl.isNotEmpty
-                    ? imageUrl
-                    : Constants.userDataViewImageUrl,
-                fullName: fullName.text,
-                nickName: nickName.text,
-                dateOfBirth: dateOfBirth.text,
-                email: email.text.isNotEmpty
-                    ? email.text
-                    : FirebaseAuth.instance.currentUser?.email,
-                phoneNumber: number.isNotEmpty
-                    ? number
-                    : FirebaseAuth.instance.currentUser?.phoneNumber,
-                gender: gender.text
-              );
+                  profileImage: imageUrl.isNotEmpty
+                      ? imageUrl
+                      : Constants.userDataViewImageUrl,
+                  fullName: fullName.text,
+                  nickName: nickName.text,
+                  dateOfBirth: dateOfBirth.text,
+                  email: email.text.isNotEmpty
+                      ? email.text
+                      : FirebaseAuth.instance.currentUser?.email,
+                  phoneNumber: number.isNotEmpty
+                      ? number
+                      : FirebaseAuth.instance.currentUser?.phoneNumber,
+                  gender: gender.text);
             }
           }),
     );

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/models/modal_progress_model.dart';
 import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:food_dash/core/utils/app_details/app_router.dart';
+import 'package:food_dash/core/utils/service/strip_service.dart';
 import 'package:food_dash/core/utils/widgets/custom_modal_progress_hud.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,13 +28,6 @@ class ProviderAuthView extends StatelessWidget {
     return BlocConsumer<GoogleAuthCubit, GoogleAuthState>(
       listener: (context, state) async {
         if (state is GoogleAuthSuccess && state.isLoading) {
-          if (!await isUserData.isUserData()) {
-            await storeUserData.storeUserData(
-                profileImage: state.user.photoURL!,
-                fullName: state.user.displayName!,
-                email: state.user.email!,
-                phoneNumber: state.user.phoneNumber);
-          }
           isLoading.isLoading = state.isLoading;
           Future.delayed(const Duration(seconds: 2), () async {
             await setSharedPref.setSharedPref(
@@ -42,6 +36,14 @@ class ProviderAuthView extends StatelessWidget {
                 key: Constants.isGoogleAuth, value: 'google');
             GoRouter.of(context).push(AppRouter.homeView);
           });
+          if (!await isUserData.isUserData()) {
+            await StripService().createCustomer(name: state.user.displayName!);
+            await storeUserData.storeUserData(
+                profileImage: state.user.photoURL!,
+                fullName: state.user.displayName!,
+                email: state.user.email!,
+                phoneNumber: state.user.phoneNumber);
+          }
         }
       },
       builder: (context, state) {
