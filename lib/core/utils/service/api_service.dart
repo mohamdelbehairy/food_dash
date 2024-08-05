@@ -2,13 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:food_dash/core/utils/api_keys.dart';
 
 class ApiService {
-  final dio = Dio();
+  final _dio = Dio();
   Future<Response> post(
       {required String url,
       required body,
       Map<String, dynamic>? headers,
       String? contentType}) async {
-    var response = await dio.post(
+    var response = await _dio.post(
       url,
       data: body,
       options: Options(

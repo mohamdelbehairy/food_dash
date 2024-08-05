@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/features/payment/logic/paypal_payment.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -16,7 +15,7 @@ class ProfilePage extends StatelessWidget {
             //         currency: "USD",
             //         customerID: FirebaseAuth.instance.currentUser!.uid));
 
-            PaypalPayment.payWithPayPal(context);
+            // PaypalPayment.payWithPayPal(context);
           },
           icon: Icon(Icons.edit),
         ),
