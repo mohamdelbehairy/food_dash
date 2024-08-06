@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_dash/features/payment/ui/widgets/payment_bottom_sheet.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -16,6 +17,10 @@ class ProfilePage extends StatelessWidget {
             //         customerID: FirebaseAuth.instance.currentUser!.uid));
 
             // PaypalPayment.payWithPayPal(context);
+            showModalBottomSheet(
+                backgroundColor: Colors.white,
+                context: context,
+                builder: (context) => PaymentBottomSheet());
           },
           icon: Icon(Icons.edit),
         ),
