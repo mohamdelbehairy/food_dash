@@ -39,9 +39,11 @@ class LoginViewButton extends StatelessWidget {
             await emailLogin.emailLogin(
                 email: email.text, password: password.text);
             if (isClick.isClick) {
-              await userSharedPref.setSharedPref(
-                  key: Constants.userSharedPref,
-                  value: FirebaseAuth.instance.currentUser!.uid);
+              final currentUser = FirebaseAuth.instance.currentUser;
+              if (currentUser != null) {
+                await userSharedPref.setSharedPref(
+                    key: Constants.userSharedPref, value: currentUser.uid);
+              }
               isClick.rememberMe();
             }
           }

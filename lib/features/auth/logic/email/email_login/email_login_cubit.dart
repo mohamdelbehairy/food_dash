@@ -25,8 +25,8 @@ class EmailLoginCubit extends Cubit<EmailLoginState> {
       emit(EmailLoginLoading(isLoading: false));
     } catch (e) {
       emit(EmailLoginFailure(errorMessage: e.toString()));
-      emit(EmailLoginLoading(isLoading: false));
       debugPrint('error from email login method: $e');
+      emit(EmailLoginLoading(isLoading: false));
     }
   }
 }
