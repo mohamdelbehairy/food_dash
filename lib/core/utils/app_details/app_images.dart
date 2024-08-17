@@ -21,6 +21,10 @@ class Assets {
   /// assets/images/active_wallet.svg
   static const String imagesActiveWallet = "assets/images/active_wallet.svg";
 
+  /// Assets for imagesCard
+  /// assets/images/card.svg
+  static const String imagesCard = "assets/images/card.svg";
+
   /// Assets for imagesDialogEnhanced
   /// assets/images/dialog_enhanced.png
   static const String imagesDialogEnhanced = "assets/images/dialog_enhanced.png";
@@ -76,6 +80,14 @@ class Assets {
   /// Assets for imagesOrders
   /// assets/images/orders.svg
   static const String imagesOrders = "assets/images/orders.svg";
+
+  /// Assets for imagesPaymob
+  /// assets/images/paymob.svg
+  static const String imagesPaymob = "assets/images/paymob.svg";
+
+  /// Assets for imagesPaypal
+  /// assets/images/paypal.svg
+  static const String imagesPaypal = "assets/images/paypal.svg";
 
   /// Assets for imagesProfile
   /// assets/images/profile.jpeg
