@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/core/handler/icon_handler.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:food_dash/features/home/model/categories_model.dart';
 
 // ignore: must_be_immutable
 class CategoryComponentWidget extends StatelessWidget {
-  CategoryComponentWidget(BuildContext context,this.category, {super.key});
+  CategoryComponentWidget(BuildContext context, this.category, {super.key});
   CategoriesModel category;
   @override
   Widget build(BuildContext context) {
@@ -14,18 +14,16 @@ class CategoryComponentWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-
-          category.image ??drawSvgIconColored('burger', height: 34, width: 34),
-          
+          SvgPicture.network('${category.category_image}',height: 38,width: 38,),
+              
           SizedBox(
             height: 10,
           ),
           Container(
-            alignment: Alignment.center,
+              alignment: Alignment.center,
               width: 66,
               child: Text(
-                category.ServicesName ?? "Burger",
-                
+                category.category_name ?? "Burger",
                 overflow: TextOverflow.ellipsis,
               ))
         ],

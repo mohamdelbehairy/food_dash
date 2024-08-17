@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/myCart/model/cart_model.dart';
-import 'package:food_dash/features/myCart/ui/widgets/cart_image.dart';
+import 'package:food_dash/features/cart/model/cart_model.dart';
+import 'package:food_dash/features/cart/ui/widgets/cart_image.dart';
 
 // ignore: must_be_immutable
 class CartWidget extends StatelessWidget {

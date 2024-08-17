@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_colors.dart';
-import 'package:food_dash/core/utils/app_details/app_images.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/home/model/discount_guaranteed_model.dart';
+import 'package:food_dash/features/home/model/product_model.dart';
 // ignore: must_be_immutable
 class DiscountCategoryComponent extends StatelessWidget {
   DiscountCategoryComponent(BuildContext context, this.item, {super.key});
-  DiscountGuaranteedModel item;
+  ProductsModel item;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,9 +34,14 @@ class DiscountCategoryComponent extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25),
                     image: DecorationImage(
-                        image: AssetImage(
-                            item.image ?? Assets.imagesOnBoardringOne),
-                        fit: BoxFit.cover)),
+                        image: NetworkImage(
+                            '${item.image}'
+                          //  '${Constants.userDataViewImageUrl}'
+                            
+                            ),
+                        fit: BoxFit.cover)
+                        
+                        ),
                 child: Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
@@ -65,7 +69,7 @@ class DiscountCategoryComponent extends StatelessWidget {
               height: 10,
             ),
             Text(
-              '${ item.name}',
+              item.product_name ?? 'jjj',
               style: AppStyles.styleBold16,
               overflow: TextOverflow.ellipsis,
             ),
@@ -75,7 +79,7 @@ class DiscountCategoryComponent extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  '${ item.distance} Km | ',
+                  '${ item.distance ?? 0.0} Km | ',
                   style: TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
                 ),
                 Icon(
@@ -87,11 +91,11 @@ class DiscountCategoryComponent extends StatelessWidget {
                   width: 4,
                 ),
                 Text(
-                  '${ item.rate} ',
+                  '${ item.rate ?? 0.0} ',
                   style: TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
                 ),
                 Text(
-                  "(${ item.rateCount}k)",
+                  "(${ item.rateCount ?? 0}k)",
                   style: TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
                 )
               ],
@@ -106,7 +110,7 @@ class DiscountCategoryComponent extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '\$${ item.price} | ',
+                      '\$${ item.price ??0.0} | ',
                       style: AppStyles.styleMedium16,
                     ),
                     Icon(
@@ -117,7 +121,7 @@ class DiscountCategoryComponent extends StatelessWidget {
                       width: 4,
                     ),
                     Text(
-                      '\$${ item.price??0*(item.discountRatio??0/100)}',
+                      '\$${ item.price??0.0*(item.discountRatio??0.0/100)}',
                       style:
                           TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
                     ),

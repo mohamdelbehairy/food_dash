@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/special_offers/model/special_offers_model.dart';
+import 'package:food_dash/features/home/model/product_model.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 // ignore: must_be_immutable
 class SpecialOfferWidget extends StatelessWidget {
@@ -10,19 +11,24 @@ class SpecialOfferWidget extends StatelessWidget {
     this.specialOffersObject, {
     super.key,
   });
-  SpecialOffersModel specialOffersObject;
+  Map<String,dynamic> specialOffersObject;
 
   @override
   Widget build(BuildContext context) {
-    print("ASdas");
-    print(specialOffersObject.discount);
+   Map<String, dynamic> category = specialOffersObject;
+
+     List<ProductsModel> discountedProducts =
+                      category['discountedProducts'];
+                  ProductsModel highestDiscountedProduct =
+                      discountedProducts.reduce((a, b) =>
+                          a.discountRatio! > b.discountRatio! ? a : b);
     return Container(
       width: MediaQuery.of(context).size.width,
     
       margin: EdgeInsets.symmetric(horizontal: 20),
       // height: 200,
       decoration: BoxDecoration(
-        color: specialOffersObject.backGroundColor,
+        color: HexColor(specialOffersObject['categoryColor']),
         borderRadius: BorderRadius.circular(26),
         // image: DecorationImage(image: AssetImage(Assets.imagesOnBoardringOne),fit: BoxFit.cover)
       ),
@@ -36,7 +42,7 @@ class SpecialOfferWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${specialOffersObject.discount}%",
+                    "${highestDiscountedProduct.discountRatio!.toStringAsFixed(0)}%",
                     style: AppStyles.styleSemiBold48
                         .copyWith(color: Colors.white, fontSize: 58),
                   ),
@@ -50,8 +56,8 @@ class SpecialOfferWidget extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: SvgPicture.asset(
-              'assets/icons/svg/burger.svg',
+            child: SvgPicture.network(
+              '${specialOffersObject['categoryImage']}',
               fit: BoxFit.fill,
             ),
           )
