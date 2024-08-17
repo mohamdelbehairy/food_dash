@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_router.dart';
-import 'package:food_dash/features/home/logic/categories_cubit/categories_cubit_cubit.dart';
-import 'package:food_dash/features/home/logic/categories_cubit/categories_cubit_state.dart';
+import 'package:food_dash/features/home/logic/categories_cubit/categories_cubit.dart';
+import 'package:food_dash/features/home/logic/categories_cubit/categories_state.dart';
+import 'package:food_dash/features/home/repository/categories_repository.dart';
 import 'package:food_dash/features/home/ui/widgets/category_component_widget.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,11 +13,10 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CategoriesCubit(),
-      child: BlocConsumer<CategoriesCubit, CategoriesCubitState>(
+      create: (context) => CategoriesCubit(CategoryRepository()),
+      child: BlocConsumer<CategoriesCubit, CategoriesState>(
         listener: (context, state) => (),
         builder: (context, state) {
-          CategoriesCubit categoriesCubit = CategoriesCubit.get(context);
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
@@ -30,15 +31,46 @@ class Categories extends StatelessWidget {
                       crossAxisSpacing: 2.0,
                       mainAxisSpacing: 2),
                   itemBuilder: (BuildContext context, int index) {
-                    if (index == 7) {
-                      return InkWell(
-                        onTap: () => GoRouter.of(context).push(AppRouter.all_categories),
-                        child: CategoryComponentWidget(
-                        context, categoriesCubit.categories[categoriesCubit.categories.length-1]),
-                      );
+                    // var categoriesCubit = state.categoriesModel;
+                    if (state is CategoriesInitialState) {
+                      context.read<CategoriesCubit>().fetchCategories();
+                      return Center(child: CircularProgressIndicator());
+                    } else if (state is GetCategoriesSuccess) {
+                      var categoriesCubit = state.categoriesModel;
+                      if (index == 7) {
+                        return InkWell(
+                          onTap: () => GoRouter.of(context)
+                              .push(AppRouter.all_categories),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                drawSvgIconColored('Fast_food',
+                                    width: 38, height: 38),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Container(
+                                    alignment: Alignment.center,
+                                    width: 66,
+                                    child: Text(
+                                      "More",
+                                      overflow: TextOverflow.ellipsis,
+                                    ))
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+                      return CategoryComponentWidget(
+                          context, categoriesCubit[index]);
+                    } else if (state is GetCategoriesFailure) {
+                      return Center(child: Text('Error'));
+                    } else {
+                      return Center(child: Text('Unexpected state: $state'));
                     }
-                    return CategoryComponentWidget(
-                        context, categoriesCubit.categories[index]);
                   },
                 )),
           );

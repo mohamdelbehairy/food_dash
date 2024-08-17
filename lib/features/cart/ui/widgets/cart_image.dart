@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/core/utils/app_details/app_images.dart';
+import 'package:food_dash/constants.dart';
 
 // ignore: must_be_immutable
 class CartImage extends StatelessWidget {
@@ -15,8 +15,8 @@ class CartImage extends StatelessWidget {
           border: Border.all(color: Colors.white, width: 3),
           borderRadius: BorderRadius.circular(20),
           image: DecorationImage(
-              image: AssetImage(
-                image ??Assets.imagesOnBoardringOne,
+              image: NetworkImage(
+                image ??Constants.userDataViewImageUrl,
               ),
               fit: BoxFit.cover)),
     );

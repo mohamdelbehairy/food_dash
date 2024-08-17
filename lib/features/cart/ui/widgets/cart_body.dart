@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/features/myCart/logic/cart_cubit/cart_cubit.dart';
-import 'package:food_dash/features/myCart/logic/cart_cubit/cart_state.dart';
-import 'package:food_dash/features/myCart/ui/widgets/cart_widget.dart';
+import 'package:food_dash/features/cart/logic/cart_cubit/cart_cubit.dart';
+import 'package:food_dash/features/cart/logic/cart_cubit/cart_state.dart';
+import 'package:food_dash/features/cart/ui/widgets/cart_widget.dart';
 
 class CartBody extends StatelessWidget {
   const CartBody({

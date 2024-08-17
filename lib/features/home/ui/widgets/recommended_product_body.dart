@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
-import 'package:food_dash/features/home/model/recommed_model.dart';
-import 'package:food_dash/features/myCart/ui/widgets/cart_image.dart';
-
+import 'package:food_dash/features/home/model/product_model.dart';
+import 'package:food_dash/features/cart/ui/widgets/cart_image.dart';
 // ignore: must_be_immutable
 class RecommendedProductBody extends StatelessWidget {
   RecommendedProductBody(BuildContext context, this.product, {super.key});
-  RecommendedModel product;
+  ProductsModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +32,7 @@ class RecommendedProductBody extends StatelessWidget {
           ),
           child: Row(
             children: [
+              
               CartImage(
                 image: product.image,
               ),
@@ -48,7 +48,7 @@ class RecommendedProductBody extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '${product.name}',
+                        '${product.product_name}',
                         style: AppStyles.styleBold16,
                         overflow: TextOverflow.ellipsis,
                       ),
