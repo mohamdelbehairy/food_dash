@@ -17,24 +17,14 @@ class DiscountGuaranteed extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Discount Guaranteed',
-                    style:
-                        AppStyles.styleSemiBold16.copyWith(color: Colors.black),
-                  ),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Text(
-                    '👌',
-                    style: AppStyles.styleSemiBold14,
-                  ),
+                  Text('Discount Guaranteed',
+                      style: AppStyles.styleSemiBold16
+                          .copyWith(color: Colors.black)),
+                  SizedBox(width: 4),
+                  Text('👌', style: AppStyles.styleSemiBold14),
                 ],
               ),
-              Text(
-                'See All',
-                style: AppStyles.styleSemiBold16,
-              ),
+              Text('See All', style: AppStyles.styleSemiBold16),
             ],
           ),
         ),

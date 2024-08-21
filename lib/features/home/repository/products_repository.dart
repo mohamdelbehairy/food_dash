@@ -31,11 +31,11 @@ class ProductsRepository {
             'rateCount': productData['rateCount'] ?? 0,
           };
           
-          print('productMap $productMap');
+          // print('productMap $productMap');
           final  productsModel = ProductsModel.fromMap(productMap );
-          print('productsModel $productsModel');
+          // print('productsModel $productsModel');
           discountedProducts.add(productsModel);
-          print('discountedProducts $discountedProducts');
+          // print('discountedProducts $discountedProducts');
         }
       }
     }
