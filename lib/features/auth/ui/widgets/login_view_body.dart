@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/features/auth/ui/widgets/app_bar_auth.dart';
 
-import '../../../../constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/models/modal_progress_model.dart';
 import '../../../../core/utils/app_details/app_colors.dart';
 import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';

@@ -2,7 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/constants.dart';
+import 'package:food_dash/core/utils/constants.dart';
 import 'package:food_dash/core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
 import 'package:food_dash/core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubit.dart';

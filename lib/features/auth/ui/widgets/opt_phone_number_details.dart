@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_dash/core/utils/app_details/app_router.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import '../../logic/phone_number/phone_number_cubit.dart';
 import '../../logic/remember_me/remember_me_cubit.dart';

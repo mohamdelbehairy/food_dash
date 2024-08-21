@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/constants.dart';
+import 'package:food_dash/core/utils/constants.dart';
 import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:food_dash/core/utils/app_details/app_router.dart';

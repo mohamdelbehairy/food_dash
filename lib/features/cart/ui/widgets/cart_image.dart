@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_dash/constants.dart';
+import 'package:food_dash/core/utils/constants.dart';
 
 // ignore: must_be_immutable
 class CartImage extends StatelessWidget {

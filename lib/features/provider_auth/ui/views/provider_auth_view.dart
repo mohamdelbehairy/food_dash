@@ -7,7 +7,7 @@ import 'package:food_dash/core/utils/service/strip_service.dart';
 import 'package:food_dash/core/utils/widgets/custom_modal_progress_hud.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
 import '../../../../core/utils/logic/shared_pref/shared_pref_cubit.dart';
 import '../../../auth/logic/google_auth/google_auth_cubit.dart';

@@ -6,14 +6,14 @@ import 'package:food_dash/features/auth/logic/google_auth/google_auth_cubit.dart
 import 'package:food_dash/features/payment/logic/paymob_payment/paymob_payment_cubit.dart';
 import 'package:food_dash/features/payment/logic/strip_payment/strip_payment_cubit.dart';
 
-import 'core/utils/app_details/app_router.dart';
-import 'core/utils/app_details/app_system_ui_style.dart';
-import 'core/utils/logic/user_data_setting/user_data_setting_cubit.dart';
-import 'core/utils/logic/shared_pref/shared_pref_cubit.dart';
-import 'features/auth/logic/auth_setting/auth_settings_cubit.dart';
-import 'features/auth/logic/phone_number/phone_number_cubit.dart';
-import 'features/auth/logic/remember_me/remember_me_cubit.dart';
-import 'features/user_data/logic/store_user_data/store_user_data_cubit.dart';
+import 'app_details/app_router.dart';
+import 'app_details/app_system_ui_style.dart';
+import 'logic/user_data_setting/user_data_setting_cubit.dart';
+import 'logic/shared_pref/shared_pref_cubit.dart';
+import '../../features/auth/logic/auth_setting/auth_settings_cubit.dart';
+import '../../features/auth/logic/phone_number/phone_number_cubit.dart';
+import '../../features/auth/logic/remember_me/remember_me_cubit.dart';
+import '../../features/user_data/logic/store_user_data/store_user_data_cubit.dart';
 
 class FoodDash extends StatelessWidget {
   const FoodDash({super.key});

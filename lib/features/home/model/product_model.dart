@@ -1,4 +1,4 @@
-import 'package:food_dash/constants.dart';
+import 'package:food_dash/core/utils/constants.dart';
 
 class ProductsModel {
   final String? image;

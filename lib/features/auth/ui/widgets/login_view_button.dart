@@ -5,7 +5,7 @@ import 'package:food_dash/features/auth/logic/email/email_login/email_login_cubi
 import 'package:food_dash/features/auth/logic/remember_me/remember_me_cubit.dart';
 import 'package:food_dash/core/utils/logic/shared_pref/shared_pref_cubit.dart';
 
-import '../../../../constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/widgets/custom_button_item.dart';
 
 class LoginViewButton extends StatelessWidget {

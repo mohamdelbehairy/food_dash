@@ -7,7 +7,7 @@ import 'package:food_dash/core/utils/service/strip_service.dart';
 import 'package:food_dash/features/image/logic/upload_image/upload_image_cubit.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../constants.dart';
+import '../../../../core/utils/constants.dart';
 import '../../../../core/utils/app_details/app_router.dart';
 import '../../../../core/utils/widgets/custom_button_item.dart';
 import '../../logic/store_user_data/store_user_data_cubit.dart';

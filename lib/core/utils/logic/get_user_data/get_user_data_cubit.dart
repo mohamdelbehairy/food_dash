@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:food_dash/constants.dart';
+import 'package:food_dash/core/utils/constants.dart';
 import 'package:food_dash/core/models/user_data_model.dart';
 
 part 'get_user_data_state.dart';
