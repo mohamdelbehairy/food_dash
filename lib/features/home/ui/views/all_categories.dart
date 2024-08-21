@@ -52,7 +52,7 @@ class AllCategories extends StatelessWidget {
                             mainAxisSpacing: 2),
                         itemBuilder: (BuildContext context, int index) {
                           return CategoryComponentWidget(
-                              context, categoriesCubit[index]);
+                              category: categoriesCubit[index]);
                         },
                       )),
                 );
