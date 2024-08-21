@@ -3,10 +3,12 @@ import 'package:food_dash/core/handler/icon_handler.dart';
 import 'package:food_dash/core/utils/app_details/app_colors.dart';
 import 'package:food_dash/core/utils/app_details/app_styles.dart';
 import 'package:food_dash/features/home/model/product_model.dart';
-// ignore: must_be_immutable
+
+import 'discount_category_image.dart';
+
 class DiscountCategoryComponent extends StatelessWidget {
-  DiscountCategoryComponent(BuildContext context, this.item, {super.key});
-  ProductsModel item;
+  const DiscountCategoryComponent({super.key, required this.item});
+  final ProductsModel item;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,110 +32,79 @@ class DiscountCategoryComponent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    image: DecorationImage(
-                        image: NetworkImage(
-                            '${item.image}'
-                          //  '${Constants.userDataViewImageUrl}'
-                            
-                            ),
-                        fit: BoxFit.cover)
-                        
+              child: Stack(
+                children: [
+                  DiscountCategoryImage(image: '${item.image}'),
+                  Positioned(
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 14, vertical: 14),
+                        child: Container(
+                          width: 80,
+                          height: 30,
+                          decoration: BoxDecoration(
+                              color: AppColors.mainColor,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Center(
+                              child: Text(
+                            'PROMO',
+                            style: AppStyles.styleBold14
+                                .copyWith(color: Colors.white),
+                          )),
                         ),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 14, vertical: 14),
-                    child: Container(
-                      width: 80,
-                      height: 30,
-                      decoration: BoxDecoration(
-                        color: AppColors.mainColor,
-                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Center(
-                          child: Text(
-                        'PROMO',
-                        style:
-                            AppStyles.styleBold14.copyWith(color: Colors.white),
-                      )),
                     ),
                   ),
-                ),
+                ],
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              item.product_name ?? 'jjj',
-              style: AppStyles.styleBold16,
-              overflow: TextOverflow.ellipsis,
-            ),
-             SizedBox(
-              height: 2,
-            ),
+            SizedBox(height: 10),
+            Text(item.product_name ?? 'jjj',
+                style: AppStyles.styleBold16, overflow: TextOverflow.ellipsis),
+            SizedBox(height: 2),
             Row(
               children: [
-                Text(
-                  '${ item.distance ?? 0.0} Km | ',
-                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
-                ),
-                Icon(
-                  Icons.star,
-                  size: 14,
-                  color: Colors.amber,
-                ),
-                SizedBox(
-                  width: 4,
-                ),
-                Text(
-                  '${ item.rate ?? 0.0} ',
-                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
-                ),
-                Text(
-                  "(${ item.rateCount ?? 0}k)",
-                  style: TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
-                )
+                Text('${item.distance ?? 0.0} Km | ',
+                    style:
+                        TextStyle(fontSize: 11, fontWeight: FontWeight.w300)),
+                Icon(Icons.star, size: 14, color: Colors.amber),
+                SizedBox(width: 4),
+                Text('${item.rate ?? 0.0} ',
+                    style:
+                        TextStyle(fontSize: 11, fontWeight: FontWeight.w300)),
+                Text("(${item.rateCount ?? 0}k)",
+                    style: TextStyle(fontSize: 11, fontWeight: FontWeight.w300))
               ],
             ),
-           SizedBox(
-              height: 2,
-            ),
-          
+            SizedBox(height: 2),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
+                    Text('\$${item.price ?? 0.0} | ',
+                        style: AppStyles.styleMedium16),
+                    Icon(Icons.delivery_dining, color: AppColors.mainColor),
+                    SizedBox(width: 4),
                     Text(
-                      '\$${ item.price ??0.0} | ',
-                      style: AppStyles.styleMedium16,
-                    ),
-                    Icon(
-                      Icons.delivery_dining,
-                      color: AppColors.mainColor,
-                    ),
-                    SizedBox(
-                      width: 4,
-                    ),
-                    Text(
-                      '\$${ item.price??0.0*(item.discountRatio??0.0/100)}',
-                      style:
-                          TextStyle(fontSize: 11, fontWeight: FontWeight.w300),
-                    ),
+                        '\$${item.price ?? 0.0 * (item.discountRatio ?? 0.0 / 100)}',
+                        style: TextStyle(
+                            fontSize: 11, fontWeight: FontWeight.w300)),
                   ],
                 ),
-                drawSvgIcon(item.isFavourite?? true?'heart_fill':'heart_outline', iconColor: Colors.red,height: 22,width: 22)
+                drawSvgIcon(
+                    item.isFavourite ?? true ? 'heart_fill' : 'heart_outline',
+                    iconColor: Colors.red,
+                    height: 22,
+                    width: 22)
               ],
             ),
-           
           ],
         ),
       ),
     );
+  
   }
 }
