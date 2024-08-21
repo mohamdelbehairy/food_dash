@@ -6,6 +6,8 @@ import 'package:food_dash/features/auth/logic/google_auth/google_auth_cubit.dart
 import 'package:food_dash/features/payment/logic/paymob_payment/paymob_payment_cubit.dart';
 import 'package:food_dash/features/payment/logic/strip_payment/strip_payment_cubit.dart';
 
+import '../../features/home/logic/categories_cubit/categories_cubit.dart';
+import '../../features/home/repository/categories_repository.dart';
 import 'app_details/app_router.dart';
 import 'app_details/app_system_ui_style.dart';
 import 'logic/user_data_setting/user_data_setting_cubit.dart';
@@ -34,7 +36,10 @@ class FoodDash extends StatelessWidget {
           BlocProvider(create: (context) => RememberMeCubit()),
           BlocProvider(create: (context) => PhoneNumberCubit()),
           BlocProvider(create: (context) => StripPaymentCubit()),
-          BlocProvider(create: (context) => PaymobPaymentCubit())
+          BlocProvider(create: (context) => PaymobPaymentCubit()),
+          BlocProvider(
+              create: (context) =>
+                  CategoriesCubit(CategoryRepository())..getCategories())
         ],
         child: MaterialApp.router(
             debugShowCheckedModeBanner: false,

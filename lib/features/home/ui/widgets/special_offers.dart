@@ -15,12 +15,10 @@ class SpecialOffers extends StatelessWidget {
       child: Column(
         children: [
           SpecialOfferHeader(),
-          SizedBox(
-            height: 16,
-          ),
+          SizedBox(height: 16),
           GestureDetector(
-             onTap: () =>GoRouter.of(context).go(AppRouter.special_offers,),
-            child: SpecialOfferBody())
+              onTap: () => GoRouter.of(context).go(AppRouter.special_offers),
+              child: SpecialOfferBody())
         ],
       ),
     );
